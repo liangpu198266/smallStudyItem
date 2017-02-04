@@ -1,0 +1,4 @@
+autoreconf --install --force >> /dev/null
+./configure
+make clean
+make

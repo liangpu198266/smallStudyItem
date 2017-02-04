@@ -1,0 +1,4 @@
+code/src/common/testtool-netUtils.o: code/src/common/netUtils.c \
+ /usr/include/stdc-predef.h
+
+/usr/include/stdc-predef.h:
