@@ -1,6 +1,6 @@
 # smallStudyItem
-
-commit code step :
+---- 
+commit code step :\\ 
 1 touch README.md。这命令是添加一个文件。文件名叫：README.md;
 2 git  init ：这时初始化一个仓库。 成功后会有下面的提示：Initialized empty Git repository in d:.......
 3 git add . 
