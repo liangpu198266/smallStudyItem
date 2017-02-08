@@ -1,6 +1,6 @@
-code/src/object/testtool-objectFile.o: code/src/object/objectFile.c \
- /usr/include/stdc-predef.h code/include/object.h code/include/common.h \
- /usr/include/unistd.h /usr/include/features.h \
+code/src/common/testtool-ioUtils.o: code/src/common/ioUtils.c \
+ /usr/include/stdc-predef.h code/include/fileUtils.h \
+ code/include/common.h /usr/include/unistd.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
@@ -60,12 +60,11 @@ code/src/object/testtool-objectFile.o: code/src/object/objectFile.c \
  /usr/include/i386-linux-gnu/sys/mman.h \
  /usr/include/i386-linux-gnu/bits/mman.h \
  /usr/include/i386-linux-gnu/bits/mman-linux.h code/include/comm_list.h \
- code/src/object/objectPublic.h code/include/common.h \
- code/include/logprint.h
+ code/include/ioUtils.h code/include/logprint.h
 
 /usr/include/stdc-predef.h:
 
-code/include/object.h:
+code/include/fileUtils.h:
 
 code/include/common.h:
 
@@ -231,8 +230,6 @@ code/include/common.h:
 
 code/include/comm_list.h:
 
-code/src/object/objectPublic.h:
-
-code/include/common.h:
+code/include/ioUtils.h:
 
 code/include/logprint.h:

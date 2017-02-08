@@ -87,6 +87,8 @@ static void cmdtestFile(cmdCode_t cmdCode)
   fileNode->fOps->close(fileNode);
 
   printf("%s\n", buf);
+
+  deleteObject(fileNode);
   
   unRegisterModules();
 }

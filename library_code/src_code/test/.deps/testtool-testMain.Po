@@ -56,7 +56,9 @@ test/testtool-testMain.o: test/testMain.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/sigstack.h \
  /usr/include/i386-linux-gnu/sys/ucontext.h \
  /usr/include/i386-linux-gnu/bits/sigthread.h /usr/include/assert.h \
- code/include/comm_list.h
+ /usr/include/i386-linux-gnu/sys/mman.h \
+ /usr/include/i386-linux-gnu/bits/mman.h \
+ /usr/include/i386-linux-gnu/bits/mman-linux.h code/include/comm_list.h
 
 /usr/include/stdc-predef.h:
 
@@ -217,5 +219,11 @@ code/include/common.h:
 /usr/include/i386-linux-gnu/bits/sigthread.h:
 
 /usr/include/assert.h:
+
+/usr/include/i386-linux-gnu/sys/mman.h:
+
+/usr/include/i386-linux-gnu/bits/mman.h:
+
+/usr/include/i386-linux-gnu/bits/mman-linux.h:
 
 code/include/comm_list.h:

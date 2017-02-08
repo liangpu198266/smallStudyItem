@@ -96,6 +96,8 @@ am_testtool_OBJECTS = test/testtool-testMain.$(OBJEXT) \
 	code/src/common/testtool-fileUtils.$(OBJEXT) \
 	code/src/common/testtool-logprint.$(OBJEXT) \
 	code/src/common/testtool-netUtils.$(OBJEXT) \
+	code/src/common/testtool-ioUtils.$(OBJEXT) \
+	code/src/common/testtool-lockUtils.$(OBJEXT) \
 	code/src/object/testtool-modules.$(OBJEXT) \
 	code/src/object/testtool-object.$(OBJEXT) \
 	code/src/object/testtool-objectBus.$(OBJEXT) \
@@ -165,12 +167,12 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/sunny/private/library_code/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/sunny/private/gitadd/library_code/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/sunny/private/library_code/missing autoconf
-AUTOHEADER = ${SHELL} /home/sunny/private/library_code/missing autoheader
-AUTOMAKE = ${SHELL} /home/sunny/private/library_code/missing automake-1.14
+AUTOCONF = ${SHELL} /home/sunny/private/gitadd/library_code/missing autoconf
+AUTOHEADER = ${SHELL} /home/sunny/private/gitadd/library_code/missing autoheader
+AUTOMAKE = ${SHELL} /home/sunny/private/gitadd/library_code/missing automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -192,7 +194,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/sunny/private/library_code/missing makeinfo
+MAKEINFO = ${SHELL} /home/sunny/private/gitadd/library_code/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = sunny-liang
@@ -207,10 +209,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/sunny/private/library_code/src_code
-abs_srcdir = /home/sunny/private/library_code/src_code
-abs_top_builddir = /home/sunny/private/library_code
-abs_top_srcdir = /home/sunny/private/library_code
+abs_builddir = /home/sunny/private/gitadd/library_code/src_code
+abs_srcdir = /home/sunny/private/gitadd/library_code/src_code
+abs_top_builddir = /home/sunny/private/gitadd/library_code
+abs_top_srcdir = /home/sunny/private/gitadd/library_code
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -229,7 +231,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/sunny/private/library_code/install-sh
+install_sh = ${SHELL} /home/sunny/private/gitadd/library_code/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -260,6 +262,8 @@ testtool_SOURCES = \
         code/src/common/fileUtils.c          \
         code/src/common/logprint.c           \
         code/src/common/netUtils.c           \
+        code/src/common/ioUtils.c            \
+        code/src/common/lockUtils.c          \
         code/src/object/modules.c            \
         code/src/object/object.c             \
         code/src/object/objectBus.c          \
@@ -372,6 +376,12 @@ code/src/common/testtool-logprint.$(OBJEXT):  \
 code/src/common/testtool-netUtils.$(OBJEXT):  \
 	code/src/common/$(am__dirstamp) \
 	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-ioUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-lockUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
 code/src/object/$(am__dirstamp):
 	@$(MKDIR_P) code/src/object
 	@: > code/src/object/$(am__dirstamp)
@@ -413,6 +423,8 @@ distclean-compile:
 include code/src/common/$(DEPDIR)/testtool-cmdHandle.Po
 include code/src/common/$(DEPDIR)/testtool-errorHandle.Po
 include code/src/common/$(DEPDIR)/testtool-fileUtils.Po
+include code/src/common/$(DEPDIR)/testtool-ioUtils.Po
+include code/src/common/$(DEPDIR)/testtool-lockUtils.Po
 include code/src/common/$(DEPDIR)/testtool-logprint.Po
 include code/src/common/$(DEPDIR)/testtool-netUtils.Po
 include code/src/object/$(DEPDIR)/testtool-modules.Po
@@ -522,6 +534,34 @@ code/src/common/testtool-netUtils.obj: code/src/common/netUtils.c
 #	$(AM_V_CC)source='code/src/common/netUtils.c' object='code/src/common/testtool-netUtils.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-netUtils.obj `if test -f 'code/src/common/netUtils.c'; then $(CYGPATH_W) 'code/src/common/netUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/netUtils.c'; fi`
+
+code/src/common/testtool-ioUtils.o: code/src/common/ioUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-ioUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo -c -o code/src/common/testtool-ioUtils.o `test -f 'code/src/common/ioUtils.c' || echo '$(srcdir)/'`code/src/common/ioUtils.c
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo code/src/common/$(DEPDIR)/testtool-ioUtils.Po
+#	$(AM_V_CC)source='code/src/common/ioUtils.c' object='code/src/common/testtool-ioUtils.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-ioUtils.o `test -f 'code/src/common/ioUtils.c' || echo '$(srcdir)/'`code/src/common/ioUtils.c
+
+code/src/common/testtool-ioUtils.obj: code/src/common/ioUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-ioUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo -c -o code/src/common/testtool-ioUtils.obj `if test -f 'code/src/common/ioUtils.c'; then $(CYGPATH_W) 'code/src/common/ioUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/ioUtils.c'; fi`
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo code/src/common/$(DEPDIR)/testtool-ioUtils.Po
+#	$(AM_V_CC)source='code/src/common/ioUtils.c' object='code/src/common/testtool-ioUtils.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-ioUtils.obj `if test -f 'code/src/common/ioUtils.c'; then $(CYGPATH_W) 'code/src/common/ioUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/ioUtils.c'; fi`
+
+code/src/common/testtool-lockUtils.o: code/src/common/lockUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-lockUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo -c -o code/src/common/testtool-lockUtils.o `test -f 'code/src/common/lockUtils.c' || echo '$(srcdir)/'`code/src/common/lockUtils.c
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo code/src/common/$(DEPDIR)/testtool-lockUtils.Po
+#	$(AM_V_CC)source='code/src/common/lockUtils.c' object='code/src/common/testtool-lockUtils.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-lockUtils.o `test -f 'code/src/common/lockUtils.c' || echo '$(srcdir)/'`code/src/common/lockUtils.c
+
+code/src/common/testtool-lockUtils.obj: code/src/common/lockUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-lockUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo -c -o code/src/common/testtool-lockUtils.obj `if test -f 'code/src/common/lockUtils.c'; then $(CYGPATH_W) 'code/src/common/lockUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/lockUtils.c'; fi`
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo code/src/common/$(DEPDIR)/testtool-lockUtils.Po
+#	$(AM_V_CC)source='code/src/common/lockUtils.c' object='code/src/common/testtool-lockUtils.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-lockUtils.obj `if test -f 'code/src/common/lockUtils.c'; then $(CYGPATH_W) 'code/src/common/lockUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/lockUtils.c'; fi`
 
 code/src/object/testtool-modules.o: code/src/object/modules.c
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/object/testtool-modules.o -MD -MP -MF code/src/object/$(DEPDIR)/testtool-modules.Tpo -c -o code/src/object/testtool-modules.o `test -f 'code/src/object/modules.c' || echo '$(srcdir)/'`code/src/object/modules.c

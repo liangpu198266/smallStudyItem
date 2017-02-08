@@ -16,6 +16,8 @@ testtool_SOURCES  =                          \
         code/src/common/fileUtils.c          \
         code/src/common/logprint.c           \
         code/src/common/netUtils.c           \
+        code/src/common/ioUtils.c            \
+        code/src/common/lockUtils.c          \
         code/src/object/modules.c            \
         code/src/object/object.c             \
         code/src/object/objectBus.c          \

@@ -96,6 +96,8 @@ am_testtool_OBJECTS = test/testtool-testMain.$(OBJEXT) \
 	code/src/common/testtool-fileUtils.$(OBJEXT) \
 	code/src/common/testtool-logprint.$(OBJEXT) \
 	code/src/common/testtool-netUtils.$(OBJEXT) \
+	code/src/common/testtool-ioUtils.$(OBJEXT) \
+	code/src/common/testtool-lockUtils.$(OBJEXT) \
 	code/src/object/testtool-modules.$(OBJEXT) \
 	code/src/object/testtool-object.$(OBJEXT) \
 	code/src/object/testtool-objectBus.$(OBJEXT) \
@@ -260,6 +262,8 @@ testtool_SOURCES = \
         code/src/common/fileUtils.c          \
         code/src/common/logprint.c           \
         code/src/common/netUtils.c           \
+        code/src/common/ioUtils.c            \
+        code/src/common/lockUtils.c          \
         code/src/object/modules.c            \
         code/src/object/object.c             \
         code/src/object/objectBus.c          \
@@ -372,6 +376,12 @@ code/src/common/testtool-logprint.$(OBJEXT):  \
 code/src/common/testtool-netUtils.$(OBJEXT):  \
 	code/src/common/$(am__dirstamp) \
 	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-ioUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-lockUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
 code/src/object/$(am__dirstamp):
 	@$(MKDIR_P) code/src/object
 	@: > code/src/object/$(am__dirstamp)
@@ -413,6 +423,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-cmdHandle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-errorHandle.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-fileUtils.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-ioUtils.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-lockUtils.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-logprint.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@code/src/common/$(DEPDIR)/testtool-netUtils.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@code/src/object/$(DEPDIR)/testtool-modules.Po@am__quote@
@@ -522,6 +534,34 @@ code/src/common/testtool-netUtils.obj: code/src/common/netUtils.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='code/src/common/netUtils.c' object='code/src/common/testtool-netUtils.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-netUtils.obj `if test -f 'code/src/common/netUtils.c'; then $(CYGPATH_W) 'code/src/common/netUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/netUtils.c'; fi`
+
+code/src/common/testtool-ioUtils.o: code/src/common/ioUtils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-ioUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo -c -o code/src/common/testtool-ioUtils.o `test -f 'code/src/common/ioUtils.c' || echo '$(srcdir)/'`code/src/common/ioUtils.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo code/src/common/$(DEPDIR)/testtool-ioUtils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='code/src/common/ioUtils.c' object='code/src/common/testtool-ioUtils.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-ioUtils.o `test -f 'code/src/common/ioUtils.c' || echo '$(srcdir)/'`code/src/common/ioUtils.c
+
+code/src/common/testtool-ioUtils.obj: code/src/common/ioUtils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-ioUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo -c -o code/src/common/testtool-ioUtils.obj `if test -f 'code/src/common/ioUtils.c'; then $(CYGPATH_W) 'code/src/common/ioUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/ioUtils.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-ioUtils.Tpo code/src/common/$(DEPDIR)/testtool-ioUtils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='code/src/common/ioUtils.c' object='code/src/common/testtool-ioUtils.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-ioUtils.obj `if test -f 'code/src/common/ioUtils.c'; then $(CYGPATH_W) 'code/src/common/ioUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/ioUtils.c'; fi`
+
+code/src/common/testtool-lockUtils.o: code/src/common/lockUtils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-lockUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo -c -o code/src/common/testtool-lockUtils.o `test -f 'code/src/common/lockUtils.c' || echo '$(srcdir)/'`code/src/common/lockUtils.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo code/src/common/$(DEPDIR)/testtool-lockUtils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='code/src/common/lockUtils.c' object='code/src/common/testtool-lockUtils.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-lockUtils.o `test -f 'code/src/common/lockUtils.c' || echo '$(srcdir)/'`code/src/common/lockUtils.c
+
+code/src/common/testtool-lockUtils.obj: code/src/common/lockUtils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-lockUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo -c -o code/src/common/testtool-lockUtils.obj `if test -f 'code/src/common/lockUtils.c'; then $(CYGPATH_W) 'code/src/common/lockUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/lockUtils.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-lockUtils.Tpo code/src/common/$(DEPDIR)/testtool-lockUtils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='code/src/common/lockUtils.c' object='code/src/common/testtool-lockUtils.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-lockUtils.obj `if test -f 'code/src/common/lockUtils.c'; then $(CYGPATH_W) 'code/src/common/lockUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/lockUtils.c'; fi`
 
 code/src/object/testtool-modules.o: code/src/object/modules.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/object/testtool-modules.o -MD -MP -MF code/src/object/$(DEPDIR)/testtool-modules.Tpo -c -o code/src/object/testtool-modules.o `test -f 'code/src/object/modules.c' || echo '$(srcdir)/'`code/src/object/modules.c

@@ -16,6 +16,7 @@
 #include <errno.h> 
 #include <signal.h>
 #include <assert.h>
+#include <sys/mman.h>/*mmap*/
 
 #include "comm_list.h"
 

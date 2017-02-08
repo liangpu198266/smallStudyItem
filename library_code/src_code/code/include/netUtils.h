@@ -3,8 +3,8 @@
  * Copyright (C) <877677512@qq.com> 
  */
 
-#ifndef __NET_UTILS_H__
-#define __NET_UTILS_H__
+#ifndef __NETUTILS_H__
+#define __NETUTILS_H__
 #include "common.h"
 
 
