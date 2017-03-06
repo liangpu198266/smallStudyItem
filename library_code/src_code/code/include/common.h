@@ -16,7 +16,12 @@
 #include <errno.h> 
 #include <signal.h>
 #include <assert.h>
+#include <time.h>
+#include <unistd.h>
+
 #include <sys/mman.h>/*mmap*/
+#include <sys/times.h>
+#include <sys/time.h>  
 
 #include "comm_list.h"
 

@@ -98,6 +98,9 @@ am_testtool_OBJECTS = test/testtool-testMain.$(OBJEXT) \
 	code/src/common/testtool-netUtils.$(OBJEXT) \
 	code/src/common/testtool-ioUtils.$(OBJEXT) \
 	code/src/common/testtool-lockUtils.$(OBJEXT) \
+	code/src/common/testtool-timeUtils.$(OBJEXT) \
+	code/src/common/testtool-sigUtils.$(OBJEXT) \
+	code/src/common/testtool-stringUtils.$(OBJEXT) \
 	code/src/object/testtool-modules.$(OBJEXT) \
 	code/src/object/testtool-object.$(OBJEXT) \
 	code/src/object/testtool-objectBus.$(OBJEXT) \
@@ -264,6 +267,9 @@ testtool_SOURCES = \
         code/src/common/netUtils.c           \
         code/src/common/ioUtils.c            \
         code/src/common/lockUtils.c          \
+        code/src/common/timeUtils.c          \
+        code/src/common/sigUtils.c          \
+        code/src/common/stringUtils.c        \
         code/src/object/modules.c            \
         code/src/object/object.c             \
         code/src/object/objectBus.c          \
@@ -382,6 +388,15 @@ code/src/common/testtool-ioUtils.$(OBJEXT):  \
 code/src/common/testtool-lockUtils.$(OBJEXT):  \
 	code/src/common/$(am__dirstamp) \
 	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-timeUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-sigUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-stringUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
 code/src/object/$(am__dirstamp):
 	@$(MKDIR_P) code/src/object
 	@: > code/src/object/$(am__dirstamp)
@@ -427,6 +442,9 @@ include code/src/common/$(DEPDIR)/testtool-ioUtils.Po
 include code/src/common/$(DEPDIR)/testtool-lockUtils.Po
 include code/src/common/$(DEPDIR)/testtool-logprint.Po
 include code/src/common/$(DEPDIR)/testtool-netUtils.Po
+include code/src/common/$(DEPDIR)/testtool-sigUtils.Po
+include code/src/common/$(DEPDIR)/testtool-stringUtils.Po
+include code/src/common/$(DEPDIR)/testtool-timeUtils.Po
 include code/src/object/$(DEPDIR)/testtool-modules.Po
 include code/src/object/$(DEPDIR)/testtool-object.Po
 include code/src/object/$(DEPDIR)/testtool-objectBus.Po
@@ -562,6 +580,48 @@ code/src/common/testtool-lockUtils.obj: code/src/common/lockUtils.c
 #	$(AM_V_CC)source='code/src/common/lockUtils.c' object='code/src/common/testtool-lockUtils.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-lockUtils.obj `if test -f 'code/src/common/lockUtils.c'; then $(CYGPATH_W) 'code/src/common/lockUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/lockUtils.c'; fi`
+
+code/src/common/testtool-timeUtils.o: code/src/common/timeUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-timeUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-timeUtils.Tpo -c -o code/src/common/testtool-timeUtils.o `test -f 'code/src/common/timeUtils.c' || echo '$(srcdir)/'`code/src/common/timeUtils.c
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-timeUtils.Tpo code/src/common/$(DEPDIR)/testtool-timeUtils.Po
+#	$(AM_V_CC)source='code/src/common/timeUtils.c' object='code/src/common/testtool-timeUtils.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-timeUtils.o `test -f 'code/src/common/timeUtils.c' || echo '$(srcdir)/'`code/src/common/timeUtils.c
+
+code/src/common/testtool-timeUtils.obj: code/src/common/timeUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-timeUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-timeUtils.Tpo -c -o code/src/common/testtool-timeUtils.obj `if test -f 'code/src/common/timeUtils.c'; then $(CYGPATH_W) 'code/src/common/timeUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/timeUtils.c'; fi`
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-timeUtils.Tpo code/src/common/$(DEPDIR)/testtool-timeUtils.Po
+#	$(AM_V_CC)source='code/src/common/timeUtils.c' object='code/src/common/testtool-timeUtils.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-timeUtils.obj `if test -f 'code/src/common/timeUtils.c'; then $(CYGPATH_W) 'code/src/common/timeUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/timeUtils.c'; fi`
+
+code/src/common/testtool-sigUtils.o: code/src/common/sigUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-sigUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-sigUtils.Tpo -c -o code/src/common/testtool-sigUtils.o `test -f 'code/src/common/sigUtils.c' || echo '$(srcdir)/'`code/src/common/sigUtils.c
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-sigUtils.Tpo code/src/common/$(DEPDIR)/testtool-sigUtils.Po
+#	$(AM_V_CC)source='code/src/common/sigUtils.c' object='code/src/common/testtool-sigUtils.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-sigUtils.o `test -f 'code/src/common/sigUtils.c' || echo '$(srcdir)/'`code/src/common/sigUtils.c
+
+code/src/common/testtool-sigUtils.obj: code/src/common/sigUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-sigUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-sigUtils.Tpo -c -o code/src/common/testtool-sigUtils.obj `if test -f 'code/src/common/sigUtils.c'; then $(CYGPATH_W) 'code/src/common/sigUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/sigUtils.c'; fi`
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-sigUtils.Tpo code/src/common/$(DEPDIR)/testtool-sigUtils.Po
+#	$(AM_V_CC)source='code/src/common/sigUtils.c' object='code/src/common/testtool-sigUtils.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-sigUtils.obj `if test -f 'code/src/common/sigUtils.c'; then $(CYGPATH_W) 'code/src/common/sigUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/sigUtils.c'; fi`
+
+code/src/common/testtool-stringUtils.o: code/src/common/stringUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-stringUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-stringUtils.Tpo -c -o code/src/common/testtool-stringUtils.o `test -f 'code/src/common/stringUtils.c' || echo '$(srcdir)/'`code/src/common/stringUtils.c
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-stringUtils.Tpo code/src/common/$(DEPDIR)/testtool-stringUtils.Po
+#	$(AM_V_CC)source='code/src/common/stringUtils.c' object='code/src/common/testtool-stringUtils.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-stringUtils.o `test -f 'code/src/common/stringUtils.c' || echo '$(srcdir)/'`code/src/common/stringUtils.c
+
+code/src/common/testtool-stringUtils.obj: code/src/common/stringUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-stringUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-stringUtils.Tpo -c -o code/src/common/testtool-stringUtils.obj `if test -f 'code/src/common/stringUtils.c'; then $(CYGPATH_W) 'code/src/common/stringUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/stringUtils.c'; fi`
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-stringUtils.Tpo code/src/common/$(DEPDIR)/testtool-stringUtils.Po
+#	$(AM_V_CC)source='code/src/common/stringUtils.c' object='code/src/common/testtool-stringUtils.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-stringUtils.obj `if test -f 'code/src/common/stringUtils.c'; then $(CYGPATH_W) 'code/src/common/stringUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/stringUtils.c'; fi`
 
 code/src/object/testtool-modules.o: code/src/object/modules.c
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/object/testtool-modules.o -MD -MP -MF code/src/object/$(DEPDIR)/testtool-modules.Tpo -c -o code/src/object/testtool-modules.o `test -f 'code/src/object/modules.c' || echo '$(srcdir)/'`code/src/object/modules.c

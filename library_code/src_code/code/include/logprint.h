@@ -55,6 +55,7 @@
 extern int8 initFileLogSystem(void);
 extern void finiFileLogSystem(void);
 void displayErrorMsg(int8 *msg);
+void dumpSigProcessTrace(int32 signum, siginfo_t *info, void *context);
 
 #endif
 

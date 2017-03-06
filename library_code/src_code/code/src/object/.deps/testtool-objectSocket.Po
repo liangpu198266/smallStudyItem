@@ -59,7 +59,9 @@ code/src/object/testtool-objectSocket.o: code/src/object/objectSocket.c \
  /usr/include/i386-linux-gnu/bits/sigthread.h /usr/include/assert.h \
  /usr/include/i386-linux-gnu/sys/mman.h \
  /usr/include/i386-linux-gnu/bits/mman.h \
- /usr/include/i386-linux-gnu/bits/mman-linux.h code/include/comm_list.h \
+ /usr/include/i386-linux-gnu/bits/mman-linux.h \
+ /usr/include/i386-linux-gnu/sys/times.h \
+ /usr/include/i386-linux-gnu/sys/time.h code/include/comm_list.h \
  code/src/object/objectPublic.h code/include/common.h \
  code/include/logprint.h
 
@@ -228,6 +230,10 @@ code/include/common.h:
 /usr/include/i386-linux-gnu/bits/mman.h:
 
 /usr/include/i386-linux-gnu/bits/mman-linux.h:
+
+/usr/include/i386-linux-gnu/sys/times.h:
+
+/usr/include/i386-linux-gnu/sys/time.h:
 
 code/include/comm_list.h:
 

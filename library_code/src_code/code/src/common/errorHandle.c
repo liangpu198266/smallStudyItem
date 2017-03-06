@@ -6,6 +6,8 @@
  
 #include "logprint.h"
 
+#define  DEFAULT_LOG_LENGTH  240
+
 /* 打印调用栈的最大深度 */
 #define DUMP_STACK_DEPTH_MAX 16
 
@@ -50,3 +52,27 @@ void displayErrorMsg(int8 *msg)
     LOG_ERROR("dump trace error\n");
   }
 }
+
+void dumpSigProcessTrace(int32 signum, siginfo_t *info, void *context)
+{
+  char buf[DEFAULT_LOG_LENGTH];
+  snprintf(buf, sizeof(buf), " ");
+  LOG_ERROR("%s", buf);
+  LOG_ERROR("%s\r\n", buf);
+
+  snprintf(buf, sizeof(buf), "------ Unexpected termination ------");
+  LOG_ERROR("%s", buf);
+  LOG_ERROR("%s\r\n", buf);
+
+  snprintf(buf, sizeof(buf), "Signal:    %d (%s)", signum, strsignal(signum));
+  LOG_ERROR("%s", buf);
+  LOG_ERROR("%s\r\n", buf);
+
+  snprintf(buf, sizeof(buf), "Process:   %d", getpid());
+  LOG_ERROR("%s", buf);
+  LOG_ERROR("%s\r\n", buf);
+
+  dumpTrace();
+}
+
+
