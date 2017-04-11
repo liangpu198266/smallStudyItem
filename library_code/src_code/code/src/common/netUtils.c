@@ -114,7 +114,8 @@ INADDR_LOOPBACK, Ò²¾ÍÊÇ°ó¶¨µØÖ·LOOPBAC, ÍùÍùÊÇ127.0.0.1, Ö»ÄÜÊÕµ½127.0.0.1ÉÏÃæµÄ
 
 /*
 listen()¡¢connect()º¯Êý
-  Èç¹û×÷ÎªÒ»¸ö·þÎñÆ÷£¬ÔÚµ÷ÓÃsocket()¡¢bind()Ö®ºó¾Í»áµ÷ÓÃlisten()À´¼àÌýÕâ¸ösocket£¬Èç¹û¿Í»§¶ËÕâÊ±µ÷ÓÃconnect()·¢³öÁ¬½ÓÇëÇó£¬·þÎñÆ÷¶Ë¾Í»á½ÓÊÕµ½Õâ¸öÇëÇó¡£
+  Èç¹û×÷ÎªÒ»¸ö·þÎñÆ÷£¬ÔÚµ÷ÓÃsocket()¡¢bind()Ö®ºó¾Í»áµ÷ÓÃlisten()À´¼àÌýÕâ¸ösocket£¬Èç¹û¿Í»§¶ËÕâÊ±µ÷ÓÃconnect()·¢³öÁ¬½ÓÇëÇó£¬
+  ·þÎñÆ÷¶Ë¾Í»á½ÓÊÕµ½Õâ¸öÇëÇó¡£
 
 int listen(int sockfd, int backlog);
 int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
@@ -211,7 +212,9 @@ IO¶àÂ·¸´ÓÃÊÇÖ¸ÄÚºËÒ»µ©·¢ÏÖ½ø³ÌÖ¸¶¨µÄÒ»¸ö»òÕß¶à¸öIOÌõ¼þ×¼±¸¶ÁÈ¡£¬Ëü¾ÍÍ¨Öª¸Ã½ø³Ì¡£
 poll
 »ù±¾Ô­Àí£º
 
-    poll±¾ÖÊÉÏºÍselectÃ»ÓÐÇø±ð£¬Ëü½«ÓÃ»§´«ÈëµÄÊý×é¿½±´µ½ÄÚºË¿Õ¼ä£¬È»ºó²éÑ¯Ã¿¸öfd¶ÔÓ¦µÄÉè±¸×´Ì¬£¬Èç¹ûÉè±¸¾ÍÐ÷ÔòÔÚÉè±¸µÈ´ý¶ÓÁÐÖÐ¼ÓÈëÒ»Ïî²¢¼ÌÐø±éÀú£¬Èç¹û±éÀúÍêËùÓÐfdºóÃ»ÓÐ·¢ÏÖ¾ÍÐ÷Éè±¸£¬Ôò¹ÒÆðµ±Ç°½ø³Ì£¬Ö±µ½Éè±¸¾ÍÐ÷»òÕßÖ÷¶¯³¬Ê±£¬±»»½ÐÑºóËüÓÖÒªÔÙ´Î±éÀúfd¡£Õâ¸ö¹ý³Ì¾­ÀúÁË¶à´ÎÎÞÎ½µÄ±éÀú¡£
+    poll±¾ÖÊÉÏºÍselectÃ»ÓÐÇø±ð£¬Ëü½«ÓÃ»§´«ÈëµÄÊý×é¿½±´µ½ÄÚºË¿Õ¼ä£¬È»ºó²éÑ¯Ã¿¸öfd¶ÔÓ¦µÄÉè±¸×´Ì¬£¬
+    Èç¹ûÉè±¸¾ÍÐ÷ÔòÔÚÉè±¸µÈ´ý¶ÓÁÐÖÐ¼ÓÈëÒ»Ïî²¢¼ÌÐø±éÀú£¬Èç¹û±éÀúÍêËùÓÐfdºóÃ»ÓÐ·¢ÏÖ¾ÍÐ÷Éè±¸£¬Ôò¹ÒÆðµ±Ç°½ø³Ì£¬
+    Ö±µ½Éè±¸¾ÍÐ÷»òÕßÖ÷¶¯³¬Ê±£¬±»»½ÐÑºóËüÓÖÒªÔÙ´Î±éÀúfd¡£Õâ¸ö¹ý³Ì¾­ÀúÁË¶à´ÎÎÞÎ½µÄ±éÀú¡£
 
 ËüÃ»ÓÐ×î´óÁ¬½ÓÊýµÄÏÞÖÆ£¬Ô­ÒòÊÇËüÊÇ»ùÓÚÁ´±íÀ´´æ´¢µÄ£¬µ«ÊÇÍ¬ÑùÓÐÒ»¸öÈ±µã£º
 
@@ -221,50 +224,67 @@ poll
 
 ×¢Òâ£º
 
-    ´ÓÉÏÃæ¿´£¬selectºÍpoll¶¼ÐèÒªÔÚ·µ»Øºó£¬Í¨¹ý±éÀúÎÄ¼þÃèÊö·ûÀ´»ñÈ¡ÒÑ¾­¾ÍÐ÷µÄsocket¡£ÊÂÊµÉÏ£¬Í¬Ê±Á¬½ÓµÄ´óÁ¿¿Í»§¶ËÔÚÒ»Ê±¿Ì¿ÉÄÜÖ»ÓÐºÜÉÙµÄ´¦ÓÚ¾ÍÐ÷×´Ì¬£¬Òò´ËËæ×Å¼àÊÓµÄÃèÊö·ûÊýÁ¿µÄÔö³¤£¬ÆäÐ§ÂÊÒ²»áÏßÐÔÏÂ½µ¡£
+    ´ÓÉÏÃæ¿´£¬selectºÍpoll¶¼ÐèÒªÔÚ·µ»Øºó£¬Í¨¹ý±éÀúÎÄ¼þÃèÊö·ûÀ´»ñÈ¡ÒÑ¾­¾ÍÐ÷µÄsocket¡£ÊÂÊµÉÏ£¬
+    Í¬Ê±Á¬½ÓµÄ´óÁ¿¿Í»§¶ËÔÚÒ»Ê±¿Ì¿ÉÄÜÖ»ÓÐºÜÉÙµÄ´¦ÓÚ¾ÍÐ÷×´Ì¬£¬Òò´ËËæ×Å¼àÊÓµÄÃèÊö·ûÊýÁ¿µÄÔö³¤£¬ÆäÐ§ÂÊÒ²»áÏßÐÔÏÂ½µ¡£
 
 ---------------------------------------------------------------
 epoll
 
-epollÊÇÔÚ2.6ÄÚºËÖÐÌá³öµÄ£¬ÊÇÖ®Ç°µÄselectºÍpollµÄÔöÇ¿°æ±¾¡£Ïà¶ÔÓÚselectºÍpollÀ´Ëµ£¬epoll¸ü¼ÓÁé»î£¬Ã»ÓÐÃèÊö·ûÏÞÖÆ¡£epollÊ¹ÓÃÒ»¸öÎÄ¼þÃèÊö·û¹ÜÀí¶à¸öÃèÊö·û£¬½«ÓÃ»§¹ØÏµµÄÎÄ¼þÃèÊö·ûµÄÊÂ¼þ´æ·Åµ½ÄÚºËµÄÒ»¸öÊÂ¼þ±íÖÐ£¬ÕâÑùÔÚÓÃ»§¿Õ¼äºÍÄÚºË¿Õ¼äµÄcopyÖ»ÐèÒ»´Î¡£
+epollÊÇÔÚ2.6ÄÚºËÖÐÌá³öµÄ£¬ÊÇÖ®Ç°µÄselectºÍpollµÄÔöÇ¿°æ±¾¡£Ïà¶ÔÓÚselectºÍpollÀ´Ëµ£¬epoll¸ü¼ÓÁé»î£¬Ã»ÓÐÃèÊö·ûÏÞÖÆ¡£
+epollÊ¹ÓÃÒ»¸öÎÄ¼þÃèÊö·û¹ÜÀí¶à¸öÃèÊö·û£¬½«ÓÃ»§¹ØÏµµÄÎÄ¼þÃèÊö·ûµÄÊÂ¼þ´æ·Åµ½ÄÚºËµÄÒ»¸öÊÂ¼þ±íÖÐ£¬ÕâÑùÔÚÓÃ»§¿Õ¼äºÍÄÚºË¿Õ¼äµÄcopyÖ»ÐèÒ»´Î¡£
 
 »ù±¾Ô­Àí£º
 
-    epollÖ§³ÖË®Æ½´¥·¢ºÍ±ßÔµ´¥·¢£¬×î´óµÄÌØµãÔÚÓÚ±ßÔµ´¥·¢£¬ËüÖ»¸æËß½ø³ÌÄÄÐ©fd¸Õ¸Õ±äÎª¾ÍÐ÷Ì¬£¬²¢ÇÒÖ»»áÍ¨ÖªÒ»´Î¡£»¹ÓÐÒ»¸öÌØµãÊÇ£¬epollÊ¹ÓÃ¡°ÊÂ¼þ¡±µÄ¾ÍÐ÷Í¨Öª·½Ê½£¬Í¨¹ýepoll_ctl×¢²áfd£¬Ò»µ©¸Ãfd¾ÍÐ÷£¬ÄÚºË¾Í»á²ÉÓÃÀàËÆcallbackµÄ»Øµ÷»úÖÆÀ´¼¤»î¸Ãfd£¬epoll_wait±ã¿ÉÒÔÊÕµ½Í¨Öª¡£
+    epollÖ§³ÖË®Æ½´¥·¢ºÍ±ßÔµ´¥·¢£¬×î´óµÄÌØµãÔÚÓÚ±ßÔµ´¥·¢£¬ËüÖ»¸æËß½ø³ÌÄÄÐ©fd¸Õ¸Õ±äÎª¾ÍÐ÷Ì¬£¬²¢ÇÒÖ»»áÍ¨ÖªÒ»´Î¡£
+    »¹ÓÐÒ»¸öÌØµãÊÇ£¬epollÊ¹ÓÃ¡°ÊÂ¼þ¡±µÄ¾ÍÐ÷Í¨Öª·½Ê½£¬Í¨¹ýepoll_ctl×¢²áfd£¬Ò»µ©¸Ãfd¾ÍÐ÷£¬
+    ÄÚºË¾Í»á²ÉÓÃÀàËÆcallbackµÄ»Øµ÷»úÖÆÀ´¼¤»î¸Ãfd£¬epoll_wait±ã¿ÉÒÔÊÕµ½Í¨Öª¡£
 
 epollµÄÓÅµã£º
 
         Ã»ÓÐ×î´ó²¢·¢Á¬½ÓµÄÏÞÖÆ£¬ÄÜ´ò¿ªµÄFDµÄÉÏÏÞÔ¶´óÓÚ1024£¨1GµÄÄÚ´æÉÏÄÜ¼àÌýÔ¼10Íò¸ö¶Ë¿Ú£©¡£
 
-        Ð§ÂÊÌáÉý£¬²»ÊÇÂÖÑ¯µÄ·½Ê½£¬²»»áËæ×ÅFDÊýÄ¿µÄÔö¼ÓÐ§ÂÊÏÂ½µ¡£Ö»ÓÐ»îÔ¾¿ÉÓÃµÄFD²Å»áµ÷ÓÃcallbackº¯Êý£»¼´Epoll×î´óµÄÓÅµã¾ÍÔÚÓÚËüÖ»¹ÜÄã¡°»îÔ¾¡±µÄÁ¬½Ó£¬¶ø¸úÁ¬½Ó×ÜÊýÎÞ¹Ø£¬Òò´ËÔÚÊµ¼ÊµÄÍøÂç»·¾³ÖÐ£¬EpollµÄÐ§ÂÊ¾Í»áÔ¶Ô¶¸ßÓÚselectºÍpoll¡£
+        Ð§ÂÊÌáÉý£¬²»ÊÇÂÖÑ¯µÄ·½Ê½£¬²»»áËæ×ÅFDÊýÄ¿µÄÔö¼ÓÐ§ÂÊÏÂ½µ¡£Ö»ÓÐ»îÔ¾¿ÉÓÃµÄFD²Å»áµ÷ÓÃcallbackº¯Êý£»
+        ¼´Epoll×î´óµÄÓÅµã¾ÍÔÚÓÚËüÖ»¹ÜÄã¡°»îÔ¾¡±µÄÁ¬½Ó£¬¶ø¸úÁ¬½Ó×ÜÊýÎÞ¹Ø£¬Òò´ËÔÚÊµ¼ÊµÄÍøÂç»·¾³ÖÐ£¬EpollµÄÐ§ÂÊ¾Í»áÔ¶Ô¶¸ßÓÚselectºÍpoll¡£
 
         ÄÚ´æ¿½±´£¬ÀûÓÃmmap()ÎÄ¼þÓ³ÉäÄÚ´æ¼ÓËÙÓëÄÚºË¿Õ¼äµÄÏûÏ¢´«µÝ£»¼´epollÊ¹ÓÃmmap¼õÉÙ¸´ÖÆ¿ªÏú¡£
 
 epoll¶ÔÎÄ¼þÃèÊö·ûµÄ²Ù×÷ÓÐÁ½ÖÖÄ£Ê½£ºLT£¨level trigger£©ºÍET£¨edge trigger£©¡£LTÄ£Ê½ÊÇÄ¬ÈÏÄ£Ê½£¬LTÄ£Ê½ÓëETÄ£Ê½µÄÇø±ðÈçÏÂ£º
 
-    LTÄ£Ê½£ºµ±epoll_wait¼ì²âµ½ÃèÊö·ûÊÂ¼þ·¢Éú²¢½«´ËÊÂ¼þÍ¨ÖªÓ¦ÓÃ³ÌÐò£¬Ó¦ÓÃ³ÌÐò¿ÉÒÔ²»Á¢¼´´¦Àí¸ÃÊÂ¼þ¡£ÏÂ´Îµ÷ÓÃepoll_waitÊ±£¬»áÔÙ´ÎÏìÓ¦Ó¦ÓÃ³ÌÐò²¢Í¨Öª´ËÊÂ¼þ¡£
+    LTÄ£Ê½£ºµ±epoll_wait¼ì²âµ½ÃèÊö·ûÊÂ¼þ·¢Éú²¢½«´ËÊÂ¼þÍ¨ÖªÓ¦ÓÃ³ÌÐò£¬Ó¦ÓÃ³ÌÐò¿ÉÒÔ²»Á¢¼´´¦Àí¸ÃÊÂ¼þ¡£ÏÂ´Îµ÷ÓÃepoll_waitÊ±£¬
+    »áÔÙ´ÎÏìÓ¦Ó¦ÓÃ³ÌÐò²¢Í¨Öª´ËÊÂ¼þ¡£
 
-    ETÄ£Ê½£ºµ±epoll_wait¼ì²âµ½ÃèÊö·ûÊÂ¼þ·¢Éú²¢½«´ËÊÂ¼þÍ¨ÖªÓ¦ÓÃ³ÌÐò£¬Ó¦ÓÃ³ÌÐò±ØÐëÁ¢¼´´¦Àí¸ÃÊÂ¼þ¡£Èç¹û²»´¦Àí£¬ÏÂ´Îµ÷ÓÃepoll_waitÊ±£¬²»»áÔÙ´ÎÏìÓ¦Ó¦ÓÃ³ÌÐò²¢Í¨Öª´ËÊÂ¼þ¡£
+    ETÄ£Ê½£ºµ±epoll_wait¼ì²âµ½ÃèÊö·ûÊÂ¼þ·¢Éú²¢½«´ËÊÂ¼þÍ¨ÖªÓ¦ÓÃ³ÌÐò£¬Ó¦ÓÃ³ÌÐò±ØÐëÁ¢¼´´¦Àí¸ÃÊÂ¼þ¡£Èç¹û²»´¦Àí£¬ÏÂ´Îµ÷ÓÃepoll_waitÊ±£¬
+    ²»»áÔÙ´ÎÏìÓ¦Ó¦ÓÃ³ÌÐò²¢Í¨Öª´ËÊÂ¼þ¡£
 
     LTÄ£Ê½
 
-        LT(level triggered)ÊÇÈ±Ê¡µÄ¹¤×÷·½Ê½£¬²¢ÇÒÍ¬Ê±Ö§³ÖblockºÍno-block socket¡£ÔÚÕâÖÖ×ö·¨ÖÐ£¬ÄÚºË¸æËßÄãÒ»¸öÎÄ¼þÃèÊö·ûÊÇ·ñ¾ÍÐ÷ÁË£¬È»ºóÄã¿ÉÒÔ¶ÔÕâ¸ö¾ÍÐ÷µÄfd½øÐÐIO²Ù×÷¡£Èç¹ûÄã²»×÷ÈÎºÎ²Ù×÷£¬ÄÚºË»¹ÊÇ»á¼ÌÐøÍ¨ÖªÄãµÄ¡£
+        LT(level triggered)ÊÇÈ±Ê¡µÄ¹¤×÷·½Ê½£¬²¢ÇÒÍ¬Ê±Ö§³ÖblockºÍno-block socket¡£ÔÚÕâÖÖ×ö·¨ÖÐ£¬
+        ÄÚºË¸æËßÄãÒ»¸öÎÄ¼þÃèÊö·ûÊÇ·ñ¾ÍÐ÷ÁË£¬È»ºóÄã¿ÉÒÔ¶ÔÕâ¸ö¾ÍÐ÷µÄfd½øÐÐIO²Ù×÷¡£Èç¹ûÄã²»×÷ÈÎºÎ²Ù×÷£¬ÄÚºË»¹ÊÇ»á¼ÌÐøÍ¨ÖªÄãµÄ¡£
 
     ETÄ£Ê½
 
-        ET(edge-triggered)ÊÇ¸ßËÙ¹¤×÷·½Ê½£¬Ö»Ö§³Öno-block socket¡£ÔÚÕâÖÖÄ£Ê½ÏÂ£¬µ±ÃèÊö·û´ÓÎ´¾ÍÐ÷±äÎª¾ÍÐ÷Ê±£¬ÄÚºËÍ¨¹ýepoll¸æËßÄã¡£È»ºóËü»á¼ÙÉèÄãÖªµÀÎÄ¼þÃèÊö·ûÒÑ¾­¾ÍÐ÷£¬²¢ÇÒ²»»áÔÙÎªÄÇ¸öÎÄ¼þÃèÊö·û·¢ËÍ¸ü¶àµÄ¾ÍÐ÷Í¨Öª£¬Ö±µ½Äã×öÁËÄ³Ð©²Ù×÷µ¼ÖÂÄÇ¸öÎÄ¼þÃèÊö·û²»ÔÙÎª¾ÍÐ÷×´Ì¬ÁË(±ÈÈç£¬ÄãÔÚ·¢ËÍ£¬½ÓÊÕ»òÕß½ÓÊÕÇëÇó£¬»òÕß·¢ËÍ½ÓÊÕµÄÊý¾ÝÉÙÓÚÒ»¶¨Á¿Ê±µ¼ÖÂÁËÒ»¸öEWOULDBLOCK ´íÎó£©¡£µ«ÊÇÇë×¢Òâ£¬Èç¹ûÒ»Ö±²»¶ÔÕâ¸öfd×÷IO²Ù×÷(´Ó¶øµ¼ÖÂËüÔÙ´Î±ä³ÉÎ´¾ÍÐ÷)£¬ÄÚºË²»»á·¢ËÍ¸ü¶àµÄÍ¨Öª(only once)¡£
+        ET(edge-triggered)ÊÇ¸ßËÙ¹¤×÷·½Ê½£¬Ö»Ö§³Öno-block socket¡£ÔÚÕâÖÖÄ£Ê½ÏÂ£¬µ±ÃèÊö·û´ÓÎ´¾ÍÐ÷±äÎª¾ÍÐ÷Ê±£¬
+        ÄÚºËÍ¨¹ýepoll¸æËßÄã¡£È»ºóËü»á¼ÙÉèÄãÖªµÀÎÄ¼þÃèÊö·ûÒÑ¾­¾ÍÐ÷£¬²¢ÇÒ²»»áÔÙÎªÄÇ¸öÎÄ¼þÃèÊö·û·¢ËÍ¸ü¶àµÄ¾ÍÐ÷Í¨Öª£¬
+        Ö±µ½Äã×öÁËÄ³Ð©²Ù×÷µ¼ÖÂÄÇ¸öÎÄ¼þÃèÊö·û²»ÔÙÎª¾ÍÐ÷×´Ì¬ÁË(±ÈÈç£¬ÄãÔÚ·¢ËÍ£¬½ÓÊÕ»òÕß½ÓÊÕÇëÇó£¬
+        »òÕß·¢ËÍ½ÓÊÕµÄÊý¾ÝÉÙÓÚÒ»¶¨Á¿Ê±µ¼ÖÂÁËÒ»¸öEWOULDBLOCK ´íÎó£©¡£µ«ÊÇÇë×¢Òâ£¬Èç¹ûÒ»Ö±²»¶ÔÕâ¸öfd×÷IO²Ù×÷(´Ó¶øµ¼ÖÂËüÔÙ´Î±ä³ÉÎ´¾ÍÐ÷)£¬
+        ÄÚºË²»»á·¢ËÍ¸ü¶àµÄÍ¨Öª(only once)¡£
 
-        ETÄ£Ê½ÔÚºÜ´ó³Ì¶ÈÉÏ¼õÉÙÁËepollÊÂ¼þ±»ÖØ¸´´¥·¢µÄ´ÎÊý£¬Òò´ËÐ§ÂÊÒª±ÈLTÄ£Ê½¸ß¡£epoll¹¤×÷ÔÚETÄ£Ê½µÄÊ±ºò£¬±ØÐëÊ¹ÓÃ·Ç×èÈûÌ×½Ó¿Ú£¬ÒÔ±ÜÃâÓÉÓÚÒ»¸öÎÄ¼þ¾ä±úµÄ×èÈû¶Á/×èÈûÐ´²Ù×÷°Ñ´¦Àí¶à¸öÎÄ¼þÃèÊö·ûµÄÈÎÎñ¶öËÀ¡£
+        ETÄ£Ê½ÔÚºÜ´ó³Ì¶ÈÉÏ¼õÉÙÁËepollÊÂ¼þ±»ÖØ¸´´¥·¢µÄ´ÎÊý£¬Òò´ËÐ§ÂÊÒª±ÈLTÄ£Ê½¸ß¡£epoll¹¤×÷ÔÚETÄ£Ê½µÄÊ±ºò£¬±ØÐëÊ¹ÓÃ·Ç×èÈûÌ×½Ó¿Ú£¬
+        ÒÔ±ÜÃâÓÉÓÚÒ»¸öÎÄ¼þ¾ä±úµÄ×èÈû¶Á/×èÈûÐ´²Ù×÷°Ñ´¦Àí¶à¸öÎÄ¼þÃèÊö·ûµÄÈÎÎñ¶öËÀ¡£
 
-    ÔÚselect/pollÖÐ£¬½ø³ÌÖ»ÓÐÔÚµ÷ÓÃÒ»¶¨µÄ·½·¨ºó£¬ÄÚºË²Å¶ÔËùÓÐ¼àÊÓµÄÎÄ¼þÃèÊö·û½øÐÐÉ¨Ãè£¬¶øepollÊÂÏÈÍ¨¹ýepoll_ctl()À´×¢²áÒ»¸öÎÄ¼þÃèÊö·û£¬Ò»µ©»ùÓÚÄ³¸öÎÄ¼þÃèÊö·û¾ÍÐ÷Ê±£¬ÄÚºË»á²ÉÓÃÀàËÆcallbackµÄ»Øµ÷»úÖÆ£¬Ñ¸ËÙ¼¤»îÕâ¸öÎÄ¼þÃèÊö·û£¬µ±½ø³Ìµ÷ÓÃepoll_wait()Ê±±ãµÃµ½Í¨Öª¡£(´Ë´¦È¥µôÁË±éÀúÎÄ¼þÃèÊö·û£¬¶øÊÇÍ¨¹ý¼àÌý»Øµ÷µÄµÄ»úÖÆ¡£ÕâÕýÊÇepollµÄ÷ÈÁ¦ËùÔÚ¡£)
+    ÔÚselect/pollÖÐ£¬½ø³ÌÖ»ÓÐÔÚµ÷ÓÃÒ»¶¨µÄ·½·¨ºó£¬ÄÚºË²Å¶ÔËùÓÐ¼àÊÓµÄÎÄ¼þÃèÊö·û½øÐÐÉ¨Ãè£¬¶øepollÊÂÏÈÍ¨¹ýepoll_ctl()À´×¢²áÒ»¸öÎÄ¼þÃèÊö·û£¬
+    Ò»µ©»ùÓÚÄ³¸öÎÄ¼þÃèÊö·û¾ÍÐ÷Ê±£¬ÄÚºË»á²ÉÓÃÀàËÆcallbackµÄ»Øµ÷»úÖÆ£¬Ñ¸ËÙ¼¤»îÕâ¸öÎÄ¼þÃèÊö·û£¬µ±½ø³Ìµ÷ÓÃepoll_wait()Ê±±ãµÃµ½Í¨Öª¡£
+    (´Ë´¦È¥µôÁË±éÀúÎÄ¼þÃèÊö·û£¬¶øÊÇÍ¨¹ý¼àÌý»Øµ÷µÄµÄ»úÖÆ¡£ÕâÕýÊÇepollµÄ÷ÈÁ¦ËùÔÚ¡£)
 
 ×¢Òâ£º
 
-    Èç¹ûÃ»ÓÐ´óÁ¿µÄidle-connection»òÕßdead-connection£¬epollµÄÐ§ÂÊ²¢²»»á±Èselect/poll¸ßºÜ¶à£¬µ«ÊÇµ±Óöµ½´óÁ¿µÄidle-connection£¬¾Í»á·¢ÏÖepollµÄÐ§ÂÊ´ó´ó¸ßÓÚselect/poll¡£
+    Èç¹ûÃ»ÓÐ´óÁ¿µÄidle-connection»òÕßdead-connection£¬epollµÄÐ§ÂÊ²¢²»»á±Èselect/poll¸ßºÜ¶à£¬µ«ÊÇµ±Óöµ½´óÁ¿µÄidle-connection£¬
+    ¾Í»á·¢ÏÖepollµÄÐ§ÂÊ´ó´ó¸ßÓÚselect/poll¡£
 
 ×ÛÉÏ£¬ÔÚÑ¡Ôñselect£¬poll£¬epollÊ±Òª¸ù¾Ý¾ßÌåµÄÊ¹ÓÃ³¡ºÏÒÔ¼°ÕâÈýÖÖ·½Ê½µÄ×ÔÉíÌØµã£º
 
-        ±íÃæÉÏ¿´epollµÄÐÔÄÜ×îºÃ£¬µ«ÊÇÔÚÁ¬½ÓÊýÉÙ²¢ÇÒÁ¬½Ó¶¼Ê®·Ö»îÔ¾µÄÇé¿öÏÂ£¬selectºÍpollµÄÐÔÄÜ¿ÉÄÜ±ÈepollºÃ£¬±Ï¾¹epollµÄÍ¨Öª»úÖÆÐèÒªºÜ¶àº¯Êý»Øµ÷¡£
+        ±íÃæÉÏ¿´epollµÄÐÔÄÜ×îºÃ£¬µ«ÊÇÔÚÁ¬½ÓÊýÉÙ²¢ÇÒÁ¬½Ó¶¼Ê®·Ö»îÔ¾µÄÇé¿öÏÂ£¬selectºÍpollµÄÐÔÄÜ¿ÉÄÜ±ÈepollºÃ£¬
+        ±Ï¾¹epollµÄÍ¨Öª»úÖÆÐèÒªºÜ¶àº¯Êý»Øµ÷¡£
 
         selectµÍÐ§ÊÇÒòÎªÃ¿´ÎËü¶¼ÐèÒªÂÖÑ¯¡£µ«µÍÐ§Ò²ÊÇÏà¶ÔµÄ£¬ÊÓÇé¿ö¶ø¶¨£¬Ò²¿ÉÍ¨¹ýÁ¼ºÃµÄÉè¼Æ¸ÄÉÆ¡£
 
@@ -655,14 +675,17 @@ accept¾ªÈººÍselect³åÍ»
 /*
 µÚÒ»£¬      Èô½«NULLÒÔÐÎ²Î´«Èë£¬¼´²»´«ÈëÊ±¼ä½á¹¹£¬¾ÍÊÇ½«selectÖÃÓÚ×èÈû×´Ì¬£¬Ò»¶¨µÈµ½¼àÊÓÎÄ¼þÃèÊö·û¼¯ºÏÖÐÄ³¸öÎÄ¼þÃèÊö·û·¢Éú±ä»¯ÎªÖ¹£»
 
-µÚ¶þ£¬      µÚ¶þ£¬Èô½«Ê±¼äÖµÉèÎª0Ãë0ºÁÃë£¬¾Í±ä³ÉÒ»¸ö´¿´âµÄ·Ç×èÈûº¯Êý£¬²»¹ÜÎÄ¼þÃèÊö·ûÊÇ·ñÓÐ±ä»¯£¬¶¼Á¢¿Ì·µ»Ø¼ÌÐøÖ´ÐÐ£¬ÎÄ¼þÎÞ±ä»¯·µ»Ø0£¬ÓÐ±ä»¯·µ»ØÒ»¸öÕýÖµ£»
+µÚ¶þ£¬      µÚ¶þ£¬Èô½«Ê±¼äÖµÉèÎª0Ãë0ºÁÃë£¬¾Í±ä³ÉÒ»¸ö´¿´âµÄ·Ç×èÈûº¯Êý£¬²»¹ÜÎÄ¼þÃèÊö·ûÊÇ·ñÓÐ±ä»¯£¬¶¼Á¢¿Ì·µ»Ø¼ÌÐøÖ´ÐÐ£¬ÎÄ¼þÎÞ±ä»¯·µ»Ø0£¬
+ÓÐ±ä»¯·µ»ØÒ»¸öÕýÖµ£»
 
-µÚÈý£¬      timeoutµÄÖµ´óÓÚ0£¬Õâ¾ÍÊÇµÈ´ýµÄ³¬Ê±Ê±¼ä£¬¼´selectÔÚtimeoutÊ±¼äÄÚ×èÈû£¬³¬Ê±Ê±¼äÖ®ÄÚÓÐÊÂ¼þµ½À´¾Í·µ»ØÁË£¬·ñÔòÔÚ³¬Ê±ºó²»¹ÜÔõÑùÒ»¶¨·µ»Ø£¬·µ»ØÖµÍ¬ÉÏÊö¡£
+µÚÈý£¬      timeoutµÄÖµ´óÓÚ0£¬Õâ¾ÍÊÇµÈ´ýµÄ³¬Ê±Ê±¼ä£¬¼´selectÔÚtimeoutÊ±¼äÄÚ×èÈû£¬³¬Ê±Ê±¼äÖ®ÄÚÓÐÊÂ¼þµ½À´¾Í·µ»ØÁË£¬
+·ñÔòÔÚ³¬Ê±ºó²»¹ÜÔõÑùÒ»¶¨·µ»Ø£¬·µ»ØÖµÍ¬ÉÏÊö¡£
 */
 
 /*
 ×¢ÒâÊÂÏî
-       1)  select()º¯Êý»áÊÜµ½O_NDELAY±ê¼ÇºÍO_NONBLOCK±ê¼ÇµÄÓ° Ïì£¬Èç¹ûsocketÊÇ×èÈûµÄsocket£¬Ôòµ÷ÓÃselect()¸ú²»µ÷ÓÃselect()Ê±µÄÐ§¹ûÊÇÒ»ÑùµÄ£¬socketÈÔÈ»ÊÇ×èÈûÊ½TCPÍ¨Ñ¶£¬Ïà ·´£¬Èç¹ûsocketÊÇ·Ç×èÈûµÄsocket£¬ÄÇÃ´µ÷ÓÃselect()Ê±¾Í¿ÉÒÔÊµÏÖ·Ç×èÈûÊ½TCPÍ¨Ñ¶£»
+       1)  select()º¯Êý»áÊÜµ½O_NDELAY±ê¼ÇºÍO_NONBLOCK±ê¼ÇµÄÓ° Ïì£¬Èç¹ûsocketÊÇ×èÈûµÄsocket£¬Ôòµ÷ÓÃselect()¸ú²»µ÷ÓÃselect()Ê±µÄÐ§¹ûÊÇÒ»ÑùµÄ£¬
+       socketÈÔÈ»ÊÇ×èÈûÊ½TCPÍ¨Ñ¶£¬Ïà ·´£¬Èç¹ûsocketÊÇ·Ç×èÈûµÄsocket£¬ÄÇÃ´µ÷ÓÃselect()Ê±¾Í¿ÉÒÔÊµÏÖ·Ç×èÈûÊ½TCPÍ¨Ñ¶£»
 
        2)  fd_setÊÇÒ»¸öÎ»Êý×é£¬Æä´óÐ¡ÏÞÖÆÎª__FD_SETSIZE£¨1024£©£¬Î»Êý×éµÄÃ¿Ò»Î»´ú±íÆä¶ÔÓ¦µÄÃèÊö·ûÊÇ·ñÐèÒª±»¼ì²é
 
@@ -746,7 +769,8 @@ poll
 2.      ²ÎÊýËµÃ÷
 int poll ( struct pollfd * fds, unsigned int nfds, int timeout);
 
-ºÍselect()²»Ò»Ñù£¬poll()Ã»ÓÐÊ¹ÓÃµÍÐ§µÄÈý¸ö»ùÓÚÎ»µÄÎÄ¼þÃèÊö·ûset£¬¶øÊÇ²ÉÓÃÁËÒ»¸öµ¥¶ÀµÄ½á¹¹ÌåpollfdÊý×é£¬ÓÉfdsÖ¸ÕëÖ¸ÏòÕâ¸ö×é¡£pollfd½á¹¹Ìå¶¨ÒåÈçÏÂ£º
+ºÍselect()²»Ò»Ñù£¬poll()Ã»ÓÐÊ¹ÓÃµÍÐ§µÄÈý¸ö»ùÓÚÎ»µÄÎÄ¼þÃèÊö·ûset£¬¶øÊÇ²ÉÓÃÁËÒ»¸öµ¥¶ÀµÄ½á¹¹ÌåpollfdÊý×é£¬ÓÉfdsÖ¸ÕëÖ¸ÏòÕâ¸ö×é¡£
+pollfd½á¹¹Ìå¶¨ÒåÈçÏÂ£º
 
  
 
@@ -764,9 +788,13 @@ short revents;        Êµ¼Ê·¢ÉúÁËµÄÊÂ¼þ
 
 typedef unsigned long   nfds_t;
 
-struct pollfd * fds£ºÊÇÒ»¸östruct pollfd½á¹¹ÀàÐÍµÄÊý×é£¬ÓÃÓÚ´æ·ÅÐèÒª¼ì²âÆä×´Ì¬µÄsocketÃèÊö·û£»Ã¿µ±µ÷ÓÃÕâ¸öº¯ÊýÖ®ºó£¬ÏµÍ³²»ÐèÒªÇå¿ÕÕâ¸öÊý×é£¬²Ù×÷ÆðÀ´±È½Ï·½±ã£»ÌØ±ðÊÇ¶ÔÓÚ socketÁ¬½Ó±È½Ï¶àµÄÇé¿öÏÂ£¬ÔÚÒ»¶¨³Ì¶ÈÉÏ¿ÉÒÔÌá¸ß´¦ÀíµÄÐ§ÂÊ£»ÕâÒ»µãÓëselect()º¯Êý²»Í¬£¬µ÷ÓÃselect()º¯ÊýÖ®ºó£¬select() º¯ÊýÐèÒªÇå¿ÕËüËù¼ì²âµÄsocketÃèÊö·û¼¯ºÏ£¬µ¼ÖÂÃ¿´Îµ÷ÓÃselect()Ö®Ç°¶¼±ØÐë°ÑsocketÃèÊö·ûÖØÐÂ¼ÓÈëµ½´ý¼ì²âµÄ¼¯ºÏÖÐ£»Òò´Ë£¬select()º¯ÊýÊÊºÏÓÚÖ»¼ì²âÉÙÁ¿socketÃèÊö·ûµÄÇé¿ö£¬¶øpoll()º¯ÊýÊÊºÏÓÚ´óÁ¿socketÃèÊö·ûµÄÇé¿ö£»
+struct pollfd * fds£ºÊÇÒ»¸östruct pollfd½á¹¹ÀàÐÍµÄÊý×é£¬ÓÃÓÚ´æ·ÅÐèÒª¼ì²âÆä×´Ì¬µÄsocketÃèÊö·û£»Ã¿µ±µ÷ÓÃÕâ¸öº¯ÊýÖ®ºó£¬
+ÏµÍ³²»ÐèÒªÇå¿ÕÕâ¸öÊý×é£¬²Ù×÷ÆðÀ´±È½Ï·½±ã£»ÌØ±ðÊÇ¶ÔÓÚ socketÁ¬½Ó±È½Ï¶àµÄÇé¿öÏÂ£¬ÔÚÒ»¶¨³Ì¶ÈÉÏ¿ÉÒÔÌá¸ß´¦ÀíµÄÐ§ÂÊ£»ÕâÒ»µãÓëselect()º¯Êý²»Í¬£¬
+µ÷ÓÃselect()º¯ÊýÖ®ºó£¬select() º¯ÊýÐèÒªÇå¿ÕËüËù¼ì²âµÄsocketÃèÊö·û¼¯ºÏ£¬µ¼ÖÂÃ¿´Îµ÷ÓÃselect()Ö®Ç°¶¼±ØÐë°ÑsocketÃèÊö·ûÖØÐÂ¼ÓÈëµ½´ý¼ì²âµÄ¼¯ºÏÖÐ£»
+Òò´Ë£¬select()º¯ÊýÊÊºÏÓÚÖ»¼ì²âÉÙÁ¿socketÃèÊö·ûµÄÇé¿ö£¬¶øpoll()º¯ÊýÊÊºÏÓÚ´óÁ¿socketÃèÊö·ûµÄÇé¿ö£»
 
-    Èç¹û´ý¼ì²âµÄsocketÃèÊö·ûÎª¸ºÖµ£¬Ôò¶ÔÕâ¸öÃèÊö·ûµÄ¼ì²â¾Í»á±»ºöÂÔ£¬Ò²¾ÍÊÇ²»»á¶Ô³ÉÔ±±äÁ¿events½øÐÐ¼ì²â£¬ÔÚeventsÉÏ×¢²áµÄÊÂ¼þÒ²»á±»ºöÂÔ£¬poll()º¯Êý·µ»ØµÄÊ±ºò£¬»á°Ñ³ÉÔ±±äÁ¿reventsÉèÖÃÎª0£¬±íÊ¾Ã»ÓÐÊÂ¼þ·¢Éú£»
+    Èç¹û´ý¼ì²âµÄsocketÃèÊö·ûÎª¸ºÖµ£¬Ôò¶ÔÕâ¸öÃèÊö·ûµÄ¼ì²â¾Í»á±»ºöÂÔ£¬Ò²¾ÍÊÇ²»»á¶Ô³ÉÔ±±äÁ¿events½øÐÐ¼ì²â£¬ÔÚeventsÉÏ×¢²áµÄÊÂ¼þÒ²»á±»ºöÂÔ£¬
+    poll()º¯Êý·µ»ØµÄÊ±ºò£¬»á°Ñ³ÉÔ±±äÁ¿reventsÉèÖÃÎª0£¬±íÊ¾Ã»ÓÐÊÂ¼þ·¢Éú£»
 
  
 
@@ -862,12 +890,14 @@ timeout£ºÊÇpollº¯Êýµ÷ÓÃ×èÈûµÄÊ±¼ä£¬µ¥Î»£ººÁÃë£»
 
 Èç¹ûtimeout==0£¬ÄÇÃ´ poll() º¯ÊýÁ¢¼´·µ»Ø¶ø²»×èÈû£¬
 
-Èç¹ûtimeout==INFTIM£¬ÄÇÃ´poll() º¯Êý»áÒ»Ö±×èÈûÏÂÈ¥£¬Ö±µ½Ëù¼ì²âµÄsocketÃèÊö·ûÉÏµÄ¸ÐÐËÈ¤µÄÊÂ¼þ·¢ ÉúÊÇ²Å·µ»Ø£¬Èç¹û¸ÐÐËÈ¤µÄÊÂ¼þÓÀÔ¶²»·¢Éú£¬ÄÇÃ´poll()¾Í»áÓÀÔ¶×èÈûÏÂÈ¥£»
+Èç¹ûtimeout==INFTIM£¬ÄÇÃ´poll() º¯Êý»áÒ»Ö±×èÈûÏÂÈ¥£¬Ö±µ½Ëù¼ì²âµÄsocketÃèÊö·ûÉÏµÄ¸ÐÐËÈ¤µÄÊÂ¼þ·¢ ÉúÊÇ²Å·µ»Ø£¬Èç¹û¸ÐÐËÈ¤µÄÊÂ¼þÓÀÔ¶²»·¢Éú£¬
+ÄÇÃ´poll()¾Í»áÓÀÔ¶×èÈûÏÂÈ¥£»
 
 3.      ·µ»ØÖµ:
 >0£ºÊý×éfdsÖÐ×¼±¸ºÃ¶Á¡¢Ð´»ò³ö´í×´Ì¬µÄÄÇÐ©socketÃèÊö·ûµÄ×ÜÊýÁ¿£»
 
-==0£ºÊý×éfdsÖÐÃ»ÓÐÈÎºÎsocketÃèÊö·û×¼±¸ºÃ¶Á¡¢Ð´£¬»ò³ö´í£»´ËÊ±poll³¬Ê±£¬³¬Ê±Ê±¼äÊÇtimeoutºÁÃë£»»»¾ä»°Ëµ£¬Èç¹ûËù¼ì²âµÄ socketÃèÊö·ûÉÏÃ»ÓÐÈÎºÎÊÂ¼þ·¢ÉúµÄ»°£¬ÄÇÃ´poll()º¯Êý»á×èÈûtimeoutËùÖ¸¶¨µÄºÁÃëÊ±¼ä³¤¶ÈÖ®ºó·µ»Ø£¬
+==0£ºÊý×éfdsÖÐÃ»ÓÐÈÎºÎsocketÃèÊö·û×¼±¸ºÃ¶Á¡¢Ð´£¬»ò³ö´í£»´ËÊ±poll³¬Ê±£¬³¬Ê±Ê±¼äÊÇtimeoutºÁÃë£»»»¾ä»°Ëµ£¬Èç¹ûËù¼ì²âµÄ 
+socketÃèÊö·ûÉÏÃ»ÓÐÈÎºÎÊÂ¼þ·¢ÉúµÄ»°£¬ÄÇÃ´poll()º¯Êý»á×èÈûtimeoutËùÖ¸¶¨µÄºÁÃëÊ±¼ä³¤¶ÈÖ®ºó·µ»Ø£¬
 
 -1£º pollº¯Êýµ÷ÓÃÊ§°Ü£¬Í¬Ê±»á×Ô¶¯ÉèÖÃÈ«¾Ö±äÁ¿errno£»errnoÎªÏÂÁÐÖµÖ®Ò»£º
 
@@ -889,18 +919,24 @@ pollÊÇÒ»¸öÏµÍ³µ÷ÓÃ£¬ÆäÄÚºËÈë¿Úº¯ÊýÎªsys_poll£¬sys_poll¼¸ºõ²»×öÈÎºÎ´¦ÀíÖ±½Óµ÷ÓÃdo
 
  
 
-    1)£¬½«ÓÃ»§´«ÈëµÄpollfdÊý×é¿½±´µ½ÄÚºË¿Õ¼ä£¬Òò´Ë¿½±´²Ù×÷ºÍÊý×é³¤¶ÈÏà¹Ø£¬Ê±¼äÉÏÕâÊÇÒ»¸öO£¨n£©²Ù×÷£¬ÕâÒ»²½µÄ´úÂëÔÚdo_sys_pollÖÐ°üÀ¨´Óº¯Êý¿ªÊ¼µ½µ÷ÓÃdo_pollÇ°µÄ²¿·Ö¡£
+    1)£¬½«ÓÃ»§´«ÈëµÄpollfdÊý×é¿½±´µ½ÄÚºË¿Õ¼ä£¬Òò´Ë¿½±´²Ù×÷ºÍÊý×é³¤¶ÈÏà¹Ø£¬Ê±¼äÉÏÕâÊÇÒ»¸öO£¨n£©²Ù×÷£¬
+    ÕâÒ»²½µÄ´úÂëÔÚdo_sys_pollÖÐ°üÀ¨´Óº¯Êý¿ªÊ¼µ½µ÷ÓÃdo_pollÇ°µÄ²¿·Ö¡£
 
  
 
-    2)£¬²éÑ¯Ã¿¸öÎÄ¼þÃèÊö·û¶ÔÓ¦Éè±¸µÄ×´Ì¬£¬Èç¹û¸ÃÉè±¸ÉÐÎ´¾ÍÐ÷£¬ÔòÔÚ¸ÃÉè±¸µÄµÈ´ý¶ÓÁÐÖÐ¼ÓÈëÒ»Ïî²¢¼ÌÐø²éÑ¯ÏÂÒ»Éè±¸µÄ×´Ì¬¡£²éÑ¯ÍêËùÓÐÉè±¸ºóÈç¹ûÃ»ÓÐÒ»¸öÉè±¸¾ÍÐ÷£¬ÕâÊ±ÔòÐèÒª¹ÒÆðµ±Ç°½ø³ÌµÈ´ý£¬Ö±µ½Éè±¸¾ÍÐ÷»òÕß³¬Ê±£¬¹ÒÆð²Ù×÷ÊÇÍ¨¹ýµ÷ÓÃschedule_timeoutÖ´ÐÐµÄ¡£Éè±¸¾ÍÐ÷ºó½ø³Ì±»Í¨Öª¼ÌÐøÔËÐÐ£¬ÕâÊ±ÔÙ´Î±éÀúËùÓÐÉè±¸£¬ÒÔ²éÕÒ¾ÍÐ÷Éè±¸¡£ÕâÒ»²½ÒòÎªÁ½´Î±éÀúËùÓÐÉè±¸£¬Ê±¼ä¸´ÔÓ¶ÈÒ²ÊÇO£¨n£©£¬ÕâÀïÃæ²»°üÀ¨µÈ´ýÊ±¼ä¡£Ïà¹Ø´úÂëÔÚdo_pollº¯ÊýÖÐ¡£
+    2)£¬²éÑ¯Ã¿¸öÎÄ¼þÃèÊö·û¶ÔÓ¦Éè±¸µÄ×´Ì¬£¬Èç¹û¸ÃÉè±¸ÉÐÎ´¾ÍÐ÷£¬ÔòÔÚ¸ÃÉè±¸µÄµÈ´ý¶ÓÁÐÖÐ¼ÓÈëÒ»Ïî²¢¼ÌÐø²éÑ¯ÏÂÒ»Éè±¸µÄ×´Ì¬¡£
+    ²éÑ¯ÍêËùÓÐÉè±¸ºóÈç¹ûÃ»ÓÐÒ»¸öÉè±¸¾ÍÐ÷£¬ÕâÊ±ÔòÐèÒª¹ÒÆðµ±Ç°½ø³ÌµÈ´ý£¬Ö±µ½Éè±¸¾ÍÐ÷»òÕß³¬Ê±£¬¹ÒÆð²Ù×÷ÊÇÍ¨¹ýµ÷ÓÃschedule_timeoutÖ´ÐÐµÄ¡£
+    Éè±¸¾ÍÐ÷ºó½ø³Ì±»Í¨Öª¼ÌÐøÔËÐÐ£¬ÕâÊ±ÔÙ´Î±éÀúËùÓÐÉè±¸£¬ÒÔ²éÕÒ¾ÍÐ÷Éè±¸¡£ÕâÒ»²½ÒòÎªÁ½´Î±éÀúËùÓÐÉè±¸£¬Ê±¼ä¸´ÔÓ¶ÈÒ²ÊÇO£¨n£©£¬
+    ÕâÀïÃæ²»°üÀ¨µÈ´ýÊ±¼ä¡£Ïà¹Ø´úÂëÔÚdo_pollº¯ÊýÖÐ¡£
 
  
 
-    3)£¬½«»ñµÃµÄÊý¾Ý´«ËÍµ½ÓÃ»§¿Õ¼ä²¢Ö´ÐÐÊÍ·ÅÄÚ´æºÍ°þÀëµÈ´ý¶ÓÁÐµÈÉÆºó¹¤×÷£¬ÏòÓÃ»§¿Õ¼ä¿½±´Êý¾ÝÓë°þÀëµÈ´ý¶ÓÁÐµÈ²Ù×÷µÄµÄÊ±¼ä¸´ÔÓ¶ÈÍ¬ÑùÊÇO£¨n£©£¬¾ßÌå´úÂë°üÀ¨do_sys_pollº¯ÊýÖÐµ÷ÓÃdo_pollºóµ½½áÊøµÄ²¿·Ö¡£
+    3)£¬½«»ñµÃµÄÊý¾Ý´«ËÍµ½ÓÃ»§¿Õ¼ä²¢Ö´ÐÐÊÍ·ÅÄÚ´æºÍ°þÀëµÈ´ý¶ÓÁÐµÈÉÆºó¹¤×÷£¬ÏòÓÃ»§¿Õ¼ä¿½±´Êý¾ÝÓë°þÀëµÈ´ý¶ÓÁÐµÈ²Ù×÷µÄµÄÊ±¼ä¸´ÔÓ¶ÈÍ¬ÑùÊÇO£¨n£©£¬
+    ¾ßÌå´úÂë°üÀ¨do_sys_pollº¯ÊýÖÐµ÷ÓÃdo_pollºóµ½½áÊøµÄ²¿·Ö¡£
 
 6.      ×¢ÒâÊÂÏî
-       1). poll() º¯Êý²»»áÊÜµ½socketÃèÊö·ûÉÏµÄO_NDELAY±ê¼ÇºÍO_NONBLOCK±ê¼ÇµÄÓ°ÏìºÍÖÆÔ¼£¬Ò²¾ÍÊÇËµ£¬²»¹ÜsocketÊÇ×èÈûµÄ»¹ÊÇ·Ç×èÈû µÄ£¬poll()º¯Êý¶¼²»»áÊÕµ½Ó°Ïì£»
+       1). poll() º¯Êý²»»áÊÜµ½socketÃèÊö·ûÉÏµÄO_NDELAY±ê¼ÇºÍO_NONBLOCK±ê¼ÇµÄÓ°ÏìºÍÖÆÔ¼£¬Ò²¾ÍÊÇËµ£¬²»¹ÜsocketÊÇ×èÈûµÄ»¹ÊÇ·Ç×èÈû µÄ£¬
+       poll()º¯Êý¶¼²»»áÊÕµ½Ó°Ïì£»
 
        2). poll()º¯ÊýÔòÖ»ÓÐ¸ö±ðµÄµÄ²Ù×÷ÏµÍ³Ìá¹©Ö§³Ö(Èç£ºSunOS¡¢Solaris¡¢AIX¡¢HPÌá¹© Ö§³Ö£¬µ«ÊÇLinux²»Ìá¹©Ö§³Ö)£¬¿ÉÒÆÖ²ÐÔ²î£»
 
@@ -1062,7 +1098,9 @@ int32 netTcpSockPollMultiIOServer(int32 port, int32 timeDelay, uint8 *ipAddr, ne
 
 /*
 epoll
-epollÊÇÒ»ÖÖ¸ßÐ§µÄ¹ÜÀísocketµÄÄ£ÐÍ£¬Ïà¶ÔÓÚselectºÍpollÀ´Ëµ¾ßÓÐ¸ü¸ßµÄÐ§ÂÊºÍÒ×ÓÃÐÔ¡£´«Í³µÄselectÒÔ¼°pollµÄÐ§ÂÊ»áËæsocketÊýÁ¿µÄÏßÐÎµÝÔö¶ø³Ê¶þ´ÎÄËÖÁÈý´Î·½µÄÏÂ½µ£¬¶øepollµÄÐÔÄÜ²»»áËæsocketÊýÁ¿Ôö¼Ó¶øÏÂ½µ¡£±ê×¼µÄlinux-2.4.20ÄÚºË²»Ö§³Öepoll£¬ÐèÒª´òpatch¡£±¾ÎÄÖ÷Òª´Ólinux-2.4.32ºÍlinux-2.6.10Á½¸öÄÚºË°æ±¾½éÉÜepoll¡£
+epollÊÇÒ»ÖÖ¸ßÐ§µÄ¹ÜÀísocketµÄÄ£ÐÍ£¬Ïà¶ÔÓÚselectºÍpollÀ´Ëµ¾ßÓÐ¸ü¸ßµÄÐ§ÂÊºÍÒ×ÓÃÐÔ¡£
+´«Í³µÄselectÒÔ¼°pollµÄÐ§ÂÊ»áËæsocketÊýÁ¿µÄÏßÐÎµÝÔö¶ø³Ê¶þ´ÎÄËÖÁÈý´Î·½µÄÏÂ½µ£¬¶øepollµÄÐÔÄÜ²»»áËæsocketÊýÁ¿Ôö¼Ó¶øÏÂ½µ¡£
+±ê×¼µÄlinux-2.4.20ÄÚºË²»Ö§³Öepoll£¬ÐèÒª´òpatch¡£±¾ÎÄÖ÷Òª´Ólinux-2.4.32ºÍlinux-2.6.10Á½¸öÄÚºË°æ±¾½éÉÜepoll¡£
 1.      Í·ÎÄ¼þ
 
 #include <sys/epoll.h>
@@ -1106,7 +1144,9 @@ epoll_data_t data;    / User data variable /
 
 epoll_event ½á¹¹Ìå±»ÓÃÓÚ×¢²áËù¸ÐÐËÈ¤µÄÊÂ¼þºÍ»Ø´«Ëù·¢Éú´ý´¦ÀíµÄÊÂ¼þ£¬ÆäÖÐ
 
-epoll_data_t ÁªºÏÌåÓÃÀ´±£´æ´¥·¢ÊÂ¼þµÄÄ³¸öÎÄ¼þÃèÊö·ûÏà¹ØµÄÊý¾Ý£¬ÀýÈçÒ»¸öclientÁ¬½Óµ½·þÎñÆ÷£¬·þÎñÆ÷Í¨¹ýµ÷ÓÃacceptº¯Êý¿ÉÒÔµÃµ½ÓÚÕâ¸öclient¶ÔÓ¦µÄsocketÎÄ¼þÃèÊö·û£¬¿ÉÒÔ°ÑÕâÎÄ¼þÃèÊö·û¸³¸øepoll_dataµÄfd×Ö¶ÎÒÔ±ãºóÃæµÄ¶ÁÐ´²Ù×÷ÔÚÕâ¸öÎÄ¼þÃèÊö·ûÉÏ½øÐÐ¡£
+epoll_data_t ÁªºÏÌåÓÃÀ´±£´æ´¥·¢ÊÂ¼þµÄÄ³¸öÎÄ¼þÃèÊö·ûÏà¹ØµÄÊý¾Ý£¬ÀýÈçÒ»¸öclientÁ¬½Óµ½·þÎñÆ÷£¬
+·þÎñÆ÷Í¨¹ýµ÷ÓÃacceptº¯Êý¿ÉÒÔµÃµ½ÓÚÕâ¸öclient¶ÔÓ¦µÄsocketÎÄ¼þÃèÊö·û£¬
+¿ÉÒÔ°ÑÕâÎÄ¼þÃèÊö·û¸³¸øepoll_dataµÄfd×Ö¶ÎÒÔ±ãºóÃæµÄ¶ÁÐ´²Ù×÷ÔÚÕâ¸öÎÄ¼þÃèÊö·ûÉÏ½øÐÐ¡£
 
 events×Ö¶ÎÊÇ±íÊ¾¸ÐÐËÈ¤µÄÊÂ¼þºÍ±»´¥·¢µÄÊÂ¼þ¡£¿ÉÄÜµÄÈ¡ÖµÎª£º
 
@@ -1132,7 +1172,9 @@ epoll²»ÔÙÊÇÒ»¸öµ¥¶ÀµÄÏµÍ³µ÷ÓÃ£¬¶øÊÇÓÉepoll_create/epoll_ctl/epoll_waitÈý¸öÏµÍ³µ÷
 
    
 
-¸Ãº¯ÊýÉú³ÉÒ»¸öepoll×¨ÓÃµÄÎÄ¼þÃèÊö·û£¬ÆäÖÐµÄ²ÎÊýÊÇÖ¸¶¨Éú³ÉÃèÊö·ûµÄ×î´ó·¶Î§¡£ÔÚlinux-2.4.32ÄÚºËÖÐ¸ù¾Ýsize´óÐ¡³õÊ¼»¯¹þÏ£±íµÄ´óÐ¡£¬ÔÚlinux2.6.10ÄÚºËÖÐ¸Ã²ÎÊýÎÞÓÃ£¬Ê¹ÓÃºìºÚÊ÷¹ÜÀíËùÓÐµÄÎÄ¼þÃèÊö·û£¬¶ø²»ÊÇhash¡£ÆäÊµÊÇÉêÇëÒ»¸öÄÚºË¿Õ¼ä£¬ÓÃÀ´´æ·ÅÄãÏë¹Ø×¢µÄsocket fdÉÏÊÇ·ñ·¢ÉúÒÔ¼°·¢ÉúÁËÊ²Ã´ÊÂ¼þ¡£
+¸Ãº¯ÊýÉú³ÉÒ»¸öepoll×¨ÓÃµÄÎÄ¼þÃèÊö·û£¬ÆäÖÐµÄ²ÎÊýÊÇÖ¸¶¨Éú³ÉÃèÊö·ûµÄ×î´ó·¶Î§¡£
+ÔÚlinux-2.4.32ÄÚºËÖÐ¸ù¾Ýsize´óÐ¡³õÊ¼»¯¹þÏ£±íµÄ´óÐ¡£¬ÔÚlinux2.6.10ÄÚºËÖÐ¸Ã²ÎÊýÎÞÓÃ£¬
+Ê¹ÓÃºìºÚÊ÷¹ÜÀíËùÓÐµÄÎÄ¼þÃèÊö·û£¬¶ø²»ÊÇhash¡£ÆäÊµÊÇÉêÇëÒ»¸öÄÚºË¿Õ¼ä£¬ÓÃÀ´´æ·ÅÄãÏë¹Ø×¢µÄsocket fdÉÏÊÇ·ñ·¢ÉúÒÔ¼°·¢ÉúÁËÊ²Ã´ÊÂ¼þ¡£
 
 ÔÚÓÃÍêÖ®ºó£¬¼ÇµÃÓÃclose()À´¹Ø±ÕÕâ¸ö´´½¨³öÀ´µÄepoll¾ä±ú¡£
 3.2.         epoll_ctlº¯Êý
@@ -1170,7 +1212,8 @@ event£ºÖ¸Ïòepoll_eventµÄÖ¸Õë£»
 
 ¸Ãº¯ÊýÓÃÓÚÂÖÑ¯I/OÊÂ¼þµÄ·¢Éú£¬À´²éÑ¯ËùÓÐµÄÍøÂç½Ó¿Ú£¬¿´ÄÄÒ»¸ö¿ÉÒÔ¶Á£¬ÄÄÒ»¸ö¿ÉÒÔÐ´ÁË¡£Ïà¶ÔÓÚselectÄ£ÐÍÖÐµÄselectº¯Êý¡£
 
-Ò»°ãÈç¹ûÍøÂçÖ÷Ñ­»·ÊÇµ¥¶ÀµÄÏß³ÌµÄ»°£¬¿ÉÒÔÓÃ-1À´µÈ£¬ÕâÑù¿ÉÒÔ±£Ö¤Ò»Ð©Ð§ÂÊ£¬Èç¹ûÊÇºÍÖ÷Âß¼­ÔÚÍ¬Ò»¸öÏß³ÌµÄ»°£¬Ôò¿ÉÒÔÓÃ0À´±£Ö¤Ö÷Ñ­»·µÄÐ§ÂÊ¡£epoll_wait·¶Î§Ö®ºóÓ¦¸ÃÊÇÒ»¸öÑ­»·£¬±éÀûËùÓÐµÄÊÂ¼þ
+Ò»°ãÈç¹ûÍøÂçÖ÷Ñ­»·ÊÇµ¥¶ÀµÄÏß³ÌµÄ»°£¬¿ÉÒÔÓÃ-1À´µÈ£¬ÕâÑù¿ÉÒÔ±£Ö¤Ò»Ð©Ð§ÂÊ£¬Èç¹ûÊÇºÍÖ÷Âß¼­ÔÚÍ¬Ò»¸öÏß³ÌµÄ»°£¬
+Ôò¿ÉÒÔÓÃ0À´±£Ö¤Ö÷Ñ­»·µÄÐ§ÂÊ¡£epoll_wait·¶Î§Ö®ºóÓ¦¸ÃÊÇÒ»¸öÑ­»·£¬±éÀûËùÓÐµÄÊÂ¼þ
 
  
 
@@ -1209,7 +1252,8 @@ eg£º
 
 5)£® Ò»´Îepoll_waitµ÷ÓÃÍê³É
 
-Èç¹ûÊÇETÄ£Ê½£¬¹ÜµÀÖÐÊ£ÓàµÄ1KB±»¹ÒÆð£¬ÔÙ´Îµ÷ÓÃepoll_wait£¬µÃ²»µ½¹ÜµÀ¶ÁÕßµÄÎÄ¼þ¾ä±ú£¬³ý·ÇÓÐÐÂµÄÊý¾ÝÐ´Èë¹ÜµÀ¡£Èç¹ûÊÇLTÄ£Ê½£¬Ö»Òª¹ÜµÀÖÐÓÐÊý¾Ý¿É¶Á£¬Ã¿´Îµ÷ÓÃepoll_wait¶¼»á´¥·¢¡£
+Èç¹ûÊÇETÄ£Ê½£¬¹ÜµÀÖÐÊ£ÓàµÄ1KB±»¹ÒÆð£¬ÔÙ´Îµ÷ÓÃepoll_wait£¬µÃ²»µ½¹ÜµÀ¶ÁÕßµÄÎÄ¼þ¾ä±ú£¬³ý·ÇÓÐÐÂµÄÊý¾ÝÐ´Èë¹ÜµÀ¡£
+Èç¹ûÊÇLTÄ£Ê½£¬Ö»Òª¹ÜµÀÖÐÓÐÊý¾Ý¿É¶Á£¬Ã¿´Îµ÷ÓÃepoll_wait¶¼»á´¥·¢¡£
 
  
 
@@ -1218,7 +1262,8 @@ eg£º
  
 5.      epollµÄÊµÏÖ
 
-epollµÄÔ´ÎÄ¼þÔÚ/usr/src/linux/fs/eventpoll.c£¬ÔÚmodule_initÊ±×¢²áÒ»¸öÎÄ¼þÏµÍ³ eventpoll_fs_type£¬¶Ô¸ÃÎÄ¼þÏµÍ³Ìá¹©Á½ÖÖ²Ù×÷pollºÍrelease£¬ËùÒÔepoll_create·µ»ØµÄÎÄ¼þ¾ä±ú¿ÉÒÔ±»poll¡¢ select»òÕß±»ÆäËüepoll epoll_wait¡£¶ÔepollµÄ²Ù×÷Ö÷ÒªÍ¨¹ýÈý¸öÏµÍ³µ÷ÓÃÊµÏÖ£º
+epollµÄÔ´ÎÄ¼þÔÚ/usr/src/linux/fs/eventpoll.c£¬ÔÚmodule_initÊ±×¢²áÒ»¸öÎÄ¼þÏµÍ³ eventpoll_fs_type£¬¶Ô¸ÃÎÄ¼þÏµÍ³Ìá¹©Á½ÖÖ²Ù×÷pollºÍrelease£¬
+ËùÒÔepoll_create·µ»ØµÄÎÄ¼þ¾ä±ú¿ÉÒÔ±»poll¡¢ select»òÕß±»ÆäËüepoll epoll_wait¡£¶ÔepollµÄ²Ù×÷Ö÷ÒªÍ¨¹ýÈý¸öÏµÍ³µ÷ÓÃÊµÏÖ£º
 
 1)£® sys_epoll_create
 
@@ -1230,9 +1275,11 @@ epollµÄÔ´ÎÄ¼þÔÚ/usr/src/linux/fs/eventpoll.c£¬ÔÚmodule_initÊ±×¢²áÒ»¸öÎÄ¼þÏµÍ³ ev
 
 1)£® long sys_epoll_create (int size)
 
-sys_epoll_create(epoll_create¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬Õâ¸öº¯ÊýÖ÷ÒªÊÇ×öÒ»Ð©×¼±¸¹¤×÷£¬±ÈÈç´´½¨Êý¾Ý½á¹¹£¬³õÊ¼»¯Êý¾Ý²¢×îÖÕ·µ»ØÒ»¸öÎÄ¼þÃèÊö·û£¨±íÊ¾ÐÂ´´½¨µÄÐéÄâepollÎÄ¼þ£©£¬Õâ¸ö²Ù×÷¿ÉÒÔÈÏÎªÊÇÒ»¸ö¹Ì¶¨Ê±¼äµÄ²Ù×÷¡£¸ÃÏµÍ³µ÷ÓÃÖ÷Òª·ÖÅäÎÄ¼þ¾ä±ú¡¢inodeÒÔ¼°file½á¹¹¡£
+sys_epoll_create(epoll_create¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬Õâ¸öº¯ÊýÖ÷ÒªÊÇ×öÒ»Ð©×¼±¸¹¤×÷£¬±ÈÈç´´½¨Êý¾Ý½á¹¹£¬³õÊ¼»¯Êý¾Ý²¢×îÖÕ·µ»ØÒ»¸öÎÄ¼þÃèÊö·û
+£¨±íÊ¾ÐÂ´´½¨µÄÐéÄâepollÎÄ¼þ£©£¬Õâ¸ö²Ù×÷¿ÉÒÔÈÏÎªÊÇÒ»¸ö¹Ì¶¨Ê±¼äµÄ²Ù×÷¡£¸ÃÏµÍ³µ÷ÓÃÖ÷Òª·ÖÅäÎÄ¼þ¾ä±ú¡¢inodeÒÔ¼°file½á¹¹¡£
 
-ÔÚlinux-2.4.32ÄÚºËÖÐ£¬Ê¹ÓÃhash±£´æËùÓÐ×¢²áµ½¸ÃepollµÄÎÄ¼þ¾ä±ú£¬ÔÚ¸ÃÏµÍ³µ÷ÓÃÖÐ¸ù¾Ýsize´óÐ¡·ÖÅähashµÄ´óÐ¡¡£¾ßÌåÎª²»Ð¡ÓÚsize£¬µ«Ð¡ÓÚ2sizeµÄ2µÄÄ³´Î·½¡£×îÐ¡Îª2µÄ9´Î·½£¨512£©£¬×î´óÎª2µÄ17´Î·½ £¨128 x 1024£©¡£
+ÔÚlinux-2.4.32ÄÚºËÖÐ£¬Ê¹ÓÃhash±£´æËùÓÐ×¢²áµ½¸ÃepollµÄÎÄ¼þ¾ä±ú£¬ÔÚ¸ÃÏµÍ³µ÷ÓÃÖÐ¸ù¾Ýsize´óÐ¡·ÖÅähashµÄ´óÐ¡¡£¾ßÌåÎª²»Ð¡ÓÚsize£¬
+µ«Ð¡ÓÚ2sizeµÄ2µÄÄ³´Î·½¡£×îÐ¡Îª2µÄ9´Î·½£¨512£©£¬×î´óÎª2µÄ17´Î·½ £¨128 x 1024£©¡£
 
 ÔÚlinux-2.6.10ÄÚºËÖÐ£¬Ê¹ÓÃºìºÚÊ÷±£´æËùÓÐ×¢²áµ½¸ÃepollµÄÎÄ¼þ¾ä±ú£¬size²ÎÊýÎ´Ê¹ÓÃ£¬Ö»Òª´óÓÚÁã¾ÍÐÐ¡£
 
@@ -1254,7 +1301,9 @@ epollÊÇ×öÎªÒ»¸öÐéÄâÎÄ¼þÏµÍ³À´ÊµÏÖµÄ£¬ÕâÑù×öÖÁÉÙÓÐÒÔÏÂÁ½¸öºÃ´¦£º
 
  
 
-sys_epoll_ctl(epoll_ctl¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬ÐèÒªÃ÷È·µÄÊÇÃ¿´Îµ÷ÓÃsys_epoll_ctlÖ»´¦ÀíÒ»¸öÎÄ¼þÃèÊö·û£¬ÕâÀïÖ÷ÒªÃèÊöµ±opÎªEPOLL_CTL_ADDÊ±µÄÖ´ÐÐ¹ý³Ì£¬sys_epoll_ctl×öÒ»Ð©°²È«ÐÔ¼ì²éºó½øÈëep_insert£¬ep_insertÀï½« ep_poll_callback×öÎª»Øµôº¯Êý¼ÓÈëÉè±¸µÄµÈ´ý¶ÓÁÐ£¨¼Ù¶¨ÕâÊ±Éè±¸ÉÐÎ´¾ÍÐ÷£©£¬ÓÉÓÚÃ¿´Îpoll_ctlÖ»²Ù×÷Ò»¸öÎÄ¼þÃèÊö·û£¬Òò´ËÒ²¿ÉÒÔÈÏÎªÕâÊÇÒ»¸öO(1)²Ù×÷¡£
+sys_epoll_ctl(epoll_ctl¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬ÐèÒªÃ÷È·µÄÊÇÃ¿´Îµ÷ÓÃsys_epoll_ctlÖ»´¦ÀíÒ»¸öÎÄ¼þÃèÊö·û£¬ÕâÀïÖ÷ÒªÃèÊöµ±opÎªEPOLL_CTL_ADDÊ±µÄÖ´ÐÐ¹ý³Ì£¬
+sys_epoll_ctl×öÒ»Ð©°²È«ÐÔ¼ì²éºó½øÈëep_insert£¬ep_insertÀï½« ep_poll_callback×öÎª»Øµôº¯Êý¼ÓÈëÉè±¸µÄµÈ´ý¶ÓÁÐ£¨¼Ù¶¨ÕâÊ±Éè±¸ÉÐÎ´¾ÍÐ÷£©£¬
+ÓÉÓÚÃ¿´Îpoll_ctlÖ»²Ù×÷Ò»¸öÎÄ¼þÃèÊö·û£¬Òò´ËÒ²¿ÉÒÔÈÏÎªÕâÊÇÒ»¸öO(1)²Ù×÷¡£
 
     ep_poll_callbackº¯ÊýºÜ¹Ø¼ü£¬ËüÔÚËùµÈ´ýµÄÉè±¸¾ÍÐ÷ºó±»ÏµÍ³»Øµô£¬Ö´ÐÐÁ½¸ö²Ù×÷£º
 
@@ -1294,15 +1343,18 @@ C£®¼ì²éfdµ±Ç°ÊÇ·ñÒÑ¾­ÓÐÆÚÍûµÄÊÂ¼þ²úÉú¡£Èç¹ûÓÐ£¬½«Æä¼ÓÈëµ½epollµÄ¾ÍÐ÷¶ÓÁÐÖÐ£¬»½ÐÑ
 
 Èç¹ûepollµÄ¾ÍÐ÷¶ÓÁÐÎª¿Õ£¬²¢ÇÒtimeout·Ç0£¬¹ÒÆðµ±Ç°½ø³Ì£¬ÒýÆðCPUµ÷¶È¡£
 
-Èç¹ûepollµÄ¾ÍÐ÷¶ÓÁÐ²»¿Õ£¬±éÀú¾ÍÐ÷¶ÓÁÐ¡£¶Ô¶ÓÁÐÖÐµÄÃ¿Ò»¸ö½Úµã£¬»ñÈ¡¸ÃÎÄ¼þÒÑ´¥·¢µÄÊÂ¼þ£¬ÅÐ¶ÏÆäÖÐÊÇ·ñÓÐÎÒÃÇÆÚ´ýµÄÊÂ¼þ£¬Èç¹ûÓÐ£¬½«Æä¶ÔÓ¦µÄepoll_event½á¹¹copyµ½ÓÃ»§events¡£
+Èç¹ûepollµÄ¾ÍÐ÷¶ÓÁÐ²»¿Õ£¬±éÀú¾ÍÐ÷¶ÓÁÐ¡£¶Ô¶ÓÁÐÖÐµÄÃ¿Ò»¸ö½Úµã£¬»ñÈ¡¸ÃÎÄ¼þÒÑ´¥·¢µÄÊÂ¼þ£¬ÅÐ¶ÏÆäÖÐÊÇ·ñÓÐÎÒÃÇÆÚ´ýµÄÊÂ¼þ£¬Èç¹ûÓÐ£¬
+½«Æä¶ÔÓ¦µÄepoll_event½á¹¹copyµ½ÓÃ»§events¡£
 
  
 
-   sys_epoll_wait£¬ÕâÀïÊµ¼ÊÖ´ÐÐ²Ù×÷µÄÊÇep_pollº¯Êý¡£¸Ãº¯ÊýµÈ´ý½«½ø³Ì×ÔÉí²åÈëÐéÄâepollÎÄ¼þµÄµÈ´ý¶ÓÁÐ£¬Ö±µ½±»»½ÐÑ£¨¼ûÉÏÃæep_poll_callbackº¯ÊýÃèÊö£©£¬×îºóÖ´ÐÐep_events_transfer½«½á¹û¿½±´µ½ÓÃ»§¿Õ¼ä¡£ÓÉÓÚÖ»¿½±´¾ÍÐ÷Éè±¸ÐÅÏ¢£¬ËùÒÔÕâÀïµÄ¿½±´ÊÇÒ»¸öO(1£©²Ù×÷¡£
+   sys_epoll_wait£¬ÕâÀïÊµ¼ÊÖ´ÐÐ²Ù×÷µÄÊÇep_pollº¯Êý¡£¸Ãº¯ÊýµÈ´ý½«½ø³Ì×ÔÉí²åÈëÐéÄâepollÎÄ¼þµÄµÈ´ý¶ÓÁÐ£¬Ö±µ½±»»½ÐÑ
+   £¨¼ûÉÏÃæep_poll_callbackº¯ÊýÃèÊö£©£¬×îºóÖ´ÐÐep_events_transfer½«½á¹û¿½±´µ½ÓÃ»§¿Õ¼ä¡£ÓÉÓÚÖ»¿½±´¾ÍÐ÷Éè±¸ÐÅÏ¢£¬ËùÒÔÕâÀïµÄ¿½±´ÊÇÒ»¸öO(1£©²Ù×÷¡£
 
  
 
-ÐèÒª×¢ÒâµÄÊÇ£¬ÔÚLTÄ£Ê½ÏÂ£¬°Ñ·ûºÏÌõ¼þµÄÊÂ¼þcopyµ½ÓÃ»§¿Õ¼äºó£¬»¹»á°Ñ¶ÔÓ¦µÄÎÄ¼þÖØÐÂ¹Ò½Óµ½¾ÍÐ÷¶ÓÁÐ¡£ËùÒÔÔÚLTÄ£Ê½ÏÂ£¬Èç¹ûÒ»´Îepoll_waitÄ³¸ösocketÃ»ÓÐread/writeÍêËùÓÐÊý¾Ý£¬ÏÂ´Îepoll_wait»¹»á·µ»Ø¸Ãsocket¾ä±ú¡£
+ÐèÒª×¢ÒâµÄÊÇ£¬ÔÚLTÄ£Ê½ÏÂ£¬°Ñ·ûºÏÌõ¼þµÄÊÂ¼þcopyµ½ÓÃ»§¿Õ¼äºó£¬»¹»á°Ñ¶ÔÓ¦µÄÎÄ¼þÖØÐÂ¹Ò½Óµ½¾ÍÐ÷¶ÓÁÐ¡£ËùÒÔÔÚLTÄ£Ê½ÏÂ£¬
+Èç¹ûÒ»´Îepoll_waitÄ³¸ösocketÃ»ÓÐread/writeÍêËùÓÐÊý¾Ý£¬ÏÂ´Îepoll_wait»¹»á·µ»Ø¸Ãsocket¾ä±ú¡£
 
 
 6.      Ê¹ÓÃepollµÄ×¢ÒâÊÂÏî
@@ -1328,78 +1380,124 @@ EPOLLÊÂ¼þ·Ö·¢ÏµÍ³¿ÉÒÔÔË×ªÔÚÁ½ÖÖÄ£Ê½ÏÂ£º
 5. µ÷ÓÃepoll_wait(2)......
 
 Edge Triggered ¹¤×÷Ä£Ê½£º
-Èç¹ûÎÒÃÇÔÚµÚ1²½½«RFDÌí¼Óµ½epollÃèÊö·ûµÄÊ±ºòÊ¹ÓÃÁËEPOLLET±êÖ¾£¬ÄÇÃ´ÔÚµÚ5²½µ÷ÓÃepoll_wait(2)Ö®ºó½«ÓÐ¿ÉÄÜ»á¹ÒÆð£¬ÒòÎª Ê£ÓàµÄÊý¾Ý»¹´æÔÚÓÚÎÄ¼þµÄÊäÈë»º³åÇøÄÚ£¬¶øÇÒÊý¾Ý·¢³ö¶Ë»¹ÔÚµÈ´ýÒ»¸öÕë¶ÔÒÑ¾­·¢³öÊý¾ÝµÄ·´À¡ÐÅÏ¢¡£Ö»ÓÐÔÚ¼àÊÓµÄÎÄ¼þ¾ä±úÉÏ·¢ÉúÁËÄ³¸öÊÂ¼þµÄÊ±ºò ET ¹¤×÷Ä£Ê½²Å»á»ã±¨ÊÂ¼þ¡£Òò´ËÔÚµÚ5²½µÄÊ±ºò£¬µ÷ÓÃÕß¿ÉÄÜ»á·ÅÆúµÈ´ýÈÔÔÚ´æÔÚÓÚÎÄ¼þÊäÈë»º³åÇøÄÚµÄÊ£ÓàÊý¾Ý¡£ÔÚÉÏÃæµÄÀý×ÓÖÐ£¬»áÓÐÒ»¸öÊÂ¼þ²úÉúÔÚRFD¾ä±ú ÉÏ£¬ÒòÎªÔÚµÚ2²½Ö´ÐÐÁËÒ»¸öÐ´²Ù×÷£¬È»ºó£¬ÊÂ¼þ½«»áÔÚµÚ3²½±»Ïú»Ù¡£ÒòÎªµÚ4²½µÄ¶ÁÈ¡²Ù×÷Ã»ÓÐ¶Á¿ÕÎÄ¼þÊäÈë»º³åÇøÄÚµÄÊý¾Ý£¬Òò´ËÎÒÃÇÔÚµÚ5²½µ÷ÓÃ epoll_wait(2)Íê³Éºó£¬ÊÇ·ñ¹ÒÆðÊÇ²»È·¶¨µÄ¡£epoll¹¤×÷ÔÚETÄ£Ê½µÄÊ±ºò£¬±ØÐëÊ¹ÓÃ·Ç×èÈûÌ×½Ó¿Ú£¬ÒÔ±ÜÃâÓÉÓÚÒ»¸öÎÄ¼þ¾ä±úµÄ×èÈû¶Á/×èÈû Ð´²Ù×÷°Ñ´¦Àí¶à¸öÎÄ¼þÃèÊö·ûµÄÈÎÎñ¶öËÀ¡£×îºÃÒÔÏÂÃæµÄ·½Ê½µ÷ÓÃETÄ£Ê½µÄepoll½Ó¿Ú£¬ÔÚºóÃæ»á½éÉÜ±ÜÃâ¿ÉÄÜµÄÈ±ÏÝ¡£
+Èç¹ûÎÒÃÇÔÚµÚ1²½½«RFDÌí¼Óµ½epollÃèÊö·ûµÄÊ±ºòÊ¹ÓÃÁËEPOLLET±êÖ¾£¬ÄÇÃ´ÔÚµÚ5²½µ÷ÓÃepoll_wait(2)Ö®ºó½«ÓÐ¿ÉÄÜ»á¹ÒÆð£¬
+ÒòÎª Ê£ÓàµÄÊý¾Ý»¹´æÔÚÓÚÎÄ¼þµÄÊäÈë»º³åÇøÄÚ£¬¶øÇÒÊý¾Ý·¢³ö¶Ë»¹ÔÚµÈ´ýÒ»¸öÕë¶ÔÒÑ¾­·¢³öÊý¾ÝµÄ·´À¡ÐÅÏ¢¡£
+Ö»ÓÐÔÚ¼àÊÓµÄÎÄ¼þ¾ä±úÉÏ·¢ÉúÁËÄ³¸öÊÂ¼þµÄÊ±ºò ET ¹¤×÷Ä£Ê½²Å»á»ã±¨ÊÂ¼þ¡£Òò´ËÔÚµÚ5²½µÄÊ±ºò£¬
+µ÷ÓÃÕß¿ÉÄÜ»á·ÅÆúµÈ´ýÈÔÔÚ´æÔÚÓÚÎÄ¼þÊäÈë»º³åÇøÄÚµÄÊ£ÓàÊý¾Ý¡£ÔÚÉÏÃæµÄÀý×ÓÖÐ£¬»áÓÐÒ»¸öÊÂ¼þ²úÉúÔÚRFD¾ä±ú ÉÏ£¬
+ÒòÎªÔÚµÚ2²½Ö´ÐÐÁËÒ»¸öÐ´²Ù×÷£¬È»ºó£¬ÊÂ¼þ½«»áÔÚµÚ3²½±»Ïú»Ù¡£ÒòÎªµÚ4²½µÄ¶ÁÈ¡²Ù×÷Ã»ÓÐ¶Á¿ÕÎÄ¼þÊäÈë»º³åÇøÄÚµÄÊý¾Ý£¬
+Òò´ËÎÒÃÇÔÚµÚ5²½µ÷ÓÃ epoll_wait(2)Íê³Éºó£¬ÊÇ·ñ¹ÒÆðÊÇ²»È·¶¨µÄ¡£epoll¹¤×÷ÔÚETÄ£Ê½µÄÊ±ºò£¬±ØÐëÊ¹ÓÃ·Ç×èÈûÌ×½Ó¿Ú£¬
+ÒÔ±ÜÃâÓÉÓÚÒ»¸öÎÄ¼þ¾ä±úµÄ×èÈû¶Á/×èÈû Ð´²Ù×÷°Ñ´¦Àí¶à¸öÎÄ¼þÃèÊö·ûµÄÈÎÎñ¶öËÀ¡£×îºÃÒÔÏÂÃæµÄ·½Ê½µ÷ÓÃETÄ£Ê½µÄepoll½Ó¿Ú£¬ÔÚºóÃæ»á½éÉÜ±ÜÃâ¿ÉÄÜµÄÈ±ÏÝ¡£
    i    »ùÓÚ·Ç×èÈûÎÄ¼þ¾ä±ú
    ii   Ö»ÓÐµ±read(2)»òÕßwrite(2)·µ»ØEAGAINÊ±²ÅÐèÒª¹ÒÆð£¬µÈ´ý
 
 Level Triggered ¹¤×÷Ä£Ê½
-Ïà·´µÄ£¬ÒÔLT·½Ê½µ÷ÓÃepoll½Ó¿ÚµÄÊ±ºò£¬Ëü¾ÍÏàµ±ÓÚÒ»¸öËÙ¶È±È½Ï¿ìµÄpoll(2)£¬²¢ÇÒÎÞÂÛºóÃæµÄÊý¾ÝÊÇ·ñ±»Ê¹ÓÃ£¬Òò´ËËûÃÇ¾ßÓÐÍ¬ÑùµÄÖ°ÄÜ¡£ÒòÎª ¼´Ê¹Ê¹ÓÃETÄ£Ê½µÄepoll£¬ÔÚÊÕµ½¶à¸öchunkµÄÊý¾ÝµÄÊ±ºòÈÔÈ»»á²úÉú¶à¸öÊÂ¼þ¡£µ÷ÓÃÕß¿ÉÒÔÉè¶¨EPOLLONESHOT±êÖ¾£¬ÔÚ epoll_wait(2)ÊÕµ½ÊÂ¼þºóepoll»áÓëÊÂ¼þ¹ØÁªµÄÎÄ¼þ¾ä±ú´ÓepollÃèÊö·ûÖÐ½ûÖ¹µô¡£Òò´Ëµ±EPOLLONESHOTÉè¶¨ºó£¬Ê¹ÓÃ´øÓÐ EPOLL_CTL_MOD±êÖ¾µÄepoll_ctl(2)´¦ÀíÎÄ¼þ¾ä±ú¾Í³ÉÎªµ÷ÓÃÕß±ØÐë×÷µÄÊÂÇé¡£
+Ïà·´µÄ£¬ÒÔLT·½Ê½µ÷ÓÃepoll½Ó¿ÚµÄÊ±ºò£¬Ëü¾ÍÏàµ±ÓÚÒ»¸öËÙ¶È±È½Ï¿ìµÄpoll(2)£¬²¢ÇÒÎÞÂÛºóÃæµÄÊý¾ÝÊÇ·ñ±»Ê¹ÓÃ£¬Òò´ËËûÃÇ¾ßÓÐÍ¬ÑùµÄÖ°ÄÜ¡£
+ÒòÎª ¼´Ê¹Ê¹ÓÃETÄ£Ê½µÄepoll£¬ÔÚÊÕµ½¶à¸öchunkµÄÊý¾ÝµÄÊ±ºòÈÔÈ»»á²úÉú¶à¸öÊÂ¼þ¡£µ÷ÓÃÕß¿ÉÒÔÉè¶¨EPOLLONESHOT±êÖ¾£¬
+ÔÚ epoll_wait(2)ÊÕµ½ÊÂ¼þºóepoll»áÓëÊÂ¼þ¹ØÁªµÄÎÄ¼þ¾ä±ú´ÓepollÃèÊö·ûÖÐ½ûÖ¹µô¡£Òò´Ëµ±EPOLLONESHOTÉè¶¨ºó£¬
+Ê¹ÓÃ´øÓÐ EPOLL_CTL_MOD±êÖ¾µÄepoll_ctl(2)´¦ÀíÎÄ¼þ¾ä±ú¾Í³ÉÎªµ÷ÓÃÕß±ØÐë×÷µÄÊÂÇé¡£
 
 ÒÔÉÏ·­Òë×Ôman epoll.
 
 È»ºóÏêÏ¸½âÊÍET, LT:
 
-LT(level triggered)ÊÇÈ±Ê¡µÄ¹¤×÷·½Ê½£¬²¢ÇÒÍ¬Ê±Ö§³ÖblockºÍno-block socket.ÔÚÕâÖÖ×ö·¨ÖÐ£¬ÄÚºË¸æËßÄãÒ»¸öÎÄ¼þÃèÊö·ûÊÇ·ñ¾ÍÐ÷ÁË£¬È»ºóÄã¿ÉÒÔ¶ÔÕâ¸ö¾ÍÐ÷µÄfd½øÐÐIO²Ù×÷¡£Èç¹ûÄã²»×÷ÈÎºÎ²Ù×÷£¬ÄÚºË»¹ÊÇ»á¼ÌÐøÍ¨ÖªÄã µÄ£¬ËùÒÔ£¬ÕâÖÖÄ£Ê½±à³Ì³ö´íÎó¿ÉÄÜÐÔÒªÐ¡Ò»µã¡£´«Í³µÄselect/poll¶¼ÊÇÕâÖÖÄ£ÐÍµÄ´ú±í£®
+LT(level triggered)ÊÇÈ±Ê¡µÄ¹¤×÷·½Ê½£¬²¢ÇÒÍ¬Ê±Ö§³ÖblockºÍno-block socket.ÔÚÕâÖÖ×ö·¨ÖÐ£¬ÄÚºË¸æËßÄãÒ»¸öÎÄ¼þÃèÊö·ûÊÇ·ñ¾ÍÐ÷ÁË£¬
+È»ºóÄã¿ÉÒÔ¶ÔÕâ¸ö¾ÍÐ÷µÄfd½øÐÐIO²Ù×÷¡£Èç¹ûÄã²»×÷ÈÎºÎ²Ù×÷£¬ÄÚºË»¹ÊÇ»á¼ÌÐøÍ¨ÖªÄã µÄ£¬ËùÒÔ£¬ÕâÖÖÄ£Ê½±à³Ì³ö´íÎó¿ÉÄÜÐÔÒªÐ¡Ò»µã¡£
+´«Í³µÄselect/poll¶¼ÊÇÕâÖÖÄ£ÐÍµÄ´ú±í£®
 
-ET(edge-triggered)ÊÇ¸ßËÙ¹¤×÷·½Ê½£¬Ö»Ö§³Öno-block socket¡£ÔÚÕâÖÖÄ£Ê½ÏÂ£¬µ±ÃèÊö·û´ÓÎ´¾ÍÐ÷±äÎª¾ÍÐ÷Ê±£¬ÄÚºËÍ¨¹ýepoll¸æËßÄã¡£È»ºóËü»á¼ÙÉèÄãÖªµÀÎÄ¼þÃèÊö·ûÒÑ¾­¾ÍÐ÷£¬²¢ÇÒ²»»áÔÙÎªÄÇ¸öÎÄ¼þÃèÊö ·û·¢ËÍ¸ü¶àµÄ¾ÍÐ÷Í¨Öª£¬Ö±µ½Äã×öÁËÄ³Ð©²Ù×÷µ¼ÖÂÄÇ¸öÎÄ¼þÃèÊö·û²»ÔÙÎª¾ÍÐ÷×´Ì¬ÁË(±ÈÈç£¬ÄãÔÚ·¢ËÍ£¬½ÓÊÕ»òÕß½ÓÊÕÇëÇó£¬»òÕß·¢ËÍ½ÓÊÕµÄÊý¾ÝÉÙÓÚÒ»¶¨Á¿Ê±µ¼ÖÂ ÁËÒ»¸öEWOULDBLOCK ´íÎó£©¡£µ«ÊÇÇë×¢Òâ£¬Èç¹ûÒ»Ö±²»¶ÔÕâ¸öfd×÷IO²Ù×÷(´Ó¶øµ¼ÖÂËüÔÙ´Î±ä³ÉÎ´¾ÍÐ÷)£¬ÄÚºË²»»á·¢ËÍ¸ü¶àµÄÍ¨Öª(only once),²»¹ýÔÚTCPÐ­ÒéÖÐ£¬ETÄ£Ê½µÄ¼ÓËÙÐ§ÓÃÈÔÐèÒª¸ü¶àµÄbenchmarkÈ·ÈÏ¡£
+ET(edge-triggered)ÊÇ¸ßËÙ¹¤×÷·½Ê½£¬Ö»Ö§³Öno-block socket¡£ÔÚÕâÖÖÄ£Ê½ÏÂ£¬µ±ÃèÊö·û´ÓÎ´¾ÍÐ÷±äÎª¾ÍÐ÷Ê±£¬ÄÚºËÍ¨¹ýepoll¸æËßÄã¡£
+È»ºóËü»á¼ÙÉèÄãÖªµÀÎÄ¼þÃèÊö·ûÒÑ¾­¾ÍÐ÷£¬²¢ÇÒ²»»áÔÙÎªÄÇ¸öÎÄ¼þÃèÊö ·û·¢ËÍ¸ü¶àµÄ¾ÍÐ÷Í¨Öª£¬
+Ö±µ½Äã×öÁËÄ³Ð©²Ù×÷µ¼ÖÂÄÇ¸öÎÄ¼þÃèÊö·û²»ÔÙÎª¾ÍÐ÷×´Ì¬ÁË(±ÈÈç£¬ÄãÔÚ·¢ËÍ£¬½ÓÊÕ»òÕß½ÓÊÕÇëÇó£¬
+»òÕß·¢ËÍ½ÓÊÕµÄÊý¾ÝÉÙÓÚÒ»¶¨Á¿Ê±µ¼ÖÂ ÁËÒ»¸öEWOULDBLOCK ´íÎó£©¡£µ«ÊÇÇë×¢Òâ£¬Èç¹ûÒ»Ö±²»¶ÔÕâ¸öfd×÷IO²Ù×÷(´Ó¶øµ¼ÖÂËüÔÙ´Î±ä³ÉÎ´¾ÍÐ÷)£¬
+ÄÚºË²»»á·¢ËÍ¸ü¶àµÄÍ¨Öª(only once),²»¹ýÔÚTCPÐ­ÒéÖÐ£¬ETÄ£Ê½µÄ¼ÓËÙÐ§ÓÃÈÔÐèÒª¸ü¶àµÄbenchmarkÈ·ÈÏ¡£
 
-ÔÚÐí¶à²âÊÔÖÐÎÒÃÇ»á¿´µ½Èç¹ûÃ»ÓÐ´óÁ¿µÄidle-connection»òÕßdead-connection£¬epollµÄÐ§ÂÊ²¢²»»á±È select/poll¸ßºÜ¶à£¬µ«ÊÇµ±ÎÒÃÇÓöµ½´óÁ¿µÄidle-connection(ÀýÈçWAN»·¾³ÖÐ´æÔÚ´óÁ¿µÄÂýËÙÁ¬½Ó)£¬¾Í»á·¢ÏÖepollµÄÐ§ÂÊ ´ó´ó¸ßÓÚselect/poll¡£
+ÔÚÐí¶à²âÊÔÖÐÎÒÃÇ»á¿´µ½Èç¹ûÃ»ÓÐ´óÁ¿µÄidle-connection»òÕßdead-connection£¬epollµÄÐ§ÂÊ²¢²»»á±È select/poll¸ßºÜ¶à£¬
+µ«ÊÇµ±ÎÒÃÇÓöµ½´óÁ¿µÄidle-connection(ÀýÈçWAN»·¾³ÖÐ´æÔÚ´óÁ¿µÄÂýËÙÁ¬½Ó)£¬¾Í»á·¢ÏÖepollµÄÐ§ÂÊ ´ó´ó¸ßÓÚselect/poll¡£
 
 
 epollÊÇlinuxÏµ½y×îÐÂµÄÌŽÀí¶àßB½ÓµÄ¸ßÐ§ÂÊÄ£ÐÍ£¬ ¹¤×÷ÔÚƒÉ·N·½Ê½ÏÂ£¬ EPOLLLT·½Ê½ºÍEPOLLET·½Ê½¡£
 
-EPOLLLTÊÇÏµ½yÄ¬ÕJ£¬ ¹¤×÷ÔÚß@·N·½Ê½ÏÂ£¬ ³ÌÊ½ÔOÓ‹ŽŸ²»Ò×³ö†–î}£¬ ÔÚ½ÓÊÕ”µ“þ•r£¬Ö»ÒªsocketÝ”Èë¾´æÓÐ”µ“þ£¬¶¼ÄÜ‰ò«@µÃEPOLLINµÄ³ÖÀmÍ¨Öª£¬ Í¬˜ÓÔÚ°lËÍ”µ“þ•r£¬ Ö»Òª°lËÍ¾´æ‰òÓÃ£¬ ¶¼•þÓÐ³ÖÀm²»ég”àµÄEPOLLOUTÍ¨Öª¡£
+EPOLLLTÊÇÏµ½yÄ¬ÕJ£¬ ¹¤×÷ÔÚß@·N·½Ê½ÏÂ£¬ ³ÌÊ½ÔOÓ‹ŽŸ²»Ò×³ö†–î}£¬ ÔÚ½ÓÊÕ”µ“þ•r£¬Ö»ÒªsocketÝ”Èë¾´æÓÐ”µ“þ£¬¶¼ÄÜ‰ò«@µÃEPOLLINµÄ³ÖÀmÍ¨Öª£¬ 
+Í¬˜ÓÔÚ°lËÍ”µ“þ•r£¬ Ö»Òª°lËÍ¾´æ‰òÓÃ£¬ ¶¼•þÓÐ³ÖÀm²»ég”àµÄEPOLLOUTÍ¨Öª¡£
 
-¶øŒ¦ì¶EPOLLETÊÇÁíÍâÒ»·NÓ|°l·½Ê½£¬ ±ÈEPOLLLTÒª¸ßÐ§ºÜ¶à£¬ Œ¦³ÌÊ½ÔOÓ‹ŽŸµÄÒªÇóÒ²¶àÐ©£¬ ³ÌÊ½ÔOÓ‹ŽŸ±ØíšÐ¡ÐÄÊ¹ÓÃ£¬Òòžé¹¤×÷ÔÚ´Ë·N·½Ê½ÏÂ•r£¬ ÔÚ½ÓÊÕ”µ“þ•r£¬ Èç¹ûÓÐ”µ“þÖ»•þÍ¨ÖªÒ»´Î£¬ ¼ÙÈçread•rÎ´×xÍê”µ“þ£¬ÄÇüN²»•þÔÙÓÐEPOLLINµÄÍ¨ÖªÁË£¬ Ö±µ½ÏÂ´ÎÓÐÐÂµÄ”µ“þµ½ß_•ržéÖ¹£» ®”°lËÍ”µ“þ•r£¬ Èç¹û°lËÍ¾´æÎ´MÒ²Ö»ÓÐÒ»´ÎEPOLLOUTµÄÍ¨Öª£¬ ³ý·ÇÄã°Ñ°lËÍ¾´æÈûMÁË£¬ ²Å•þÓÐµÚ¶þ´ÎEPOLLOUTÍ¨ÖªµÄ™C•þ£¬ ËùÒÔÔÚ´Ë·½Ê½ÏÂreadºÍwrite•r¶¼ÒªÌŽÀíºÃ¡£ •º•rŒ‘µ½ß@Ñe£¬ Áô×÷‚äÍü¡£
+¶øŒ¦ì¶EPOLLETÊÇÁíÍâÒ»·NÓ|°l·½Ê½£¬ ±ÈEPOLLLTÒª¸ßÐ§ºÜ¶à£¬ Œ¦³ÌÊ½ÔOÓ‹ŽŸµÄÒªÇóÒ²¶àÐ©£¬ ³ÌÊ½ÔOÓ‹ŽŸ±ØíšÐ¡ÐÄÊ¹ÓÃ£¬
+Òòžé¹¤×÷ÔÚ´Ë·N·½Ê½ÏÂ•r£¬ ÔÚ½ÓÊÕ”µ“þ•r£¬ Èç¹ûÓÐ”µ“þÖ»•þÍ¨ÖªÒ»´Î£¬ ¼ÙÈçread•rÎ´×xÍê”µ“þ£¬ÄÇüN²»•þÔÙÓÐEPOLLINµÄÍ¨ÖªÁË£¬ 
+Ö±µ½ÏÂ´ÎÓÐÐÂµÄ”µ“þµ½ß_•ržéÖ¹£» ®”°lËÍ”µ“þ•r£¬ Èç¹û°lËÍ¾´æÎ´MÒ²Ö»ÓÐÒ»´ÎEPOLLOUTµÄÍ¨Öª£¬ ³ý·ÇÄã°Ñ°lËÍ¾´æÈûMÁË£¬ 
+²Å•þÓÐµÚ¶þ´ÎEPOLLOUTÍ¨ÖªµÄ™C•þ£¬ ËùÒÔÔÚ´Ë·½Ê½ÏÂreadºÍwrite•r¶¼ÒªÌŽÀíºÃ¡£ •º•rŒ‘µ½ß@Ñe£¬ Áô×÷‚äÍü¡£
 
-¸½¼Ó£º Èç¹ûŒ¢Ò»‚€socketÃèÊö·ûÌí¼Óµ½ƒÉ‚€epollÖÐ£¬ ÄÇüN¼´Ê¹ÔÚEPOLLETÄ£Ê½ÏÂ£¬ Ö»ÒªÇ°Ò»‚€epoll_wait•r£¬Î´×xÍê£¬ ÄÇüNááÒ»‚€epoll_waitÊÂ¼þ•r£¬ Ò²•þµÃµ½×xµÄÍ¨Öª£¬ µ«Ç°Ò»‚€×xÍêµÄÇé›rÏÂ£¬ ááÒ»‚€epoll¾Í²»•þµÃµ½×xÊÂ¼þµÄÍ¨ÖªÁË¡£¡£¡£¡£
+¸½¼Ó£º Èç¹ûŒ¢Ò»‚€socketÃèÊö·ûÌí¼Óµ½ƒÉ‚€epollÖÐ£¬ ÄÇüN¼´Ê¹ÔÚEPOLLETÄ£Ê½ÏÂ£¬ Ö»ÒªÇ°Ò»‚€epoll_wait•r£¬Î´×xÍê£¬ ÄÇüNááÒ»‚€epoll_waitÊÂ¼þ•r£¬ 
+Ò²•þµÃµ½×xµÄÍ¨Öª£¬ µ«Ç°Ò»‚€×xÍêµÄÇé›rÏÂ£¬ ááÒ»‚€epoll¾Í²»•þµÃµ½×xÊÂ¼þµÄÍ¨ÖªÁË¡£¡£¡£¡£
 */
 
 /*
 ÔÚLinuxÉÏ¿ª·¢ÍøÂç·þÎñÆ÷µÄÒ»Ð©Ïà¹ØÏ¸½Ú:pollÓëepoll
-¡¡¡¡Ëæ×Å2.6ÄÚºË¶ÔepollµÄÍêÈ«Ö§³Ö£¬ÍøÂçÉÏºÜ¶àµÄÎÄÕÂºÍÊ¾Àý´úÂë¶¼Ìá¹©ÁËÕâÑùÒ»¸öÐÅÏ¢£ºÊ¹ÓÃepoll´úÌæ´«Í³µÄ pollÄÜ¸øÍøÂç·þÎñÓ¦ÓÃ´øÀ´ÐÔÄÜÉÏµÄÌáÉý¡£µ«´ó¶àÎÄÕÂÀï¹ØÓÚÐÔÄÜÌáÉýµÄÔ­Òò½âÊÍµÄ½ÏÉÙ£¬ÕâÀïÎÒ½«ÊÔ·ÖÎöÒ»ÏÂÄÚºË£¨2.6.21.1£©´úÂëÖÐpollÓë epollµÄ¹¤×÷Ô­Àí£¬È»ºóÔÙÍ¨¹ýÒ»Ð©²âÊÔÊý¾ÝÀ´¶Ô±È¾ßÌåÐ§¹û¡£ POLL£º
+¡¡¡¡Ëæ×Å2.6ÄÚºË¶ÔepollµÄÍêÈ«Ö§³Ö£¬ÍøÂçÉÏºÜ¶àµÄÎÄÕÂºÍÊ¾Àý´úÂë¶¼Ìá¹©ÁËÕâÑùÒ»¸öÐÅÏ¢£ºÊ¹ÓÃepoll´úÌæ´«Í³µÄ pollÄÜ¸øÍøÂç·þÎñÓ¦ÓÃ´øÀ´ÐÔÄÜÉÏµÄÌáÉý¡£
+µ«´ó¶àÎÄÕÂÀï¹ØÓÚÐÔÄÜÌáÉýµÄÔ­Òò½âÊÍµÄ½ÏÉÙ£¬ÕâÀïÎÒ½«ÊÔ·ÖÎöÒ»ÏÂÄÚºË£¨2.6.21.1£©´úÂëÖÐpollÓë epollµÄ¹¤×÷Ô­Àí£¬È»ºóÔÙÍ¨¹ýÒ»Ð©²âÊÔÊý¾ÝÀ´¶Ô±È¾ßÌåÐ§¹û¡£ POLL£º
 
-ÏÈËµpoll£¬poll»òselectÎª´ó²¿·ÖUnix/Linux³ÌÐòÔ±ËùÊìÏ¤£¬ÕâÁ©¸ö¶«Î÷Ô­ÀíÀàËÆ£¬ÐÔÄÜÉÏÒ²²»´æÔÚÃ÷ÏÔ²îÒì£¬µ«select¶ÔËù¼à¿ØµÄÎÄ¼þÃèÊö·ûÊýÁ¿ÓÐÏÞÖÆ£¬ËùÒÔÕâÀïÑ¡ÓÃpoll×öËµÃ÷¡£
+ÏÈËµpoll£¬poll»òselectÎª´ó²¿·ÖUnix/Linux³ÌÐòÔ±ËùÊìÏ¤£¬ÕâÁ©¸ö¶«Î÷Ô­ÀíÀàËÆ£¬ÐÔÄÜÉÏÒ²²»´æÔÚÃ÷ÏÔ²îÒì£¬µ«select¶ÔËù¼à¿ØµÄÎÄ¼þÃèÊö·ûÊýÁ¿ÓÐÏÞÖÆ£¬
+ËùÒÔÕâÀïÑ¡ÓÃpoll×öËµÃ÷¡£
 pollÊÇÒ»¸öÏµÍ³µ÷ÓÃ£¬ÆäÄÚºËÈë¿Úº¯ÊýÎªsys_poll£¬sys_poll¼¸ºõ²»×öÈÎºÎ´¦ÀíÖ±½Óµ÷ÓÃdo_sys_poll£¬do_sys_pollµÄÖ´ÐÐ¹ý³Ì¿ÉÒÔ·ÖÎªÈý¸ö²¿·Ö£º
-1£¬½«ÓÃ»§´«ÈëµÄpollfdÊý×é¿½±´µ½ÄÚºË¿Õ¼ä£¬ÒòÎª¿½±´²Ù×÷ºÍÊý×é³¤¶ÈÏà¹Ø£¬Ê±¼äÉÏÕâÊÇÒ»¸öO£¨n£©²Ù×÷£¬ÕâÒ»²½µÄ´úÂëÔÚdo_sys_pollÖÐ°üÀ¨´Óº¯Êý¿ªÊ¼µ½µ÷ÓÃdo_pollÇ°µÄ²¿·Ö¡£
-2£¬²éÑ¯Ã¿¸öÎÄ¼þÃèÊö·û¶ÔÓ¦Éè±¸µÄ×´Ì¬£¬Èç¹û¸ÃÉè±¸ÉÐÎ´¾ÍÐ÷£¬ÔòÔÚ¸ÃÉè±¸µÄµÈ´ý¶ÓÁÐÖÐ¼ÓÈëÒ»Ïî²¢¼ÌÐø²éÑ¯ÏÂÒ»Éè±¸µÄ×´Ì¬¡£²éÑ¯ÍêËùÓÐÉè±¸ºóÈç¹ûÃ»ÓÐÒ»¸öÉè±¸¾ÍÐ÷£¬ÕâÊ±ÔòÐèÒª¹ÒÆðµ±Ç°½ø³ÌµÈ´ý£¬Ö±µ½Éè±¸¾ÍÐ÷»òÕß³¬Ê±£¬¹ÒÆð²Ù×÷ÊÇÍ¨¹ýµ÷ÓÃschedule_timeoutÖ´ÐÐµÄ¡£Éè±¸¾ÍÐ÷ºó½ø³Ì±»Í¨Öª¼ÌÐøÔËÐÐ£¬ÕâÊ±ÔÙ´Î±éÀúËùÓÐÉè±¸£¬ÒÔ²éÕÒ¾ÍÐ÷Éè±¸¡£ÕâÒ»²½ÒòÎªÁ½´Î±éÀúËùÓÐÉè±¸£¬Ê±¼ä¸´ÔÓ¶ÈÒ²ÊÇO£¨n£©£¬ÕâÀïÃæ²»°üÀ¨µÈ´ýÊ±¼ä¡£Ïà¹Ø´úÂëÔÚdo_pollº¯ÊýÖÐ¡£
-3£¬½«»ñµÃµÄÊý¾Ý´«ËÍµ½ÓÃ»§¿Õ¼ä²¢Ö´ÐÐÊÍ·ÅÄÚ´æºÍ°þÀëµÈ´ý¶ÓÁÐµÈÉÆºó¹¤×÷£¬ÏòÓÃ»§¿Õ¼ä¿½±´Êý¾ÝÓë°þÀëµÈ´ý¶ÓÁÐµÈ²Ù×÷µÄµÄÊ±¼ä¸´ÔÓ¶ÈÍ¬ÑùÊÇO£¨n£©£¬¾ßÌå´úÂë°üÀ¨do_sys_pollº¯ÊýÖÐµ÷ÓÃdo_pollºóµ½½áÊøµÄ²¿·Ö¡£
+1£¬½«ÓÃ»§´«ÈëµÄpollfdÊý×é¿½±´µ½ÄÚºË¿Õ¼ä£¬ÒòÎª¿½±´²Ù×÷ºÍÊý×é³¤¶ÈÏà¹Ø£¬Ê±¼äÉÏÕâÊÇÒ»¸öO£¨n£©²Ù×÷£¬
+ÕâÒ»²½µÄ´úÂëÔÚdo_sys_pollÖÐ°üÀ¨´Óº¯Êý¿ªÊ¼µ½µ÷ÓÃdo_pollÇ°µÄ²¿·Ö¡£
+2£¬²éÑ¯Ã¿¸öÎÄ¼þÃèÊö·û¶ÔÓ¦Éè±¸µÄ×´Ì¬£¬Èç¹û¸ÃÉè±¸ÉÐÎ´¾ÍÐ÷£¬ÔòÔÚ¸ÃÉè±¸µÄµÈ´ý¶ÓÁÐÖÐ¼ÓÈëÒ»Ïî²¢¼ÌÐø²éÑ¯ÏÂÒ»Éè±¸µÄ×´Ì¬¡£
+²éÑ¯ÍêËùÓÐÉè±¸ºóÈç¹ûÃ»ÓÐÒ»¸öÉè±¸¾ÍÐ÷£¬ÕâÊ±ÔòÐèÒª¹ÒÆðµ±Ç°½ø³ÌµÈ´ý£¬Ö±µ½Éè±¸¾ÍÐ÷»òÕß³¬Ê±£¬¹ÒÆð²Ù×÷ÊÇÍ¨¹ýµ÷ÓÃschedule_timeoutÖ´ÐÐµÄ¡£
+Éè±¸¾ÍÐ÷ºó½ø³Ì±»Í¨Öª¼ÌÐøÔËÐÐ£¬ÕâÊ±ÔÙ´Î±éÀúËùÓÐÉè±¸£¬ÒÔ²éÕÒ¾ÍÐ÷Éè±¸¡£ÕâÒ»²½ÒòÎªÁ½´Î±éÀúËùÓÐÉè±¸£¬Ê±¼ä¸´ÔÓ¶ÈÒ²ÊÇO£¨n£©£¬ÕâÀïÃæ²»°üÀ¨µÈ´ýÊ±¼ä¡£
+Ïà¹Ø´úÂëÔÚdo_pollº¯ÊýÖÐ¡£
+3£¬½«»ñµÃµÄÊý¾Ý´«ËÍµ½ÓÃ»§¿Õ¼ä²¢Ö´ÐÐÊÍ·ÅÄÚ´æºÍ°þÀëµÈ´ý¶ÓÁÐµÈÉÆºó¹¤×÷£¬ÏòÓÃ»§¿Õ¼ä¿½±´Êý¾ÝÓë°þÀëµÈ´ý¶ÓÁÐµÈ²Ù×÷µÄµÄÊ±¼ä¸´ÔÓ¶ÈÍ¬ÑùÊÇO£¨n£©£¬
+¾ßÌå´úÂë°üÀ¨do_sys_pollº¯ÊýÖÐµ÷ÓÃdo_pollºóµ½½áÊøµÄ²¿·Ö¡£
 EPOLL£º
-½ÓÏÂÀ´·ÖÎöepoll£¬Óëpoll/select²»Í¬£¬epoll²»ÔÙÊÇÒ»¸öµ¥¶ÀµÄÏµÍ³µ÷ÓÃ£¬¶øÊÇÓÉepoll_create/epoll_ctl/epoll_waitÈý¸öÏµÍ³µ÷ÓÃ×é³É£¬ºóÃæ½«»á¿´µ½ÕâÑù×öµÄºÃ´¦¡£
-ÏÈÀ´¿´sys_epoll_create(epoll_create¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬Õâ¸öº¯ÊýÖ÷ÒªÊÇ×öÒ»Ð©×¼±¸¹¤×÷£¬±ÈÈç´´½¨Êý¾Ý½á¹¹£¬³õÊ¼»¯Êý¾Ý²¢×îÖÕ·µ»ØÒ»¸öÎÄ¼þÃèÊö·û£¨±íÊ¾ÐÂ´´½¨µÄÐéÄâepollÎÄ¼þ£©£¬Õâ¸ö²Ù×÷¿ÉÒÔÈÏÎªÊÇÒ»¸ö¹Ì¶¨Ê±¼äµÄ²Ù×÷¡£
+½ÓÏÂÀ´·ÖÎöepoll£¬Óëpoll/select²»Í¬£¬epoll²»ÔÙÊÇÒ»¸öµ¥¶ÀµÄÏµÍ³µ÷ÓÃ£¬¶øÊÇÓÉepoll_create/epoll_ctl/epoll_waitÈý¸öÏµÍ³µ÷ÓÃ×é³É£¬
+ºóÃæ½«»á¿´µ½ÕâÑù×öµÄºÃ´¦¡£
+ÏÈÀ´¿´sys_epoll_create(epoll_create¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬Õâ¸öº¯ÊýÖ÷ÒªÊÇ×öÒ»Ð©×¼±¸¹¤×÷£¬±ÈÈç´´½¨Êý¾Ý½á¹¹£¬
+³õÊ¼»¯Êý¾Ý²¢×îÖÕ·µ»ØÒ»¸öÎÄ¼þÃèÊö·û£¨±íÊ¾ÐÂ´´½¨µÄÐéÄâepollÎÄ¼þ£©£¬Õâ¸ö²Ù×÷¿ÉÒÔÈÏÎªÊÇÒ»¸ö¹Ì¶¨Ê±¼äµÄ²Ù×÷¡£
 epollÊÇ×öÎªÒ»¸öÐéÄâÎÄ¼þÏµÍ³À´ÊµÏÖµÄ£¬ÕâÑù×öÖÁÉÙÓÐÒÔÏÂÁ½¸öºÃ´¦£º
 1£¬¿ÉÒÔÔÚÄÚºËÀïÎ¬»¤Ò»Ð©ÐÅÏ¢£¬ÕâÐ©ÐÅÏ¢ÔÚ¶à´Îepoll_wait¼äÊÇ±£³ÖµÄ£¬±ÈÈçËùÓÐÊÜ¼à¿ØµÄÎÄ¼þÃèÊö·û¡£
 2£¬ epoll±¾ÉíÒ²¿ÉÒÔ±»poll/epoll;
 ¾ßÌåepollµÄÐéÄâÎÄ¼þÏµÍ³µÄÊµÏÖºÍÐÔÄÜ·ÖÎöÎÞ¹Ø£¬²»ÔÙ×¸Êö¡£
 ÔÚsys_epoll_createÖÐ»¹ÄÜ¿´µ½Ò»¸öÏ¸½Ú£¬¾ÍÊÇepoll_createµÄ²ÎÊýsizeÔÚÏÖ½×¶ÎÊÇÃ»ÓÐÒâÒåµÄ£¬Ö»Òª´óÓÚÁã¾ÍÐÐ¡£
 
-½Ó×ÅÊÇsys_epoll_ctl(epoll_ctl¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬ÐèÒªÃ÷È·µÄÊÇÃ¿´Îµ÷ÓÃsys_epoll_ctlÖ»´¦ÀíÒ»¸öÎÄ¼þÃèÊö·û£¬ÕâÀïÖ÷ÒªÃèÊöµ±opÎªEPOLL_CTL_ADDÊ±µÄÖ´ÐÐ¹ý³Ì£¬sys_epoll_ctl×öÒ»Ð©°²È«ÐÔ¼ì²éºó½øÈëep_insert£¬ep_insertÀï½« ep_poll_callback×öÎª»Øµôº¯Êý¼ÓÈëÉè±¸µÄµÈ´ý¶ÓÁÐ£¨¼Ù¶¨ÕâÊ±Éè±¸ÉÐÎ´¾ÍÐ÷£©£¬ÓÉÓÚÃ¿´Îpoll_ctlÖ»²Ù×÷Ò»¸öÎÄ¼þÃèÊö·û£¬Òò´ËÒ²¿ÉÒÔÈÏÎªÕâÊÇÒ»¸öO(1)²Ù×÷
+½Ó×ÅÊÇsys_epoll_ctl(epoll_ctl¶ÔÓ¦µÄÄÚºËº¯Êý£©£¬ÐèÒªÃ÷È·µÄÊÇÃ¿´Îµ÷ÓÃsys_epoll_ctlÖ»´¦ÀíÒ»¸öÎÄ¼þÃèÊö·û£¬
+ÕâÀïÖ÷ÒªÃèÊöµ±opÎªEPOLL_CTL_ADDÊ±µÄÖ´ÐÐ¹ý³Ì£¬sys_epoll_ctl×öÒ»Ð©°²È«ÐÔ¼ì²éºó½øÈëep_insert£¬ep_insertÀï½« 
+ep_poll_callback×öÎª»Øµôº¯Êý¼ÓÈëÉè±¸µÄµÈ´ý¶ÓÁÐ£¨¼Ù¶¨ÕâÊ±Éè±¸ÉÐÎ´¾ÍÐ÷£©£¬ÓÉÓÚÃ¿´Îpoll_ctlÖ»²Ù×÷Ò»¸öÎÄ¼þÃèÊö·û£¬Òò´ËÒ²¿ÉÒÔÈÏÎªÕâÊÇÒ»¸öO(1)²Ù×÷
 
 ep_poll_callbackº¯ÊýºÜ¹Ø¼ü£¬ËüÔÚËùµÈ´ýµÄÉè±¸¾ÍÐ÷ºó±»ÏµÍ³»Øµô£¬Ö´ÐÐÁ½¸ö²Ù×÷£º
 
 1£¬½«¾ÍÐ÷Éè±¸¼ÓÈë¾ÍÐ÷¶ÓÁÐ£¬ÕâÒ»²½±ÜÃâÁËÏñpollÄÇÑùÔÚÉè±¸¾ÍÐ÷ºóÔÙ´ÎÂÖÑ¯ËùÓÐÉè±¸ÕÒ¾ÍÐ÷Õß£¬½µµÍÁËÊ±¼ä¸´ÔÓ¶È£¬ÓÉO£¨n£©µ½O£¨1£©;
 2£¬»½ÐÑÐéÄâµÄepollÎÄ¼þ;
-×îºóÊÇsys_epoll_wait£¬ÕâÀïÊµ¼ÊÖ´ÐÐ²Ù×÷µÄÊÇep_pollº¯Êý¡£¸Ãº¯ÊýµÈ´ý½«½ø³Ì×ÔÉí²åÈëÐéÄâepollÎÄ¼þµÄµÈ´ý¶ÓÁÐ£¬Ö±µ½±»»½ÐÑ£¨¼ûÉÏÃæep_poll_callbackº¯ÊýÃèÊö£©£¬×îºóÖ´ÐÐep_events_transfer½«½á¹û¿½±´µ½ÓÃ»§¿Õ¼ä¡£ÓÉÓÚÖ»¿½±´¾ÍÐ÷Éè±¸ÐÅÏ¢£¬ËùÒÔÕâÀïµÄ¿½±´ÊÇÒ»¸öO(1£©²Ù×÷¡£
-»¹ÓÐÒ»¸öÈÃÈË¹ØÐÄµÄÎÊÌâ¾ÍÊÇepoll¶ÔEPOLLETµÄ´¦Àí£¬¼´±ßÑØ´¥·¢µÄ´¦Àí£¬´ÖÂÔ¿´´úÂë¾ÍÊÇ°ÑÒ»²¿·ÖË®Æ½´¥·¢Ä£Ê½ÏÂÄÚºË×öµÄ¹¤×÷½»¸øÓÃ»§À´´¦Àí£¬Ö±¾õÉÏ²»»á¶ÔÐÔÄÜÓÐÌ«´óÓ°Ïì£¬¸ÐÐËÈ¤µÄÅóÓÑ»¶Ó­ÌÖÂÛ¡£
+×îºóÊÇsys_epoll_wait£¬ÕâÀïÊµ¼ÊÖ´ÐÐ²Ù×÷µÄÊÇep_pollº¯Êý¡£¸Ãº¯ÊýµÈ´ý½«½ø³Ì×ÔÉí²åÈëÐéÄâepollÎÄ¼þµÄµÈ´ý¶ÓÁÐ£¬
+Ö±µ½±»»½ÐÑ£¨¼ûÉÏÃæep_poll_callbackº¯ÊýÃèÊö£©£¬×îºóÖ´ÐÐep_events_transfer½«½á¹û¿½±´µ½ÓÃ»§¿Õ¼ä¡£ÓÉÓÚÖ»¿½±´¾ÍÐ÷Éè±¸ÐÅÏ¢£¬
+ËùÒÔÕâÀïµÄ¿½±´ÊÇÒ»¸öO(1£©²Ù×÷¡£
+»¹ÓÐÒ»¸öÈÃÈË¹ØÐÄµÄÎÊÌâ¾ÍÊÇepoll¶ÔEPOLLETµÄ´¦Àí£¬¼´±ßÑØ´¥·¢µÄ´¦Àí£¬´ÖÂÔ¿´´úÂë¾ÍÊÇ°ÑÒ»²¿·ÖË®Æ½´¥·¢Ä£Ê½ÏÂÄÚºË×öµÄ¹¤×÷½»¸øÓÃ»§À´´¦Àí£¬
+Ö±¾õÉÏ²»»á¶ÔÐÔÄÜÓÐÌ«´óÓ°Ïì£¬¸ÐÐËÈ¤µÄÅóÓÑ»¶Ó­ÌÖÂÛ¡£
 POLL/EPOLL¶Ô±È£º
-±íÃæÉÏpollµÄ¹ý³Ì¿ÉÒÔ¿´×÷ÊÇÓÉÒ»´Îepoll_create/Èô¸É´Îepoll_ctl/Ò»´Îepoll_wait/Ò»´ÎcloseµÈÏµÍ³µ÷ÓÃ¹¹³É£¬Êµ¼ÊÉÏepoll½«poll·Ö³ÉÈô¸É²¿·ÖÊµÏÖµÄÔ­ÒòÕýÊÇÒòÎª·þÎñÆ÷Èí¼þÖÐÊ¹ÓÃpollµÄÌØµã£¨±ÈÈçWeb·þÎñÆ÷£©£º
+±íÃæÉÏpollµÄ¹ý³Ì¿ÉÒÔ¿´×÷ÊÇÓÉÒ»´Îepoll_create/Èô¸É´Îepoll_ctl/Ò»´Îepoll_wait/Ò»´ÎcloseµÈÏµÍ³µ÷ÓÃ¹¹³É£¬
+Êµ¼ÊÉÏepoll½«poll·Ö³ÉÈô¸É²¿·ÖÊµÏÖµÄÔ­ÒòÕýÊÇÒòÎª·þÎñÆ÷Èí¼þÖÐÊ¹ÓÃpollµÄÌØµã£¨±ÈÈçWeb·þÎñÆ÷£©£º
 1£¬ÐèÒªÍ¬Ê±poll´óÁ¿ÎÄ¼þÃèÊö·û;
 2£¬Ã¿´ÎpollÍê³Éºó¾ÍÐ÷µÄÎÄ¼þÃèÊö·ûÖ»Õ¼ËùÓÐ±»pollµÄÃèÊö·ûµÄºÜÉÙÒ»²¿·Ö¡£
 3£¬Ç°ºó¶à´Îpollµ÷ÓÃ¶ÔÎÄ¼þÃèÊö·ûÊý×é£¨ufds£©µÄÐÞ¸ÄÖ»ÊÇºÜÐ¡;
-´«Í³µÄpollº¯ÊýÏàµ±ÓÚÃ¿´Îµ÷ÓÃ¶¼ÖØÆðÂ¯Ôî£¬´ÓÓÃ»§¿Õ¼äÍêÕû¶ÁÈëufds£¬Íê³ÉºóÔÙ´ÎÍêÈ«¿½±´µ½ÓÃ»§¿Õ¼ä£¬ÁíÍâÃ¿´Îpoll¶¼ÐèÒª¶ÔËùÓÐÉè±¸×öÖÁÉÙ×öÒ»´Î¼ÓÈëºÍÉ¾³ýµÈ´ý¶ÓÁÐ²Ù×÷£¬ÕâÐ©¶¼ÊÇµÍÐ§µÄÔ­Òò¡£
+´«Í³µÄpollº¯ÊýÏàµ±ÓÚÃ¿´Îµ÷ÓÃ¶¼ÖØÆðÂ¯Ôî£¬´ÓÓÃ»§¿Õ¼äÍêÕû¶ÁÈëufds£¬Íê³ÉºóÔÙ´ÎÍêÈ«¿½±´µ½ÓÃ»§¿Õ¼ä£¬
+ÁíÍâÃ¿´Îpoll¶¼ÐèÒª¶ÔËùÓÐÉè±¸×öÖÁÉÙ×öÒ»´Î¼ÓÈëºÍÉ¾³ýµÈ´ý¶ÓÁÐ²Ù×÷£¬ÕâÐ©¶¼ÊÇµÍÐ§µÄÔ­Òò¡£
 
-epoll½«ÒÔÉÏÇé¿ö¶¼Ï¸»¯¿¼ÂÇ£¬²»ÐèÒªÃ¿´Î¶¼ÍêÕû¶ÁÈëÊä³öufds£¬Ö»ÐèÊ¹ÓÃepoll_ctlµ÷ÕûÆäÖÐÒ»Ð¡²¿·Ö£¬²»ÐèÒªÃ¿´Îepoll_wait¶¼Ö´ÐÐÒ»´Î¼ÓÈëÉ¾³ýµÈ´ý¶ÓÁÐ²Ù×÷£¬ÁíÍâ¸Ä½øºóµÄ»úÖÆÊ¹µÄ²»±ØÔÚÄ³¸öÉè±¸¾ÍÐ÷ºóËÑË÷Õû¸öÉè±¸Êý×é½øÐÐ²éÕÒ£¬ÕâÐ©¶¼ÄÜÌá¸ßÐ§ÂÊ¡£ÁíÍâ×îÃ÷ÏÔµÄÒ»µã£¬´ÓÓÃ»§µÄÊ¹ÓÃÀ´Ëµ£¬Ê¹ÓÃepoll²»±ØÃ¿´Î¶¼ÂÖÑ¯ËùÓÐ·µ»Ø½á¹ûÒÑÕÒ³öÆäÖÐµÄ¾ÍÐ÷²¿·Ö£¬O£¨n£©±äO£¨1£©£¬¶ÔÐÔÄÜÒ²Ìá¸ß²»ÉÙ¡£
+epoll½«ÒÔÉÏÇé¿ö¶¼Ï¸»¯¿¼ÂÇ£¬²»ÐèÒªÃ¿´Î¶¼ÍêÕû¶ÁÈëÊä³öufds£¬Ö»ÐèÊ¹ÓÃepoll_ctlµ÷ÕûÆäÖÐÒ»Ð¡²¿·Ö£¬
+²»ÐèÒªÃ¿´Îepoll_wait¶¼Ö´ÐÐÒ»´Î¼ÓÈëÉ¾³ýµÈ´ý¶ÓÁÐ²Ù×÷£¬ÁíÍâ¸Ä½øºóµÄ»úÖÆÊ¹µÄ²»±ØÔÚÄ³¸öÉè±¸¾ÍÐ÷ºóËÑË÷Õû¸öÉè±¸Êý×é½øÐÐ²éÕÒ£¬
+ÕâÐ©¶¼ÄÜÌá¸ßÐ§ÂÊ¡£ÁíÍâ×îÃ÷ÏÔµÄÒ»µã£¬´ÓÓÃ»§µÄÊ¹ÓÃÀ´Ëµ£¬Ê¹ÓÃepoll²»±ØÃ¿´Î¶¼ÂÖÑ¯ËùÓÐ·µ»Ø½á¹ûÒÑÕÒ³öÆäÖÐµÄ¾ÍÐ÷²¿·Ö£¬O£¨n£©±äO£¨1£©£¬
+¶ÔÐÔÄÜÒ²Ìá¸ß²»ÉÙ¡£
 
-´ËÍâÕâÀï»¹·¢ÏÖÒ»µã£¬ÊÇ²»ÊÇ½«epoll_ctl¸Ä³ÉÒ»´Î¿ÉÒÔ´¦Àí¶à¸öfd£¨ÏñsemctlÄÇÑù£©»áÌá¸ßÐ©ÐíÐÔÄÜÄØ£¿ÌØ±ðÊÇÔÚ¼ÙÉèÏµÍ³µ÷ÓÃ±È½ÏºÄÊ±µÄ»ù´¡ÉÏ¡£²»¹ý¹ØÓÚÏµÍ³µ÷ÓÃµÄºÄÊ±ÎÊÌâ»¹»áÔÚÒÔºó·ÖÎö¡£
+´ËÍâÕâÀï»¹·¢ÏÖÒ»µã£¬ÊÇ²»ÊÇ½«epoll_ctl¸Ä³ÉÒ»´Î¿ÉÒÔ´¦Àí¶à¸öfd£¨ÏñsemctlÄÇÑù£©»áÌá¸ßÐ©ÐíÐÔÄÜÄØ£¿ÌØ±ðÊÇÔÚ¼ÙÉèÏµÍ³µ÷ÓÃ±È½ÏºÄÊ±µÄ»ù´¡ÉÏ¡£
+²»¹ý¹ØÓÚÏµÍ³µ÷ÓÃµÄºÄÊ±ÎÊÌâ»¹»áÔÚÒÔºó·ÖÎö¡£
 
 POLL/EPOLL²âÊÔÊý¾Ý¶Ô±È£º
-²âÊÔµÄ»·¾³£ºÎÒÐ´ÁËÈý¶Î´úÂëÀ´·Ö±ðÄ£Äâ·þÎñÆ÷£¬»î¶¯µÄ¿Í»§¶Ë£¬½©ËÀµÄ¿Í»§¶Ë£¬·þÎñÆ÷ÔËÐÐÓÚÒ»¸ö×Ô±àÒëµÄ±ê×¼2.6.11ÄÚºËÏµÍ³ÉÏ£¬Ó²¼þÎª PIII933£¬Á½¸ö¿Í»§¶Ë¸÷×ÔÔËÐÐÔÚÁíÍâµÄPCÉÏ£¬ÕâÁ½Ì¨PC±È·þÎñÆ÷µÄÓ²¼þÐÔÄÜÒªºÃ£¬Ö÷ÒªÊÇ±£Ö¤ÄÜÇáÒ×ÈÃ·þÎñÆ÷ÂúÔØ£¬ÈýÌ¨»úÆ÷¼äÊ¹ÓÃÒ»¸ö100M½»»»»úÁ¬½Ó¡£
+²âÊÔµÄ»·¾³£ºÎÒÐ´ÁËÈý¶Î´úÂëÀ´·Ö±ðÄ£Äâ·þÎñÆ÷£¬»î¶¯µÄ¿Í»§¶Ë£¬½©ËÀµÄ¿Í»§¶Ë£¬·þÎñÆ÷ÔËÐÐÓÚÒ»¸ö×Ô±àÒëµÄ±ê×¼2.6.11ÄÚºËÏµÍ³ÉÏ£¬
+Ó²¼þÎª PIII933£¬Á½¸ö¿Í»§¶Ë¸÷×ÔÔËÐÐÔÚÁíÍâµÄPCÉÏ£¬ÕâÁ½Ì¨PC±È·þÎñÆ÷µÄÓ²¼þÐÔÄÜÒªºÃ£¬Ö÷ÒªÊÇ±£Ö¤ÄÜÇáÒ×ÈÃ·þÎñÆ÷ÂúÔØ£¬
+ÈýÌ¨»úÆ÷¼äÊ¹ÓÃÒ»¸ö100M½»»»»úÁ¬½Ó¡£
 ·þÎñÆ÷½ÓÊÜ²¢pollËùÓÐÁ¬½Ó£¬Èç¹ûÓÐrequestµ½´ïÔò»Ø¸´Ò»¸öresponse£¬È»ºó¼ÌÐøpoll¡£
 »î¶¯µÄ¿Í»§¶Ë£¨Active Client£©Ä£ÄâÈô¸É²¢·¢µÄ»î¶¯Á¬½Ó£¬ÕâÐ©Á¬½Ó²»¼ä¶ÏµÄ·¢ËÍÇëÇó½ÓÊÜ»Ø¸´¡£
 ½©ËÀµÄ¿Í»§¶Ë£¨zombie£©Ä£ÄâÒ»Ð©Ö»Á¬½Óµ«²»·¢ËÍÇëÇóµÄ¿Í»§¶Ë£¬ÆäÄ¿µÄÖ»ÊÇÕ¼ÓÃ·þÎñÆ÷µÄpollÃèÊö·û×ÊÔ´¡£
-²âÊÔ¹ý³Ì£º±£³Ö10¸ö²¢·¢»î¶¯Á¬½Ó£¬²»¶ÏµÄµ÷Õû½©²¢·¢Á¬½ÓÊý£¬¼ÇÂ¼ÔÚ²»Í¬±ÈÀýÏÂÊ¹ÓÃpollÓëepollµÄÐÔÄÜ²î±ð¡£½©ËÀ²¢·¢Á¬½ÓÊý¸ù¾Ý±ÈÀý·Ö±ðÊÇ£º0£¬10£¬20£¬40£¬80£¬160£¬320£¬640£¬1280£¬2560£¬5120£¬10240¡£
-ÏÂÍ¼ÖÐºáÖá±íÊ¾½©ËÀ²¢·¢Á¬½ÓÓë»î¶¯²¢·¢Á¬½ÓÖ®±È£¬×ÝÖá±íÊ¾Íê³É40000´ÎÇëÇó»Ø¸´Ëù»¨·ÑµÄÊ±¼ä£¬ÒÔÃëÎªµ¥Î»¡£ºìÉ«ÏßÌõ±íÊ¾pollÊý¾Ý£¬ÂÌÉ«±íÊ¾ epollÊý¾Ý¡£¿ÉÒÔ¿´³ö£¬pollÔÚËù¼à¿ØµÄÎÄ¼þÃèÊö·ûÊýÁ¿Ôö¼ÓÊ±£¬ÆäºÄÊ±³ÊÏßÐÔÔö³¤£¬¶øepollÔòÎ¬³ÖÁËÒ»¸öÆ½ÎÈµÄ×´Ì¬£¬¼¸ºõ²»ÊÜÃèÊö·û¸öÊýÓ°Ïì¡£
-ÔÚ¼à¿ØµÄËùÓÐ¿Í»§¶Ë¶¼ÊÇ»î¶¯Ê±£¬pollµÄÐ§ÂÊ»áÂÔ¸ßÓÚepoll£¨Ö÷ÒªÔÚÔ­µã¸½½ü£¬¼´½©ËÀ²¢·¢Á¬½ÓÎª0Ê±£¬Í¼ÉÏ²»Ò×¿´³öÀ´£©£¬¾¿¾¹epollÊµÏÖ±Èpoll¸´ÔÓ£¬¼à¿ØÉÙÁ¿ÃèÊö·û²¢·ÇËüµÄ³¤´¦¡£
+²âÊÔ¹ý³Ì£º±£³Ö10¸ö²¢·¢»î¶¯Á¬½Ó£¬²»¶ÏµÄµ÷Õû½©²¢·¢Á¬½ÓÊý£¬¼ÇÂ¼ÔÚ²»Í¬±ÈÀýÏÂÊ¹ÓÃpollÓëepollµÄÐÔÄÜ²î±ð¡£
+½©ËÀ²¢·¢Á¬½ÓÊý¸ù¾Ý±ÈÀý·Ö±ðÊÇ£º0£¬10£¬20£¬40£¬80£¬160£¬320£¬640£¬1280£¬2560£¬5120£¬10240¡£
+ÏÂÍ¼ÖÐºáÖá±íÊ¾½©ËÀ²¢·¢Á¬½ÓÓë»î¶¯²¢·¢Á¬½ÓÖ®±È£¬×ÝÖá±íÊ¾Íê³É40000´ÎÇëÇó»Ø¸´Ëù»¨·ÑµÄÊ±¼ä£¬ÒÔÃëÎªµ¥Î»¡£ºìÉ«ÏßÌõ±íÊ¾pollÊý¾Ý£¬
+ÂÌÉ«±íÊ¾ epollÊý¾Ý¡£¿ÉÒÔ¿´³ö£¬pollÔÚËù¼à¿ØµÄÎÄ¼þÃèÊö·ûÊýÁ¿Ôö¼ÓÊ±£¬ÆäºÄÊ±³ÊÏßÐÔÔö³¤£¬¶øepollÔòÎ¬³ÖÁËÒ»¸öÆ½ÎÈµÄ×´Ì¬£¬¼¸ºõ²»ÊÜÃèÊö·û¸öÊýÓ°Ïì¡£
+ÔÚ¼à¿ØµÄËùÓÐ¿Í»§¶Ë¶¼ÊÇ»î¶¯Ê±£¬pollµÄÐ§ÂÊ»áÂÔ¸ßÓÚepoll£¨Ö÷ÒªÔÚÔ­µã¸½½ü£¬¼´½©ËÀ²¢·¢Á¬½ÓÎª0Ê±£¬Í¼ÉÏ²»Ò×¿´³öÀ´£©£¬
+¾¿¾¹epollÊµÏÖ±Èpoll¸´ÔÓ£¬¼à¿ØÉÙÁ¿ÃèÊö·û²¢·ÇËüµÄ³¤´¦¡£
 
 */
 static int32 netTcpSockEpollAccept(int32 listenfd)
@@ -1583,7 +1681,8 @@ UDPÐ­ÒéµÄÌ×½Ó×ÖÃèÊö·ûÔÚ½øÐÐÁËÊý¾ÝÊÕ·¢Ö®ºó£¬²ÅÄÜÈ·¶¨Ì×½Ó×ÖÃèÊö·ûÖÐËù±íÊ¾µÄ·¢ËÍ·½»
 ÀýÈç¿Í»§¶ËµÄÌ×½Ó×ÖÃèÊö·ûÔÚ·¢ËÍÊý¾ÝÖ®Ç°£¬Ö»ÒªÈ·¶¨½¨Á¢ÕýÈ·¾Í¿ÉÒÔÁË£¬ÔÚ·¢ËÍµÄÊ±ºò²ÅÈ·¶¨·¢ËÍÄ¿µÄ·½µÄµØÖ·£»
 ·þÎñÆ÷bind()º¯ÊýÒ²½ö½ö°ó¶¨ÁË±¾µØ½øÐÐ½ÓÊÕµÄµØÖ·ºÍ¶Ë¿Ú¡£
 
-connect()º¯ÊýÔÚTCPÐ­ÒéÖÐ»á·¢ÉúÈý´ÎÎÕÊÖ£¬½¨Á¢Ò»¸ö³ÖÐøµÄÁ¬½Ó£¬Ò»°ã²»ÓÃÓÚUDP¡£ÔÚUDPÐ­ÒéÖÐÊ¹ÓÃconnect()º¯ÊýµÄ×÷ÓÃ½ö½ö±íÊ¾È·¶¨ÁËÁíÒ»·½µÄµØÖ·£¬²¢Ã»ÓÐÆäËûµÄº¬Òå¡£
+connect()º¯ÊýÔÚTCPÐ­ÒéÖÐ»á·¢ÉúÈý´ÎÎÕÊÖ£¬½¨Á¢Ò»¸ö³ÖÐøµÄÁ¬½Ó£¬Ò»°ã²»ÓÃÓÚUDP¡£ÔÚUDPÐ­ÒéÖÐÊ¹ÓÃconnect()º¯ÊýµÄ×÷ÓÃ½ö½ö±íÊ¾È·¶¨ÁËÁíÒ»·½µÄµØÖ·£¬
+²¢Ã»ÓÐÆäËûµÄº¬Òå¡£
 
 connect()º¯ÊýÔÚUDPÐ­ÒéÖÐÊ¹ÓÃºó»á²úÉúÈçÏÂµÄ¸±×÷ÓÃ£º
 
@@ -1591,7 +1690,8 @@ connect()º¯ÊýÔÚUDPÐ­ÒéÖÐÊ¹ÓÃºó»á²úÉúÈçÏÂµÄ¸±×÷ÓÃ£º
 
 Ê¹ÓÃconnect()º¯Êý°ó¶¨Ì×½Ó×Öºó£¬½ÓÊÕ²Ù×÷²»ÄÜÔÙÊ¹ÓÃrecvfrom()º¯Êý£¬ÒªÊ¹ÓÃread()ÀàµÄº¯Êý£¬º¯Êý²»»á·µ»Ø·¢ËÍ·½µÄµØÖ·ºÍ¶Ë¿ÚºÅ¡£
 
-ÔÚÊ¹ÓÃ¶à´Îconnect()º¯ÊýµÄÊ±ºò£¬»á¸Ä±äÔ­À´Ì×½Ó×Ö°ó¶¨µÄÄ¿µÄµØÖ·ºÍ¶Ë¿ÚºÅ£¬ÓÃÐÂ°ó¶¨µÄµØÖ·ºÍ¶Ë¿ÚºÅ´úÌæ£¬Ô­ÓÐµÄ°ó¶¨×´Ì¬»áÊ§Ð§¡£¿ÉÒÔÊ¹ÓÃÕâÖÖÌØµãÀ´¶Ï¿ªÔ­À´µÄÁ¬½Ó¡£
+ÔÚÊ¹ÓÃ¶à´Îconnect()º¯ÊýµÄÊ±ºò£¬»á¸Ä±äÔ­À´Ì×½Ó×Ö°ó¶¨µÄÄ¿µÄµØÖ·ºÍ¶Ë¿ÚºÅ£¬ÓÃÐÂ°ó¶¨µÄµØÖ·ºÍ¶Ë¿ÚºÅ´úÌæ£¬Ô­ÓÐµÄ°ó¶¨×´Ì¬»áÊ§Ð§¡£
+¿ÉÒÔÊ¹ÓÃÕâÖÖÌØµãÀ´¶Ï¿ªÔ­À´µÄÁ¬½Ó¡£
 
 ÏÂÃæÊÇÒ»¸öÊ¹ÓÃconnect()º¯ÊýµÄÀý×Ó£¬ÔÚ·¢ËÍÊý¾ÝÖ®Ç°£¬½«Ì×½Ó×ÖÎÄ¼þÃèÊö·ûÓëÄ¿µÄµØÖ·Ê¹ÓÃconnect()º¯Êý½øÐÐÁË°ó¶¨£¬
 Ö®ºóÊ¹ÓÃwrite()º¯Êý·¢ËÍÊý¾Ý²¢Ê¹ÓÃread()º¯Êý½ÓÊÕÊý¾Ý¡£
@@ -2083,9 +2183,12 @@ int32 netUdpSend(int32 sock, struct sockaddr_in addr, uint8 *buff, int32 bufLen)
 LinuxÏÂµÄIPC£­UNIX Domain Socket 
  Ò»¡¢ ¸ÅÊö
 
-UNIX Domain SocketÊÇÔÚsocket¼Ü¹¹ÉÏ·¢Õ¹ÆðÀ´µÄÓÃÓÚÍ¬Ò»Ì¨Ö÷»úµÄ½ø³Ì¼äÍ¨Ñ¶£¨IPC£©£¬Ëü²»ÐèÒª¾­¹ýÍøÂçÐ­ÒéÕ»£¬²»ÐèÒª´ò°ü²ð°ü¡¢¼ÆËãÐ£ÑéºÍ¡¢Î¬»¤ÐòºÅºÍÓ¦´ðµÈ£¬Ö»ÊÇ½«Ó¦ÓÃ²ãÊý¾Ý´ÓÒ»¸ö½ø³Ì¿½±´µ½ÁíÒ»¸ö½ø³Ì¡£UNIX Domain SocketÓÐSOCK_DGRAM»òSOCK_STREAMÁ½ÖÖ¹¤×÷Ä£Ê½£¬ÀàËÆÓÚUDPºÍTCP£¬µ«ÊÇÃæÏòÏûÏ¢µÄUNIX Domain SocketÒ²ÊÇ¿É¿¿µÄ£¬ÏûÏ¢¼È²»»á¶ªÊ§Ò²²»»áË³Ðò´íÂÒ¡£
+UNIX Domain SocketÊÇÔÚsocket¼Ü¹¹ÉÏ·¢Õ¹ÆðÀ´µÄÓÃÓÚÍ¬Ò»Ì¨Ö÷»úµÄ½ø³Ì¼äÍ¨Ñ¶£¨IPC£©£¬Ëü²»ÐèÒª¾­¹ýÍøÂçÐ­ÒéÕ»£¬²»ÐèÒª´ò°ü²ð°ü¡¢
+¼ÆËãÐ£ÑéºÍ¡¢Î¬»¤ÐòºÅºÍÓ¦´ðµÈ£¬Ö»ÊÇ½«Ó¦ÓÃ²ãÊý¾Ý´ÓÒ»¸ö½ø³Ì¿½±´µ½ÁíÒ»¸ö½ø³Ì¡£UNIX Domain SocketÓÐSOCK_DGRAM»òSOCK_STREAMÁ½ÖÖ¹¤×÷Ä£Ê½£¬
+ÀàËÆÓÚUDPºÍTCP£¬µ«ÊÇÃæÏòÏûÏ¢µÄUNIX Domain SocketÒ²ÊÇ¿É¿¿µÄ£¬ÏûÏ¢¼È²»»á¶ªÊ§Ò²²»»áË³Ðò´íÂÒ¡£
 
-UNIX Domain Socket¿ÉÓÃÓÚÁ½¸öÃ»ÓÐÇ×Ôµ¹ØÏµµÄ½ø³Ì£¬ÊÇÈ«Ë«¹¤µÄ£¬ÊÇÄ¿Ç°Ê¹ÓÃ×î¹ã·ºµÄIPC»úÖÆ£¬±ÈÈçX Window·þÎñÆ÷ºÍGUI³ÌÐòÖ®¼ä¾ÍÊÇÍ¨¹ýUNIX Domain SocketÍ¨Ñ¶µÄ¡£
+UNIX Domain Socket¿ÉÓÃÓÚÁ½¸öÃ»ÓÐÇ×Ôµ¹ØÏµµÄ½ø³Ì£¬ÊÇÈ«Ë«¹¤µÄ£¬ÊÇÄ¿Ç°Ê¹ÓÃ×î¹ã·ºµÄIPC»úÖÆ£¬
+±ÈÈçX Window·þÎñÆ÷ºÍGUI³ÌÐòÖ®¼ä¾ÍÊÇÍ¨¹ýUNIX Domain SocketÍ¨Ñ¶µÄ¡£
 
 ¶þ¡¢¹¤×÷Á÷³Ì
 
@@ -2095,8 +2198,10 @@ UNIX Domain socketÓëÍøÂçsocketÀàËÆ£¬¿ÉÒÔÓëÍøÂçsocket¶Ô±ÈÓ¦ÓÃ¡£
 
     address familyÎªAF_UNIX
     ÒòÎªÓ¦ÓÃÓÚIPC£¬ËùÒÔUNIXDomain socket²»ÐèÒªIPºÍ¶Ë¿Ú£¬È¡¶ø´úÖ®µÄÊÇÎÄ¼þÂ·¾¶À´±íÊ¾¡°ÍøÂçµØÖ·¡±¡£ÕâµãÌåÏÖÔÚÏÂÃæÁ½¸ö·½Ãæ¡£
-    µØÖ·¸ñÊ½²»Í¬£¬UNIXDomain socketÓÃ½á¹¹Ìåsockaddr_un±íÊ¾£¬ÊÇÒ»¸ösocketÀàÐÍµÄÎÄ¼þÔÚÎÄ¼þÏµÍ³ÖÐµÄÂ·¾¶£¬Õâ¸ösocketÎÄ¼þÓÉbind()µ÷ÓÃ´´½¨£¬Èç¹ûµ÷ÓÃbind()Ê±¸ÃÎÄ¼þÒÑ´æÔÚ£¬Ôòbind()´íÎó·µ»Ø¡£
-    UNIX Domain Socket¿Í»§¶ËÒ»°ãÒªÏÔÊ½µ÷ÓÃbindº¯Êý£¬¶ø²»ÏóÍøÂçsocketÒ»ÑùÒÀÀµÏµÍ³×Ô¶¯·ÖÅäµÄµØÖ·¡£¿Í»§¶ËbindµÄsocketÎÄ¼þÃû¿ÉÒÔ°üº¬¿Í»§¶ËµÄpid£¬ÕâÑù·þÎñÆ÷¾Í¿ÉÒÔÇø·Ö²»Í¬µÄ¿Í»§¶Ë¡£
+    µØÖ·¸ñÊ½²»Í¬£¬UNIXDomain socketÓÃ½á¹¹Ìåsockaddr_un±íÊ¾£¬ÊÇÒ»¸ösocketÀàÐÍµÄÎÄ¼þÔÚÎÄ¼þÏµÍ³ÖÐµÄÂ·¾¶£¬
+    Õâ¸ösocketÎÄ¼þÓÉbind()µ÷ÓÃ´´½¨£¬Èç¹ûµ÷ÓÃbind()Ê±¸ÃÎÄ¼þÒÑ´æÔÚ£¬Ôòbind()´íÎó·µ»Ø¡£
+    UNIX Domain Socket¿Í»§¶ËÒ»°ãÒªÏÔÊ½µ÷ÓÃbindº¯Êý£¬¶ø²»ÏóÍøÂçsocketÒ»ÑùÒÀÀµÏµÍ³×Ô¶¯·ÖÅäµÄµØÖ·¡£¿Í»§¶ËbindµÄsocketÎÄ¼þÃû¿ÉÒÔ°üº¬¿Í»§¶ËµÄpid£¬
+    ÕâÑù·þÎñÆ÷¾Í¿ÉÒÔÇø·Ö²»Í¬µÄ¿Í»§¶Ë¡£
 
 UNIX Domain socketµÄ¹¤×÷Á÷³Ì¼òÊöÈçÏÂ£¨ÓëÍøÂçsocketÏàÍ¬£©¡£
 
@@ -2110,7 +2215,8 @@ UNIX Domain socketµÄ¹¤×÷Á÷³Ì¼òÊöÈçÏÂ£¨ÓëÍøÂçsocketÏàÍ¬£©¡£
 
 1.×èÈûÄ£Ê½ÏÂ
 
-×èÈûÄ£Ê½ÏÂ£¬·¢ËÍÊý¾Ý·½ºÍ½ÓÊÕÊý¾Ý·½µÄ±íÏÖÇé¿öÈçÍ¬ÃüÃû¹ÜµÀ£¬²Î¼û±¾ÈËÎÄÕÂ¡°LinuxÏÂµÄIPC£­ÃüÃû¹ÜµÀµÄÊ¹ÓÃ£¨http://blog.csdn.net/guxch/article/details/6828452£©¡±
+×èÈûÄ£Ê½ÏÂ£¬·¢ËÍÊý¾Ý·½ºÍ½ÓÊÕÊý¾Ý·½µÄ±íÏÖÇé¿öÈçÍ¬ÃüÃû¹ÜµÀ£¬²Î¼û±¾ÈËÎÄÕÂ¡°LinuxÏÂµÄIPC£­ÃüÃû¹ÜµÀµÄÊ¹ÓÃ
+£¨http://blog.csdn.net/guxch/article/details/6828452£©¡±
 
 2.·Ç×èÈûÄ£Ê½
 
@@ -2276,10 +2382,12 @@ int32 netUnixSockClient(uint8 *fileDir, netFunctionRun function)
 
 /***************************************************/
 /*
-º¯Êýgethostbyname()ÊÇÍê³ÉÓòÃû×ª»»µÄ¡£ÓÉÓÚIPµØÖ·ÄÑÒÔ¼ÇÒäºÍ¶ÁÐ´£¬ËùÒÔÎªÁË·½±ã£¬ÈËÃÇ³£³£ÓÃÓòÃûÀ´±íÊ¾Ö÷»ú£¬Õâ¾ÍÐèÒª½øÐÐÓòÃûºÍIPµØÖ·µÄ×ª»»¡£º¯ÊýÔ­ÐÍÎª£º
+º¯Êýgethostbyname()ÊÇÍê³ÉÓòÃû×ª»»µÄ¡£ÓÉÓÚIPµØÖ·ÄÑÒÔ¼ÇÒäºÍ¶ÁÐ´£¬ËùÒÔÎªÁË·½±ã£¬ÈËÃÇ³£³£ÓÃÓòÃûÀ´±íÊ¾Ö÷»ú£¬
+Õâ¾ÍÐèÒª½øÐÐÓòÃûºÍIPµØÖ·µÄ×ª»»¡£º¯ÊýÔ­ÐÍÎª£º
 ¡¡¡¡struct hostent *gethostbyname(const char *name); 
 
-µ± gethostname()µ÷ÓÃ³É¹¦Ê±£¬·µ»ØÖ¸Ïòstruct hostenµÄÖ¸Õë£¬µ±µ÷ÓÃÊ§°ÜÊ±·µ»Ø-1¡£µ±µ÷ÓÃgethostbynameÊ±£¬Äã²»ÄÜÊ¹ÓÃperror()º¯ÊýÀ´Êä³ö´íÎóÐÅÏ¢£¬¶øÓ¦¸ÃÊ¹ÓÃherror()º¯ÊýÀ´Êä³ö¡£ 
+µ± gethostname()µ÷ÓÃ³É¹¦Ê±£¬·µ»ØÖ¸Ïòstruct hostenµÄÖ¸Õë£¬µ±µ÷ÓÃÊ§°ÜÊ±·µ»Ø-1¡£µ±µ÷ÓÃgethostbynameÊ±£¬
+Äã²»ÄÜÊ¹ÓÃperror()º¯ÊýÀ´Êä³ö´íÎóÐÅÏ¢£¬¶øÓ¦¸ÃÊ¹ÓÃherror()º¯ÊýÀ´Êä³ö¡£ 
 
 º¯Êý·µ»ØÎªhostenµÄ½á¹¹ÀàÐÍ£¬ËüµÄ¶¨ÒåÈçÏÂ£º
 
@@ -2296,12 +2404,16 @@ truct hostent {
 
     Õâ¸öÖ¸ÕëÖ¸ÏòÒ»¸ö¾²Ì¬Êý¾Ý£¬Ëü»á±»ºó¼ÌµÄµ÷ÓÃËù¸²¸Ç¡£¼òµ¥µÄËµ£¬ËüÊÇ¶àÏß³Ì»òÕß¶à½ø³Ì²»°²È«µÄ¡£
     ÎÒÃÇ×îºÃÊ¹ÓÃh_addr´úÀíÖ±½ÓÊ¹ÓÃh_addr_list£¬ÕâÑùÄÜ¹»Ìá¸ßÈÕºóµÄ¼æÈÝÐÔ¡£
-    h_addrÊÇÖ¸ÏòÒ»¸ö³¤¶ÈÎªh_lengthµÄÖ÷»úµØÖ·£¬Ëü²»ÊÇÍøÂç¸ñÊ½£¬ËùÒÔÔÚ¸³Öµ¸østruct in_addrÊ±£¬Ó¦¸ÃÍ¨¹ýhtonlÀ´×ª»¯¡£ÎÒÃÇ¿ÉÒÔÍ¨¹ýÏÂÃæÒ»¸öÑ§Ï°³ÌÐòÀ´ËµÃ÷ÕâÖÖÇé¿ö¡£
-    Èç¹ûÎÒÃÇÊ¹ÓÃGNU»·¾³£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃgethostbyname_r»òÕßgethostbyname2_rÀ´Ìæ»»µôgethostbynameº¯Êý¡£ËüÃÇÄÜ¹»Á¼ºÃµÄ½â¾ö¶àÏß³Ì»ò¶à½ø³Ì°²È«ÐÔÎÊÌâ£¬²¢ÇÒÌá¹©Ñ¡ÔñµØÖ·×å²ÎÊý¡£
+    h_addrÊÇÖ¸ÏòÒ»¸ö³¤¶ÈÎªh_lengthµÄÖ÷»úµØÖ·£¬Ëü²»ÊÇÍøÂç¸ñÊ½£¬ËùÒÔÔÚ¸³Öµ¸østruct in_addrÊ±£¬Ó¦¸ÃÍ¨¹ýhtonlÀ´×ª»¯¡£
+    ÎÒÃÇ¿ÉÒÔÍ¨¹ýÏÂÃæÒ»¸öÑ§Ï°³ÌÐòÀ´ËµÃ÷ÕâÖÖÇé¿ö¡£
+    Èç¹ûÎÒÃÇÊ¹ÓÃGNU»·¾³£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃgethostbyname_r»òÕßgethostbyname2_rÀ´Ìæ»»µôgethostbynameº¯Êý¡£
+    ËüÃÇÄÜ¹»Á¼ºÃµÄ½â¾ö¶àÏß³Ì»ò¶à½ø³Ì°²È«ÐÔÎÊÌâ£¬²¢ÇÒÌá¹©Ñ¡ÔñµØÖ·×å²ÎÊý¡£
 
 gethostbynameº¯Êý£¨ÎªÁË»ñµÃ¶Ô·½µÄIPµØÖ·£©
 
-ÔÚlinux»·¾³ÏÂ£¬Èç¹ûÁ¬½ÓÍøÂç gethostbyname»áÁ¬½ÓDNS·þÎñÆ÷£¨¾ßÌåµÄ·þÎñÆ÷¸ù¾ÝÅäÖÃ¶ø¶¨£©£¬DNS·þÎñÆ÷»á·´»Ø´«ÈëÓòÃûËù¶ÔÓ¦µÄIPµØÖ·£¬Èç¹ûÊÇÁ½Ì¨Ç¶ÈëÊ½Éè±¸Á¬½Ó£¨Ò²ÊÇlinux»·¾³£©£¬ÄÇÃ´´Ëº¯Êý»áÔÚ/etc/hosts/µ±Ç°Ä¿Â¼ÏÂÑ°ÕÒÊäÈëÓòÃûËù¶ÔÓ¦µÄIP£¬ËùÒÔ£¬ÔÚÁ½Ì¨Éè±¸½øÐÐÍ¨ÐÅÖ®Ç°£¬±ØÐëÒªÔÚ´ËÎÄ¼þÏÂÉèÖÃÒªÁ¬½ÓµÄÓòÃûÒÔ¼°¶ÔÓ¦µÄIPµØÖ·
+ÔÚlinux»·¾³ÏÂ£¬Èç¹ûÁ¬½ÓÍøÂç gethostbyname»áÁ¬½ÓDNS·þÎñÆ÷£¨¾ßÌåµÄ·þÎñÆ÷¸ù¾ÝÅäÖÃ¶ø¶¨£©£¬DNS·þÎñÆ÷»á·´»Ø´«ÈëÓòÃûËù¶ÔÓ¦µÄIPµØÖ·£¬
+Èç¹ûÊÇÁ½Ì¨Ç¶ÈëÊ½Éè±¸Á¬½Ó£¨Ò²ÊÇlinux»·¾³£©£¬ÄÇÃ´´Ëº¯Êý»áÔÚ/etc/hosts/µ±Ç°Ä¿Â¼ÏÂÑ°ÕÒÊäÈëÓòÃûËù¶ÔÓ¦µÄIP£¬ËùÒÔ£¬ÔÚÁ½Ì¨Éè±¸½øÐÐÍ¨ÐÅÖ®Ç°£¬
+±ØÐëÒªÔÚ´ËÎÄ¼þÏÂÉèÖÃÒªÁ¬½ÓµÄÓòÃûÒÔ¼°¶ÔÓ¦µÄIPµØÖ·
 
 gethostname() £º ·µ»Ø±¾µØÖ÷»úµÄ±ê×¼Ö÷»úÃû¡£
 
@@ -2457,9 +2569,11 @@ int32 showServiceInfo(uint8 *service, uint8 *protocol)
 /*
 gethostbyaddr(3)º¯Êý
 
-Õâ¸öº¯Êý£¬´«ÈëÖµÊÇIPµØÖ·£¨×¢Òâ£¬ÕâÀï²»ÊÇ¼òµ¥µÄ×Ö·û´®£¬ÐèÒªÏÈ½«×Ö·û´®ÐÎÊ½µÄIPµØÖ·ÓÉinet_aton×ª»¯Ò»ÏÂ£©£¬È»ºó¾­¹ýº¯Êý´¦Àí£¬½«½á¹ûÓÉ·µ»ØÖµ´«³ö¡£·µ»ØÖµÊÇÒ»¸öhostent½á¹¹.ÒòÎªÓÐÁËhostenÕâ¸ö´«³öµÄ½á¹¹£¬ÎÒÃÇ¿ÉÒÔÔÚÕâ¸ö½á¹¹ÀïÃæÕÒµ½ÎÒÃÇÏëÐèÒªµÄÐÅÏ¢¡£
+Õâ¸öº¯Êý£¬´«ÈëÖµÊÇIPµØÖ·£¨×¢Òâ£¬ÕâÀï²»ÊÇ¼òµ¥µÄ×Ö·û´®£¬ÐèÒªÏÈ½«×Ö·û´®ÐÎÊ½µÄIPµØÖ·ÓÉinet_aton×ª»¯Ò»ÏÂ£©£¬È»ºó¾­¹ýº¯Êý´¦Àí£¬
+½«½á¹ûÓÉ·µ»ØÖµ´«³ö¡£·µ»ØÖµÊÇÒ»¸öhostent½á¹¹.ÒòÎªÓÐÁËhostenÕâ¸ö´«³öµÄ½á¹¹£¬ÎÒÃÇ¿ÉÒÔÔÚÕâ¸ö½á¹¹ÀïÃæÕÒµ½ÎÒÃÇÏëÐèÒªµÄÐÅÏ¢¡£
 
-ÓÐÊ±ÎÒÃÇÖªµÀÒ»¸öIPµØÖ·£¬µ«ÊÇÎÒÃÇ±¨¸æÖ÷»ú£¬¶ø²»ÊÇIPµØÖ·¡£Ò»¸ö·þÎñÆ÷Ò²ÐíÐèÒª¼ÇÂ¼ÓëÆäÁ¬½ÓµÄ¿Í»§¶ËÖ÷»úÃû£¬¶ø²»½ö½öÊÇIPµØÖ·¡£gethostbyaddrº¯Êý¸ÅÒªÈçÏÂ£º
+ÓÐÊ±ÎÒÃÇÖªµÀÒ»¸öIPµØÖ·£¬µ«ÊÇÎÒÃÇ±¨¸æÖ÷»ú£¬¶ø²»ÊÇIPµØÖ·¡£Ò»¸ö·þÎñÆ÷Ò²ÐíÐèÒª¼ÇÂ¼ÓëÆäÁ¬½ÓµÄ¿Í»§¶ËÖ÷»úÃû£¬¶ø²»½ö½öÊÇIPµØÖ·¡£
+gethostbyaddrº¯Êý¸ÅÒªÈçÏÂ£º
 #include <sys/socket.h>
 struct hostent *gethostbyaddr(
         const char *addr,
@@ -2470,13 +2584,17 @@ gethostbyaddrº¯Êý½ÓÊÜÈý¸öÊäÈë²ÎÊý£º
 2 ÊäÈëµØÖ·µÄ³¤¶È¡£¶ÔÓÚAF_INETÀàÐÍ£¬Õâ¸öÖµÎª4£»¶ø¶ÔÓÚAF_INET6ÀàÐÍ£¬Õâ¸öÖµÎª16¡£
 3 ÊäÈëµØÖ·µÄÀàÐÍ£¬Õâ¸öÖµÎªAF_INET»òÊÇAF_INET6¡£
 
-ÔÚÕâÀïÒª×¢Òâ£¬µÚÒ»¸ö²ÎÊýÎªÒ»¸ö×Ö·ûÖ¸Õë£¬ÊµÖÊÉÏÔÊÐí½ÓÊÜ¶àÖÖ¸ñÊ½µÄµØÖ·¡£ÎÒÃÇÐèÒª½«ÎÒÃÇµÄµØÖ·Ö¸Õë×ª»»Îª(char *)À´Âú×ã±àÒë¡£µÚ¶þ¸ö²ÎÊýÖ¸Ã÷ÁËËùÌá¹©µÄµØÖ·µÄ³¤¶È¡£
+ÔÚÕâÀïÒª×¢Òâ£¬µÚÒ»¸ö²ÎÊýÎªÒ»¸ö×Ö·ûÖ¸Õë£¬ÊµÖÊÉÏÔÊÐí½ÓÊÜ¶àÖÖ¸ñÊ½µÄµØÖ·¡£ÎÒÃÇÐèÒª½«ÎÒÃÇµÄµØÖ·Ö¸Õë×ª»»Îª(char *)À´Âú×ã±àÒë¡£
+µÚ¶þ¸ö²ÎÊýÖ¸Ã÷ÁËËùÌá¹©µÄµØÖ·µÄ³¤¶È¡£
 
 µÚÈý¸ö²ÎÊýÎªËù´«µÝµÄµØÖ·µÄÀàÐÍ¡£¶ÔIPv4µÄÍøÂçÎªAF_INET£¬Ò²ÐíÔÚ½«À´£¬Õâ¸öÖµ½«»áÊÇIPv6µØÖ·¸ñÊ½µÄAF_INET6¡£
 ---------------
 ÕýÔÚÏëÎªÊ²Ã´»áÕâÑùµÄÊ±ºò£¬¿´µ½UNPÀïÃæµÄÒ»¾ä»°£º °´ÕÕDNSµÄËµ·¨£¬gethostbyaddrÔÚin_addr.arpaÓòÖÐÏòÒ»¸öÃû×Ö·þÎñÆ÷²éÑ¯PTR¼ÇÂ¼¡£
 
-¡¡¡¡¿ÉÄÜÊÇÎÒµÄµçÄÔ²»ÊÇ·þÎñÆ÷°É£¬Ã»ÓÐÓòÃû½âÎö·þÎñ°É¡£ËùÒÔ²»ÐÐ¡£¶ø±¾µØµÄ/etc/hosts²î²»¶à¾ÍÊÇÓÐÕâ¸ö¹¦ÄÜ¡£ÎÒ¾ÍÔÚÏëÎªÊ²Ã´gethostbyname»áÏò/etc/hostsÎÄ¼þÖÐ²é¿´ÐÅÏ¢£¬È»ºóÃ»ÓÐ¶ÔÓ¦µÄ»°£¬¾Í»á·µ»ØÉÏÒ»¼¶µÄDNS½øÐÐ½âÎö¡£¶ø·´Ïò½âÎöÎªÊ²Ã´²»»á×Ô¶¯½âÎöÄØ£¿£¨PsÎÒÏë»á²»»áÊÇ·´Ïò½âÎö±È½ÏÉÙÓÃµ½£¬¶øÇÒÕýÏò½âÎöÓòÃûÓÐ²ã´Î¹ØÏµ£¬¶øIPÃ»ÓÐ²ã´Î¹ØÏµ£¬²»·½±ã´¦Àí°É¡££©ÎÒÍ¨¹ýnslookup 115.239.211.110 ½øÐÐ²éÑ¯Ê±ÌáÊ¾Õâ¸ö´íÎó£º
+¡¡¡¡¿ÉÄÜÊÇÎÒµÄµçÄÔ²»ÊÇ·þÎñÆ÷°É£¬Ã»ÓÐÓòÃû½âÎö·þÎñ°É¡£ËùÒÔ²»ÐÐ¡£¶ø±¾µØµÄ/etc/hosts²î²»¶à¾ÍÊÇÓÐÕâ¸ö¹¦ÄÜ¡£
+ÎÒ¾ÍÔÚÏëÎªÊ²Ã´gethostbyname»áÏò/etc/hostsÎÄ¼þÖÐ²é¿´ÐÅÏ¢£¬È»ºóÃ»ÓÐ¶ÔÓ¦µÄ»°£¬¾Í»á·µ»ØÉÏÒ»¼¶µÄDNS½øÐÐ½âÎö¡£
+¶ø·´Ïò½âÎöÎªÊ²Ã´²»»á×Ô¶¯½âÎöÄØ£¿£¨PsÎÒÏë»á²»»áÊÇ·´Ïò½âÎö±È½ÏÉÙÓÃµ½£¬¶øÇÒÕýÏò½âÎöÓòÃûÓÐ²ã´Î¹ØÏµ£¬¶øIPÃ»ÓÐ²ã´Î¹ØÏµ£¬²»·½±ã´¦Àí°É¡££©
+ÎÒÍ¨¹ýnslookup 115.239.211.110 ½øÐÐ²éÑ¯Ê±ÌáÊ¾Õâ¸ö´íÎó£º
 
  
 
@@ -2540,7 +2658,8 @@ int32 showRemoteServeInfo(uint8 *ipAddr)
 }
 
 /*
-LinuxÍøÂç³ÌÐòÓëÄÚºË½»»¥µÄ·½·¨ÊÇÍ¨¹ýioctlÀ´ÊµÏÖµÄ£¬ioctlÓëÍøÂçÐ­ÒéÕ»½øÐÐ½»»¥£¬¿ÉµÃµ½ÍøÂç½Ó¿ÚµÄÐÅÏ¢£¬Íø¿¨Éè±¸µÄÓ³ÉäÊôÐÔºÍÅäÖÃÍøÂç½Ó¿Ú.²¢ÇÒ»¹ÄÜ¹»²é¿´£¬ÐÞ¸Ä£¬É¾³ýARP¸ßËÙ»º´æµÄÐÅÏ¢£¬ËùÒÔ£¬ÎÒÃÇÓÐ±ØÒªÁË½âÒ»ÏÂioctlº¯ÊýµÄ¾ßÌåÊµÏÖ.
+LinuxÍøÂç³ÌÐòÓëÄÚºË½»»¥µÄ·½·¨ÊÇÍ¨¹ýioctlÀ´ÊµÏÖµÄ£¬ioctlÓëÍøÂçÐ­ÒéÕ»½øÐÐ½»»¥£¬¿ÉµÃµ½ÍøÂç½Ó¿ÚµÄÐÅÏ¢£¬
+Íø¿¨Éè±¸µÄÓ³ÉäÊôÐÔºÍÅäÖÃÍøÂç½Ó¿Ú.²¢ÇÒ»¹ÄÜ¹»²é¿´£¬ÐÞ¸Ä£¬É¾³ýARP¸ßËÙ»º´æµÄÐÅÏ¢£¬ËùÒÔ£¬ÎÒÃÇÓÐ±ØÒªÁË½âÒ»ÏÂioctlº¯ÊýµÄ¾ßÌåÊµÏÖ.
 
 2.Ïà¹Ø½á¹¹ÌåÓëÏà¹Øº¯Êý
 
@@ -2969,20 +3088,24 @@ int showNetInterfaceInfo(void)
 
 µÚ¶þ¸ö²ÎÊýlevelÊÇ±»ÉèÖÃµÄÑ¡ÏîµÄ¼¶±ð£¬Èç¹ûÏëÒªÔÚÌ×½Ó×Ö¼¶±ðÉÏÉèÖÃÑ¡Ïî£¬¾Í±ØÐë°ÑlevelÉèÖÃÎªSOL_SOCKET¡£
 
-µÚÈý¸ö²ÎÊý option_nameÖ¸¶¨×¼±¸ÉèÖÃµÄÑ¡Ïî£¬option_name¿ÉÒÔÓÐÄÄÐ©³£ÓÃÈ¡Öµ£¬ÕâÈ¡¾öÓÚlevel£¬ÒÔlinux 2.6ÄÚºËÎªÀý£¨ÔÚ²»Í¬µÄÆ½Ì¨ÉÏ£¬ÕâÖÖ¹ØÏµ¿ÉÄÜ»áÓÐ²»Í¬£©£¬ÔÚÌ×½Ó×Ö¼¶±ðÉÏ(SOL_SOCKET)£º
+µÚÈý¸ö²ÎÊý option_nameÖ¸¶¨×¼±¸ÉèÖÃµÄÑ¡Ïî£¬option_name¿ÉÒÔÓÐÄÄÐ©³£ÓÃÈ¡Öµ£¬ÕâÈ¡¾öÓÚlevel£¬
+ÒÔlinux 2.6ÄÚºËÎªÀý£¨ÔÚ²»Í¬µÄÆ½Ì¨ÉÏ£¬ÕâÖÖ¹ØÏµ¿ÉÄÜ»áÓÐ²»Í¬£©£¬ÔÚÌ×½Ó×Ö¼¶±ðÉÏ(SOL_SOCKET)£º
 
 
 1. SO_BROADCAST Ì×½Ó×ÖÑ¡Ïî
 
-     ±¾Ñ¡Ïî¿ªÆô»ò½ûÖ¹½ø³Ì·¢ËÍ¹ã²¥ÏûÏ¢µÄÄÜÁ¦¡£Ö»ÓÐÊý¾Ý±¨Ì×½Ó×ÖÖ§³Ö¹ã²¥£¬²¢ÇÒ»¹±ØÐëÊÇÔÚÖ§³Ö¹ã²¥ÏûÏ¢µÄÍøÂçÉÏ£¨ÀýÈçÒÔÌ«Íø£¬ÁîÅÆ»·ÍøµÈ£©¡£ÎÒÃÇ²»¿ÉÄÜÔÚµã¶ÔµãÁ´Â·ÉÏ½øÐÐ¹ã²¥£¬Ò²²»¿ÉÄÜÔÚ»ùÓÚÁ¬½ÓµÄ´«ÊäÐ­Òé£¨ÀýÈçTCPºÍSCTP£©Ö®ÉÏ½øÐÐ¹ã²¥¡£
+     ±¾Ñ¡Ïî¿ªÆô»ò½ûÖ¹½ø³Ì·¢ËÍ¹ã²¥ÏûÏ¢µÄÄÜÁ¦¡£Ö»ÓÐÊý¾Ý±¨Ì×½Ó×ÖÖ§³Ö¹ã²¥£¬²¢ÇÒ»¹±ØÐëÊÇÔÚÖ§³Ö¹ã²¥ÏûÏ¢µÄÍøÂçÉÏ
+     £¨ÀýÈçÒÔÌ«Íø£¬ÁîÅÆ»·ÍøµÈ£©¡£ÎÒÃÇ²»¿ÉÄÜÔÚµã¶ÔµãÁ´Â·ÉÏ½øÐÐ¹ã²¥£¬Ò²²»¿ÉÄÜÔÚ»ùÓÚÁ¬½ÓµÄ´«ÊäÐ­Òé£¨ÀýÈçTCPºÍSCTP£©Ö®ÉÏ½øÐÐ¹ã²¥¡£
 
 2. SO_DEBUG Ì×½Ó×ÖÑ¡Ïî
 
-     ±¾Ñ¡Ïî½öÓÉTCPÖ§³Ö¡£µ±¸øÒ»¸öTCPÌ×½Ó×Ö¿ªÆô±¾Ñ¡ÏîÊ±£¬ÄÚºË½«ÎªTCPÔÚ¸ÃÌ×½Ó×Ö·¢ËÍºÍ½ÓÊÜµÄËùÓÐ·Ö×é±£ÁôÏêÏ¸¸ú×ÙÐÅÏ¢¡£ÕâÐ©ÐÅÏ¢±£´æÔÚÄÚºËµÄÄ³¸ö»·ÐÎ»º³åÇøÖÐ£¬²¢¿ÉÊ¹ÓÃtrpt³ÌÐò½øÐÐ¼ì²é¡£
+     ±¾Ñ¡Ïî½öÓÉTCPÖ§³Ö¡£µ±¸øÒ»¸öTCPÌ×½Ó×Ö¿ªÆô±¾Ñ¡ÏîÊ±£¬ÄÚºË½«ÎªTCPÔÚ¸ÃÌ×½Ó×Ö·¢ËÍºÍ½ÓÊÜµÄËùÓÐ·Ö×é±£ÁôÏêÏ¸¸ú×ÙÐÅÏ¢¡£
+     ÕâÐ©ÐÅÏ¢±£´æÔÚÄÚºËµÄÄ³¸ö»·ÐÎ»º³åÇøÖÐ£¬²¢¿ÉÊ¹ÓÃtrpt³ÌÐò½øÐÐ¼ì²é¡£
 
 3. SO_KEEPALIVE Ì×½Ó×ÖÑ¡Ïî
 
-     ¸øÒ»¸öTCPÌ×½Ó×ÖÉèÖÃ±£³Ö´æ»îÑ¡Ïîºó£¬Èç¹û2Ð¡Ê±ÄÚÔÚ¸ÃÌ×½Ó×ÖµÄÈÎºÎÒ»·½ÏòÉÏ¶¼Ã»ÓÐÊý¾Ý½»»»£¬TCP¾Í×Ô¶¯¸ø¶Ô¶Ë·¢ËÍÒ»¸ö±£³Ö´æ»îÌ½²â·Ö½Ú¡£ÕâÊÇÒ»¸ö¶Ô¶Ë±ØÐëÏàÓ¦µÄTCP·Ö½Ú£¬Ëü»áµ¼ÖÂÒÔÏÂ3ÖÖÇé¿öÖ®Ò»¡£
+     ¸øÒ»¸öTCPÌ×½Ó×ÖÉèÖÃ±£³Ö´æ»îÑ¡Ïîºó£¬Èç¹û2Ð¡Ê±ÄÚÔÚ¸ÃÌ×½Ó×ÖµÄÈÎºÎÒ»·½ÏòÉÏ¶¼Ã»ÓÐÊý¾Ý½»»»£¬TCP¾Í×Ô¶¯¸ø¶Ô¶Ë·¢ËÍÒ»¸ö±£³Ö´æ»îÌ½²â·Ö½Ú¡£
+     ÕâÊÇÒ»¸ö¶Ô¶Ë±ØÐëÏàÓ¦µÄTCP·Ö½Ú£¬Ëü»áµ¼ÖÂÒÔÏÂ3ÖÖÇé¿öÖ®Ò»¡£
 
 £¨1£©¶Ô¶ËÒÔÆÚÍûµÄACKÏìÓ¦¡£Ó¦ÓÃ½ø³ÌµÃ²»µ½Í¨Öª£¨ÒòÎªÒ»ÇÐÕý³££©¡£ÔÚÓÖ¾­¹ýÈÔÎÞ¶¯¾²µÄ2Ð¡Ê±ºó£¬TCP½«·¢³öÁíÒ»¸öÌ½²â·Ö½Ú¡£
 
@@ -2990,16 +3113,21 @@ int showNetInterfaceInfo(void)
 
 £¨3£©¶Ô¶Ë¶Ô±£³Ö´æ»îÌ½²â·Ö½ÚÃ»ÓÐÈÎºÎÏìÓ¦¡£
 
-     Èç¹û¸ù±¾Ã»ÓÐ¶ÔTCPµÄÌ½²â·Ö½ÚµÄÏìÓ¦£¬¸ÃÌ×½Ó×ÖµÄ´ý´¦Àí´íÎó¾Í±»ÖÃÎªETIMEOUT£¬Ì×½Ó×Ö±¾ÉíÔò±»¹Ø±Õ¡£È»¶øÈç¹û¸ÃÌ×½Ó×ÖÊÕµ½Ò»¸öICMP´íÎó×÷ÎªÄ³¸öÌ½²â·Ö½ÚµÄÏìÓ¦£¬ÄÇ¾Í·µ»ØÏìÓ¦µÄ´íÎó£¬Ì×½Ó×Ö±¾ÉíÒ²±»¹Ø±Õ¡£
+     Èç¹û¸ù±¾Ã»ÓÐ¶ÔTCPµÄÌ½²â·Ö½ÚµÄÏìÓ¦£¬¸ÃÌ×½Ó×ÖµÄ´ý´¦Àí´íÎó¾Í±»ÖÃÎªETIMEOUT£¬Ì×½Ó×Ö±¾ÉíÔò±»¹Ø±Õ¡£
+     È»¶øÈç¹û¸ÃÌ×½Ó×ÖÊÕµ½Ò»¸öICMP´íÎó×÷ÎªÄ³¸öÌ½²â·Ö½ÚµÄÏìÓ¦£¬ÄÇ¾Í·µ»ØÏìÓ¦µÄ´íÎó£¬Ì×½Ó×Ö±¾ÉíÒ²±»¹Ø±Õ¡£
 
-     ±¾Ñ¡ÏîµÄ¹¦ÄÜÊÇ¼ì²â¶Ô¶ËÖ÷»úÊÇ·ñ±ÀÀ£»ò±äµÄ²»¿É´ï£¨Æ©Èç²¦ºÅµ÷ÖÆ½âµ÷Æ÷Á¬½ÓµôÏß£¬µçÔ´·¢Éú¹ÊÕÏµÈµÈ£©¡£Èç¹û¶Ô¶Ë½ø³Ì±ÀÀ££¬ËüµÄTCP½«¿çÁ¬½Ó·¢ËÍÒ»¸öFIN£¬Õâ¿ÉÒÔÍ¨¹ýµ÷ÓÃselectºÜÈÝÒ×µÄ¼ì²âµ½¡£
+     ±¾Ñ¡ÏîµÄ¹¦ÄÜÊÇ¼ì²â¶Ô¶ËÖ÷»úÊÇ·ñ±ÀÀ£»ò±äµÄ²»¿É´ï£¨Æ©Èç²¦ºÅµ÷ÖÆ½âµ÷Æ÷Á¬½ÓµôÏß£¬µçÔ´·¢Éú¹ÊÕÏµÈµÈ£©¡£
+     Èç¹û¶Ô¶Ë½ø³Ì±ÀÀ££¬ËüµÄTCP½«¿çÁ¬½Ó·¢ËÍÒ»¸öFIN£¬Õâ¿ÉÒÔÍ¨¹ýµ÷ÓÃselectºÜÈÝÒ×µÄ¼ì²âµ½¡£
 
-     ±¾Ñ¡ÏîÒ»°ãÓÉ·þÎñÆ÷Ê¹ÓÃ£¬²»¹ý¿Í»§Ò²¿ÉÒÔÊ¹ÓÃ¡£·þÎñÆ÷Ê¹ÓÃ±¾Ñ¡ÏîÊ±ÒòÎªËûÃÇ»¨´ó²¿·ÖÊ±¼ä×èÈûÔÚµÈ´ý´©Ô½TCPÁ¬½ÓµÄÊäÈëÉÏ£¬Ò²¾ÍÊÇËµÔÚµÈ´ý¿Í»§µÄÇëÇó¡£È»¶øÈç¹û¿Í»§Ö÷»úÁ¬½ÓµôÏß£¬µçÔ´µôµç»òÕßÏµÍ³±ÀÀ££¬·þÎñÆ÷½ø³Ì½«ÓÀÔ¶²»»áÖªµÀ£¬²¢½«¼ÌÐøµÈ´ýÓÀÔ¶²»»áµ½´ïµÄÊäÈë¡£ÎÒÃÇ³ÆÕâÖÖÇé¿öÎª°ë¿ªÁ¬½Ó¡£±£³Ö´æ»îÑ¡Ïî½«¼ì²â³öÕâÐ©°ë¿ªÁ¬½Ó²¢ÖÕÖ¹ËûÃÇ¡£
+     ±¾Ñ¡ÏîÒ»°ãÓÉ·þÎñÆ÷Ê¹ÓÃ£¬²»¹ý¿Í»§Ò²¿ÉÒÔÊ¹ÓÃ¡£·þÎñÆ÷Ê¹ÓÃ±¾Ñ¡ÏîÊ±ÒòÎªËûÃÇ»¨´ó²¿·ÖÊ±¼ä×èÈûÔÚµÈ´ý´©Ô½TCPÁ¬½ÓµÄÊäÈëÉÏ£¬
+     Ò²¾ÍÊÇËµÔÚµÈ´ý¿Í»§µÄÇëÇó¡£È»¶øÈç¹û¿Í»§Ö÷»úÁ¬½ÓµôÏß£¬µçÔ´µôµç»òÕßÏµÍ³±ÀÀ££¬·þÎñÆ÷½ø³Ì½«ÓÀÔ¶²»»áÖªµÀ£¬²¢½«¼ÌÐøµÈ´ýÓÀÔ¶²»»áµ½´ïµÄÊäÈë¡£
+     ÎÒÃÇ³ÆÕâÖÖÇé¿öÎª°ë¿ªÁ¬½Ó¡£±£³Ö´æ»îÑ¡Ïî½«¼ì²â³öÕâÐ©°ë¿ªÁ¬½Ó²¢ÖÕÖ¹ËûÃÇ¡£
 
 
 4. SO_LINGER Ì×½Ó×ÖÑ¡Ïî
 
-      ±¾Ñ¡ÏîÖ¸¶¨closeº¯Êý¶ÔÃæÏòÁ¬½ÓµÄÐ­Òé£¨ÀýÈçTCPºÍSCTP£¬µ«²»ÊÇUDP£©ÈçºÎ²Ù×÷¡£Ä¬ÈÏ²Ù×÷ÊÇcloseÁ¢¼´·µ»Ø£¬µ«ÊÇÈç¹ûÓÐÊý¾Ý²ÐÁôÔÚÌ×½Ó×Ö·¢ËÍ»º³åÇøÖÐ£¬ÏµÍ³½«ÊÔ×Å°ÑÕâÐ©Êý¾Ý·¢ËÍ¸ø¶Ô¶Ë¡£
+      ±¾Ñ¡ÏîÖ¸¶¨closeº¯Êý¶ÔÃæÏòÁ¬½ÓµÄÐ­Òé£¨ÀýÈçTCPºÍSCTP£¬µ«²»ÊÇUDP£©ÈçºÎ²Ù×÷¡£Ä¬ÈÏ²Ù×÷ÊÇcloseÁ¢¼´·µ»Ø£¬
+      µ«ÊÇÈç¹ûÓÐÊý¾Ý²ÐÁôÔÚÌ×½Ó×Ö·¢ËÍ»º³åÇøÖÐ£¬ÏµÍ³½«ÊÔ×Å°ÑÕâÐ©Êý¾Ý·¢ËÍ¸ø¶Ô¶Ë¡£
 
     SO_LINGERÈç¹ûÑ¡Ôñ´ËÑ¡Ïî£¬close»ò shutdown½«µÈµ½ËùÓÐÌ×½Ó×ÖÀïÅÅ¶ÓµÄÏûÏ¢³É¹¦·¢ËÍ»òµ½´ïÑÓ³ÙÊ±¼äºó²Å»á·µ»Ø¡£·ñÔò£¬µ÷ÓÃ½«Á¢¼´·µ»Ø¡£
 
@@ -3020,11 +3148,18 @@ int showNetInterfaceInfo(void)
 
      Ã¿¸öÌ×½Ó×Ö¶¼ÓÐÒ»¸ö·¢ËÍ»º³åÇøºÍÒ»¸ö½ÓÊÕ»º³åÇø¡£
 
-     ½ÓÊÕ»º³åÇø±»TCP£¬UDPºÍSCTCPÓÃÀ´±£´æ½ÓÊÕµ½µÄÊý¾Ý£¬Ö±µ½ÓÉÓ¦ÓÃ½ø³Ì¶ÁÈ¡¡£¶ÔÓÚTCPÀ´Ëµ£¬Ì×½Ó×Ö½ÓÊÕ»º³åÇø¿ÉÓÃ¿Õ¼äµÄ´óÐ¡ÏÞÖÆÁËTCPÍ¨¸æ¶Ô¶ËµÄ´°¿Ú´óÐ¡¡£TCPÌ×½Ó×Ö½ÓÊÕ»º³åÇø²»¿ÉÒÔÒç³ö£¬ÒòÎª²»ÔÊÐí¶Ô¶Ë·¢³ö³¬¹ý±¾¶ËËùÍ¨¸æ´°¿Ú´óÐ¡µÄÊý¾Ý¡£Õâ¾ÍÊÇTCPµÄÁ÷Á¿¿ØÖÆ£¬Èç¹û¶Ô¶ËÎÞÊÓ´°¿Ú´óÐ¡¶ø·¢³öÁË³¬¹ý´°¿Ú´óÐ¡µÄÊý¾Ý£¬±¾¶ËTCP½«¶ªÆúËüÃÇ¡£È»¶ø¶ÔÓÚUDPÀ´Ëµ£¬µ±½ÓÊÕµ½µÄÊý¾Ý±¨×°²»½øÌ×½Ó×Ö½ÓÊÕ»º³åÇøÊ±£¬¸ÃÊý¾Ý±¨¾Í±»¶ªÆú¡£»Ø¹ËÒ»ÏÂ£¬UDPÊÇÃ»ÓÐÁ÷Á¿¿ØÖÆµÄ£º½Ï¿ìµÄ·¢ËÍ¶Ë¿ÉÒÔºÜÈÝÒ×µÄÑÍÃ»½ÏÂýµÄ½ÓÊÕ¶Ë£¬µ¼ÖÂ½ÓÊÕ¶ËµÄUDP¶ªÆúÊý¾Ý±¨¡£
+     ½ÓÊÕ»º³åÇø±»TCP£¬UDPºÍSCTCPÓÃÀ´±£´æ½ÓÊÕµ½µÄÊý¾Ý£¬Ö±µ½ÓÉÓ¦ÓÃ½ø³Ì¶ÁÈ¡¡£¶ÔÓÚTCPÀ´Ëµ£¬Ì×½Ó×Ö½ÓÊÕ»º³åÇø¿ÉÓÃ¿Õ¼äµÄ´óÐ¡ÏÞÖÆÁË
+     TCPÍ¨¸æ¶Ô¶ËµÄ´°¿Ú´óÐ¡¡£TCPÌ×½Ó×Ö½ÓÊÕ»º³åÇø²»¿ÉÒÔÒç³ö£¬ÒòÎª²»ÔÊÐí¶Ô¶Ë·¢³ö³¬¹ý±¾¶ËËùÍ¨¸æ´°¿Ú´óÐ¡µÄÊý¾Ý¡£Õâ¾ÍÊÇTCPµÄÁ÷Á¿¿ØÖÆ£¬
+     Èç¹û¶Ô¶ËÎÞÊÓ´°¿Ú´óÐ¡¶ø·¢³öÁË³¬¹ý´°¿Ú´óÐ¡µÄÊý¾Ý£¬±¾¶ËTCP½«¶ªÆúËüÃÇ¡£È»¶ø¶ÔÓÚUDPÀ´Ëµ£¬µ±½ÓÊÕµ½µÄÊý¾Ý±¨×°²»½øÌ×½Ó×Ö½ÓÊÕ»º³åÇøÊ±£¬
+     ¸ÃÊý¾Ý±¨¾Í±»¶ªÆú¡£»Ø¹ËÒ»ÏÂ£¬UDPÊÇÃ»ÓÐÁ÷Á¿¿ØÖÆµÄ£º½Ï¿ìµÄ·¢ËÍ¶Ë¿ÉÒÔºÜÈÝÒ×µÄÑÍÃ»½ÏÂýµÄ½ÓÊÕ¶Ë£¬µ¼ÖÂ½ÓÊÕ¶ËµÄUDP¶ªÆúÊý¾Ý±¨¡£
 
-     ÕâÁ½¸öÌ×½Ó×ÖÑ¡ÏîÔÊÐíÎÒÃÇ¸Ä±ä×ÅÁ½¸ö»º³åÇøµÄÄ¬ÈÏ´óÐ¡¡£¶ÔÓÚ²»Í¬µÄÊµÏÖ£¬Ä¬ÈÏÖµµÃ´óÐ¡¿ÉÒÔÓÐºÜ´óµÄ²î±ð¡£Èç¹ûÖ÷»úÖ§³ÖNFS£¬ÄÇÃ´UDP·¢ËÍ»º³åÇøµÄ´óÐ¡¾­³£Ä¬ÈÏÎª9000×Ö½Ú×óÓÒµÄÒ»¸öÖµ£¬¶øUDP½ÓÊÕ»º³åÇøµÄ´óÐ¡Ôò¾­³£Ä¬ÈÏÎª40000×Ö½Ú×óÓÒµÄÒ»¸öÖµ¡£
+     ÕâÁ½¸öÌ×½Ó×ÖÑ¡ÏîÔÊÐíÎÒÃÇ¸Ä±ä×ÅÁ½¸ö»º³åÇøµÄÄ¬ÈÏ´óÐ¡¡£¶ÔÓÚ²»Í¬µÄÊµÏÖ£¬Ä¬ÈÏÖµµÃ´óÐ¡¿ÉÒÔÓÐºÜ´óµÄ²î±ð¡£Èç¹ûÖ÷»úÖ§³ÖNFS£¬
+     ÄÇÃ´UDP·¢ËÍ»º³åÇøµÄ´óÐ¡¾­³£Ä¬ÈÏÎª9000×Ö½Ú×óÓÒµÄÒ»¸öÖµ£¬¶øUDP½ÓÊÕ»º³åÇøµÄ´óÐ¡Ôò¾­³£Ä¬ÈÏÎª40000×Ö½Ú×óÓÒµÄÒ»¸öÖµ¡£
 
-     µ±ÉèÖÃTCPÌ×½Ó×Ö½ÓÊÕ»º³åÇøµÄ´óÐ¡Ê±£¬º¯Êýµ÷ÓÃµÄË³ÐòºÜÖØÒª¡£ÕâÊÇÒòÎªTCPµÄ³ö¿Ú¹æÄ£Ñ¡ÏîÊ±ÔÚ½¨Á¢Á¬½ÓÊ±ÓÃSYN·Ö½ÚÓë¶Ô¶Ë»¥»»µÃµ½µÄ¡£¶ÔÓÚ¿Í»§£¬ÕâÒâÎ¶×ÅSO_RCVBUFÑ¡Ïî±ØÐëÔÚµ÷ÓÃconnectÖ®Ç°ÉèÖÃ£»¶ÔÓÚ·þÎñÆ÷£¬ÕâÒâÎ¶×Å¸ÃÑ¡Ïî±ØÐëÔÚµ÷ÓÃlistenÖ®Ç°¸ø¼àÌýÌ×½Ó×ÖÉèÖÃ¡£¸øÒÑÁ¬½ÓÌ×½Ó×ÖÉèÖÃ¸ÃÑ¡Ïî¶ÔÓÚ¿ÉÄÜ´æÔÚµÄ³ö¿Ú¹æÄ£Ñ¡ÏîÃ»ÓÐÈÎºÎÓ°Ïì£¬ÒòÎªacceptÖ±µ½TCPµÄÈýÂ·ÎÕÊÖÍæ³é²Å»á´´½¨²¢·µ»ØÒÑÁ¬½ÓÌ×½Ó×Ö¡£Õâ¾ÍÊÇ±ØÐë¸ø¼àÌýÌ×½Ó×ÖÉèÖÃ±¾Ñ¡ÏîµÄÔ­Òò¡£
+     µ±ÉèÖÃTCPÌ×½Ó×Ö½ÓÊÕ»º³åÇøµÄ´óÐ¡Ê±£¬º¯Êýµ÷ÓÃµÄË³ÐòºÜÖØÒª¡£ÕâÊÇÒòÎªTCPµÄ³ö¿Ú¹æÄ£Ñ¡ÏîÊ±ÔÚ½¨Á¢Á¬½ÓÊ±ÓÃSYN·Ö½ÚÓë¶Ô¶Ë»¥»»µÃµ½µÄ¡£
+     ¶ÔÓÚ¿Í»§£¬ÕâÒâÎ¶×ÅSO_RCVBUFÑ¡Ïî±ØÐëÔÚµ÷ÓÃconnectÖ®Ç°ÉèÖÃ£»¶ÔÓÚ·þÎñÆ÷£¬ÕâÒâÎ¶×Å¸ÃÑ¡Ïî±ØÐëÔÚµ÷ÓÃlistenÖ®Ç°¸ø¼àÌýÌ×½Ó×ÖÉèÖÃ¡£
+     ¸øÒÑÁ¬½ÓÌ×½Ó×ÖÉèÖÃ¸ÃÑ¡Ïî¶ÔÓÚ¿ÉÄÜ´æÔÚµÄ³ö¿Ú¹æÄ£Ñ¡ÏîÃ»ÓÐÈÎºÎÓ°Ïì£¬ÒòÎªacceptÖ±µ½TCPµÄÈýÂ·ÎÕÊÖÍæ³é²Å»á´´½¨²¢·µ»ØÒÑÁ¬½ÓÌ×½Ó×Ö¡£
+     Õâ¾ÍÊÇ±ØÐë¸ø¼àÌýÌ×½Ó×ÖÉèÖÃ±¾Ñ¡ÏîµÄÔ­Òò¡£
 
  
 
@@ -3032,13 +3167,18 @@ int showNetInterfaceInfo(void)
 
      Ã¿¸öÌ×½Ó×Ö»¹ÓÐÒ»¸ö½ÓÊÕµÍË®Î»±ê¼ÇºÍÒ»¸ö·¢ËÍµÍË®Î»±ê¼Ç¡£ËûÃÇÓÉselectº¯ÊýÊ¹ÓÃ£¬ÕâÁ½¸öÌ×½Ó×ÖÑ¡ÏîÔÊÐíÎÒÃÇÐÞ¸ÄÕâÁ½¸öµÍË®Î»±ê¼Ç¡£
 
-     ½ÓÊÕµÍË®Î»±ê¼ÇÊÇÈÃselect·µ»Ø¡°¿É¶Á¡±Ê±£¬Ì×½Ó×Ö½ÓÊÕ»º³åÇøÖÐËùÐèµÄÊý¾ÝÁ¿¡£¶ÔÓÚTCP£¬UDPºÍSCTPÌ×½Ó×Ö£¬ÆäÄ¬ÈÏÖµÎª1¡£·¢ËÍµÍË®Î»±ê¼ÇÊÇÈÃselect·µ»Ø¡°¿ÉÐ´¡±Ê±Ì×½Ó×Ö·¢ËÍ»º³åÇøÖÐËùÐèµÄ¿ÉÓÃ¿Õ¼ä¡£¶ÔÓÚTCPÌ×½Ó×Ö£¬ÆäÄ¬ÈÏÖµÍ¨³£Îª2048¡£UDPÒ²Ê¹ÓÃ·¢ËÍµÍË®Î»±ê¼Ç£¬È»¶øÓÉÓÚUDPÌ×½Ó×ÖµÄ·¢ËÍ»º³åÇøÖÐ¿ÉÓÃ¿Õ¼äµÄ×Ö½ÚÊý´Ó²»¸Ä±ä£¨ÒâÎ¶UDP²¢²»ÎªÓÉÓ¦ÓÃ½ø³Ì´«µÝ¸øËüµÄÊý¾Ý±¨±£Áô¸±±¾£©£¬Ö»ÒªÒ»¸öUDPÌ×½Ó×ÖµÄ·¢ËÍ»º³åÇø´óÐ¡´óÓÚ¸ÃÌ×½Ó×ÖµÄµÍË®Î»±ê¼Ç£¬¸ÃUDPÌ×½Ó×Ö¾Í×ÜÊÇ¿ÉÐ´¡£ÎÒÃÇ¼ÇµÃUDP²¢Ã»ÓÐ·¢ËÍ»º³åÇø£¬¶øÖ»ÓÐ·¢ËÍ»º³åÇø´óÐ¡Õâ¸öÊôÐÔ¡£
+     ½ÓÊÕµÍË®Î»±ê¼ÇÊÇÈÃselect·µ»Ø¡°¿É¶Á¡±Ê±£¬Ì×½Ó×Ö½ÓÊÕ»º³åÇøÖÐËùÐèµÄÊý¾ÝÁ¿¡£¶ÔÓÚTCP£¬UDPºÍSCTPÌ×½Ó×Ö£¬ÆäÄ¬ÈÏÖµÎª1¡£
+     ·¢ËÍµÍË®Î»±ê¼ÇÊÇÈÃselect·µ»Ø¡°¿ÉÐ´¡±Ê±Ì×½Ó×Ö·¢ËÍ»º³åÇøÖÐËùÐèµÄ¿ÉÓÃ¿Õ¼ä¡£¶ÔÓÚTCPÌ×½Ó×Ö£¬ÆäÄ¬ÈÏÖµÍ¨³£Îª2048¡£UDPÒ²Ê¹ÓÃ·¢ËÍµÍË®Î»±ê¼Ç£¬
+     È»¶øÓÉÓÚUDPÌ×½Ó×ÖµÄ·¢ËÍ»º³åÇøÖÐ¿ÉÓÃ¿Õ¼äµÄ×Ö½ÚÊý´Ó²»¸Ä±ä£¨ÒâÎ¶UDP²¢²»ÎªÓÉÓ¦ÓÃ½ø³Ì´«µÝ¸øËüµÄÊý¾Ý±¨±£Áô¸±±¾£©£¬
+     Ö»ÒªÒ»¸öUDPÌ×½Ó×ÖµÄ·¢ËÍ»º³åÇø´óÐ¡´óÓÚ¸ÃÌ×½Ó×ÖµÄµÍË®Î»±ê¼Ç£¬¸ÃUDPÌ×½Ó×Ö¾Í×ÜÊÇ¿ÉÐ´¡£ÎÒÃÇ¼ÇµÃUDP²¢Ã»ÓÐ·¢ËÍ»º³åÇø£¬
+     ¶øÖ»ÓÐ·¢ËÍ»º³åÇø´óÐ¡Õâ¸öÊôÐÔ¡£
 
  
 
 7. SO_RCVTIMEO ºÍ SO_SNDTIMEOÌ×½Ó×ÖÑ¡Ïî
 
-     ÕâÁ½¸öÑ¡ÏîÔÊÐíÎÒÃÇ¸øÌ×½Ó×ÖµÄ½ÓÊÕºÍ·¢ËÍÉèÖÃÒ»¸ö³¬Ê±Öµ¡£×¢Òâ£¬·ÃÎÊËûÃÇµÄgetsockoptºÍsetsockoptº¯ÊýµÄ²ÎÊýÊÇÖ¸Ïòtimeval½á¹¹µÄÖ¸Õë£¬ÓëselectËùÓÃ²ÎÊýÏàÍ¬¡£Õâ¿ÉÈÃÎÒÃÇÓÃÃëÊýºÍÎ¢ÃîÊýÀ´¹æ¶¨³¬Ê±¡£ÎÒÃÇÍ¨¹ýÉèÖÃÆäÖµÎª0sºÍ0¦ÌsÀ´½ûÖ¹³¬Ê±¡£Ä¬ÈÏÇé¿öÏÂ×ÅÁ½¸ö³¬Ê±¶¼ÊÇ½ûÖ¹µÄ¡£
+     ÕâÁ½¸öÑ¡ÏîÔÊÐíÎÒÃÇ¸øÌ×½Ó×ÖµÄ½ÓÊÕºÍ·¢ËÍÉèÖÃÒ»¸ö³¬Ê±Öµ¡£×¢Òâ£¬·ÃÎÊËûÃÇµÄgetsockoptºÍsetsockoptº¯ÊýµÄ²ÎÊýÊÇÖ¸Ïòtimeval½á¹¹µÄÖ¸Õë£¬
+     ÓëselectËùÓÃ²ÎÊýÏàÍ¬¡£Õâ¿ÉÈÃÎÒÃÇÓÃÃëÊýºÍÎ¢ÃîÊýÀ´¹æ¶¨³¬Ê±¡£ÎÒÃÇÍ¨¹ýÉèÖÃÆäÖµÎª0sºÍ0¦ÌsÀ´½ûÖ¹³¬Ê±¡£Ä¬ÈÏÇé¿öÏÂ×ÅÁ½¸ö³¬Ê±¶¼ÊÇ½ûÖ¹µÄ¡£
 
      ½ÓÊÕ³¬Ê±Ó°Ïì5¸öÊäÈëº¯Êý£ºread,readv,recv,recvfromºÍrecvmsg¡£·¢ËÍ³¬Ê±Ó°Ïì5¸öÊä³öº¯Êý£ºwrite,writev,send,sendtoºÍsendmsg¡£
 
@@ -3048,7 +3188,8 @@ int showNetInterfaceInfo(void)
 
      SO_REUSEADDRÌ×½Ó×ÖÑ¡ÏîÄÜÆðµ½ÒÔÏÂ4¸ö²»Í¬µÄ¹¦ÓÃ¡£
 
-£¨1£©SO_REUSEADDRÔÊÐíÆô¶¯Ò»¸ö¼àÌý·þÎñÆ÷²¢À¦°óÆäÖÚËùÖÜÖªµÄ¶Ë¿Ú£¬¼´Ê¹ÒÔÇ°½¨Á¢µÄ½«¸Ã¶Ë¿ÚÓÃ×÷ËûÃÇµÄ±¾µØ¶Ë¿ÚµÄÁ¬½ÓÈÔ´æÔÚ¡£Õâ¸öÌõ¼þÍ¨³£ÊÇÕâÑùÅöµ½µÄ£º
+£¨1£©SO_REUSEADDRÔÊÐíÆô¶¯Ò»¸ö¼àÌý·þÎñÆ÷²¢À¦°óÆäÖÚËùÖÜÖªµÄ¶Ë¿Ú£¬¼´Ê¹ÒÔÇ°½¨Á¢µÄ½«¸Ã¶Ë¿ÚÓÃ×÷ËûÃÇµÄ±¾µØ¶Ë¿ÚµÄÁ¬½ÓÈÔ´æÔÚ¡£
+Õâ¸öÌõ¼þÍ¨³£ÊÇÕâÑùÅöµ½µÄ£º
 
          £¨a£©Æô¶¯Ò»¸ö¼àÌý·þÎñÆ÷£»
 
@@ -3058,13 +3199,18 @@ int showNetInterfaceInfo(void)
 
          £¨d£©ÖØÆô¼àÌý·þÎñÆ÷¡£      
 
-     Ä¬ÈÏÇé¿öÏÂ£¬µ±¼àÌý·þÎñÆ÷ÔÚ²½ÖèdÍ¨¹ýµ÷ÓÃsocket£¬bindºÍlistenÖØÐÂÆô¶¯Ê±£¬ÓÉÓÚËûÊÔÍ¼À¦°óÒ»¸öÏÖÓÐÁ¬½Ó£¨¼´ÕýÓÉÔçÏÈÅÉÉúµÄÄÇ¸ö×Ó½ø³Ì´¦Àí×ÅµÄÁ¬½Ó£©ÉÏµÄ¶Ë¿Ú£¬´Ó¶øbindµ÷ÓÃ»áÊ§°Ü¡£µ«ÊÇÈç¹û¸Ã·þÎñÆ÷ÔÚsocketºÍbindÁ½¸öµ÷ÓÃÖ®¼äÉèÖÃÁËSO_REUSEADDRÌ×½Ó×ÖÑ¡Ïî£¬ÄÇÃ´½«³É¹¦¡£ËùÓÐTCP·þÎñÆ÷¶¼Ó¦¸ÃÖ¸¶¨±¾Ì×½Ó×ÖÑ¡Ïî£¬ÒÔÔÊÐí·þÎñÆ÷ÔÚÕâÖÖÇé¿öÏÂ±»ÖØÐÂÆô¶¯¡£
+     Ä¬ÈÏÇé¿öÏÂ£¬µ±¼àÌý·þÎñÆ÷ÔÚ²½ÖèdÍ¨¹ýµ÷ÓÃsocket£¬bindºÍlistenÖØÐÂÆô¶¯Ê±£¬ÓÉÓÚËûÊÔÍ¼À¦°óÒ»¸öÏÖÓÐÁ¬½Ó
+     £¨¼´ÕýÓÉÔçÏÈÅÉÉúµÄÄÇ¸ö×Ó½ø³Ì´¦Àí×ÅµÄÁ¬½Ó£©ÉÏµÄ¶Ë¿Ú£¬´Ó¶øbindµ÷ÓÃ»áÊ§°Ü¡£µ«ÊÇÈç¹û¸Ã·þÎñÆ÷ÔÚsocketºÍbind
+     Á½¸öµ÷ÓÃÖ®¼äÉèÖÃÁËSO_REUSEADDRÌ×½Ó×ÖÑ¡Ïî£¬ÄÇÃ´½«³É¹¦¡£ËùÓÐTCP·þÎñÆ÷¶¼Ó¦¸ÃÖ¸¶¨±¾Ì×½Ó×ÖÑ¡Ïî£¬ÒÔÔÊÐí·þÎñÆ÷ÔÚÕâÖÖÇé¿öÏÂ±»ÖØÐÂÆô¶¯¡£
 
-£¨2£©SO_REUSEADDRÔÊÐíÔÚÍ¬Ò»¶Ë¿ÚÉÏÆô¶¯Í¬Ò»·þÎñÆ÷µÄ¶à¸öÊµÀý£¬Ö»ÒªÃ¿¸öÊµÀýÀ¦°óÒ»¸ö²»Í¬µÄ±¾µØIPµØÖ·¼´¿É¡£¶ÔÓÚTCP£¬ÎÒÃÇ¾ø¶Ô²»¿ÉÄÜÆô¶¯À¦°óÏàÍ¬IPµØÖ·ºÍÏàÍ¬¶Ë¿ÚºÅµÄ¶à¸ö·þÎñÆ÷£ºÕâÊÇÍêÈ«ÖØ¸´µÄÀ¦°ó£¬¼´Ê¹ÎÒÃÇ¸øµÚ¶þ¸ö·þÎñÆ÷ÉèÖÃÁËSO_REUSEADDRÌ×½Ó×ÖÒ²²»¹ÜÓÃ¡£
+£¨2£©SO_REUSEADDRÔÊÐíÔÚÍ¬Ò»¶Ë¿ÚÉÏÆô¶¯Í¬Ò»·þÎñÆ÷µÄ¶à¸öÊµÀý£¬Ö»ÒªÃ¿¸öÊµÀýÀ¦°óÒ»¸ö²»Í¬µÄ±¾µØIPµØÖ·¼´¿É¡£
+¶ÔÓÚTCP£¬ÎÒÃÇ¾ø¶Ô²»¿ÉÄÜÆô¶¯À¦°óÏàÍ¬IPµØÖ·ºÍÏàÍ¬¶Ë¿ÚºÅµÄ¶à¸ö·þÎñÆ÷£ºÕâÊÇÍêÈ«ÖØ¸´µÄÀ¦°ó£¬
+¼´Ê¹ÎÒÃÇ¸øµÚ¶þ¸ö·þÎñÆ÷ÉèÖÃÁËSO_REUSEADDRÌ×½Ó×ÖÒ²²»¹ÜÓÃ¡£
 
 £¨3£©SO_REUSEADDR ÔÊÐíµ¥¸ö½ø³ÌÀ¦°óÍ¬Ò»¶Ë¿Úµ½¶à¸öÌ×½Ó×ÖÉÏ£¬Ö»ÒªÃ¿´ÎÀ¦°óÖ¸¶¨²»Í¬µÄ±¾µØIPµØÖ·¼´¿É¡£
 
-£¨4£©SO_REUSEADDRÔÊÐíÍêÈ«ÖØ¸´µÄÀ¦°ó£ºµ±Ò»¸öIPµØÖ·ºÍ¶Ë¿ÚºÅÒÑ°ó¶¨µ½Ä³¸öÌ×½Ó×ÖÉÏÊ±£¬Èç¹û´«ÊäÐ­ÒéÖ§³Ö£¬Í¬ÑùµÄIPµØÖ·ºÍ¶Ë¿Ú»¹¿ÉÒÔÀ¦°óµ½ÁíÒ»¸öÌ×½Ó×ÖÉÏ¡£Ò»°ãÀ´Ëµ±¾ÌØÐÔ½öÖ§³ÖUDPÌ×½Ó×Ö¡£
+£¨4£©SO_REUSEADDRÔÊÐíÍêÈ«ÖØ¸´µÄÀ¦°ó£ºµ±Ò»¸öIPµØÖ·ºÍ¶Ë¿ÚºÅÒÑ°ó¶¨µ½Ä³¸öÌ×½Ó×ÖÉÏÊ±£¬Èç¹û´«ÊäÐ­ÒéÖ§³Ö£¬
+Í¬ÑùµÄIPµØÖ·ºÍ¶Ë¿Ú»¹¿ÉÒÔÀ¦°óµ½ÁíÒ»¸öÌ×½Ó×ÖÉÏ¡£Ò»°ãÀ´Ëµ±¾ÌØÐÔ½öÖ§³ÖUDPÌ×½Ó×Ö¡£
 
 */
 

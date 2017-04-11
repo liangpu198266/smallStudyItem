@@ -21,7 +21,8 @@ args:
 return: 
     Ïß³Ì´´½¨µÄ×´Ì¬£¬0ÊÇ³É¹¦£¬·Ç0Ê§°Ü
     
-Ã¿Ò»¸ö³É¹¦´´½¨µÄÏß³Ì¶¼ÓÐÒ»¸öÏß³ÌºÅ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ý pthread_self() Õâ¸öº¯Êý»ñÈ¡µ÷ÓÃÕâ¸öº¯ÊýµÄÏß³ÌµÄÏß³ÌºÅ¡£ÓÐÒ»µãÎÒÃÇÐèÒª×¢Òâ£¬Èç¹ûÐèÒª±àÒë pthread_XX() Ïà¹ØµÄº¯Êý£¬ÎÒÃÇÐèÒªÔÚ±àÒëÊ±¼ÓÈë -pthread¡£
+Ã¿Ò»¸ö³É¹¦´´½¨µÄÏß³Ì¶¼ÓÐÒ»¸öÏß³ÌºÅ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ý pthread_self() Õâ¸öº¯Êý»ñÈ¡µ÷ÓÃÕâ¸öº¯ÊýµÄÏß³ÌµÄÏß³ÌºÅ¡£
+ÓÐÒ»µãÎÒÃÇÐèÒª×¢Òâ£¬Èç¹ûÐèÒª±àÒë pthread_XX() Ïà¹ØµÄº¯Êý£¬ÎÒÃÇÐèÒªÔÚ±àÒëÊ±¼ÓÈë -pthread¡£
 */
 
 /*
@@ -29,7 +30,8 @@ return:
 
 1¡¢µ±c³ÌÐòÔËÐÐÊ±£¬Ê×ÏÈÔËÐÐmainº¯Êý¡£ÔÚÏß³Ì´úÂëÖÐ£¬Õâ¸öÌØÊâµÄÖ´ÐÐÁ÷±»³Æ×÷³õÊ¼Ïß³Ì»òÕßÖ÷Ïß³Ì¡£Äã¿ÉÒÔÔÚ³õÊ¼Ïß³ÌÖÐ×öÈÎºÎÆÕÍ¨Ïß³Ì¿ÉÒÔ×öµÄÊÂÇé¡£
 
-2¡¢Ö÷Ïß³ÌµÄÌØÊâÐÔÔÚÓÚ£¬ËüÔÚmainº¯Êý·µ»ØµÄÊ±ºò£¬»áµ¼ÖÂ½ø³Ì½áÊø£¬½ø³ÌÄÚËùÓÐµÄÏß³ÌÒ²½«»á½áÊø¡£Õâ¿É²»ÊÇÒ»¸öºÃµÄÏÖÏó£¬Äã¿ÉÒÔÔÚÖ÷Ïß³ÌÖÐµ÷ÓÃpthread_exitº¯Êý£¬ÕâÑù½ø³Ì¾Í»áµÈ´ýËùÓÐÏß³Ì½áÊøÊ±²ÅÖÕÖ¹¡£
+2¡¢Ö÷Ïß³ÌµÄÌØÊâÐÔÔÚÓÚ£¬ËüÔÚmainº¯Êý·µ»ØµÄÊ±ºò£¬»áµ¼ÖÂ½ø³Ì½áÊø£¬½ø³ÌÄÚËùÓÐµÄÏß³ÌÒ²½«»á½áÊø¡£Õâ¿É²»ÊÇÒ»¸öºÃµÄÏÖÏó£¬
+Äã¿ÉÒÔÔÚÖ÷Ïß³ÌÖÐµ÷ÓÃpthread_exitº¯Êý£¬ÕâÑù½ø³Ì¾Í»áµÈ´ýËùÓÐÏß³Ì½áÊøÊ±²ÅÖÕÖ¹¡£
 
 3¡¢Ö÷Ïß³Ì½ÓÊÜ²ÎÊýµÄ·½Ê½ÊÇÍ¨¹ýargcºÍargv£¬¶øÆÕÍ¨µÄÏß³ÌÖ»ÓÐÒ»¸ö²ÎÊývoid*
 
@@ -40,7 +42,8 @@ return:
 
 ¾ÍÐ÷×´Ì¬£º
 
-µ±Ïß³Ì¸Õ±»´´½¨Ê±¾Í´¦ÓÚ¾ÍÐ÷×´Ì¬£¬»òÕßµ±Ïß³Ì±»½â³ý×èÈûÒÔºóÒ²»á´¦ÓÚ¾ÍÐ÷×´Ì¬¡£¾ÍÐ÷µÄÏß³ÌÔÚµÈ´ýÒ»¸ö¿ÉÓÃµÄ´¦ÀíÆ÷£¬µ±Ò»¸öÔËÐÐµÄÏß³Ì±»ÇÀÕ¼Ê±£¬ËüÁ¢¿ÌÓÖ»Øµ½¾ÍÐ÷×´Ì¬
+µ±Ïß³Ì¸Õ±»´´½¨Ê±¾Í´¦ÓÚ¾ÍÐ÷×´Ì¬£¬»òÕßµ±Ïß³Ì±»½â³ý×èÈûÒÔºóÒ²»á´¦ÓÚ¾ÍÐ÷×´Ì¬¡£¾ÍÐ÷µÄÏß³ÌÔÚµÈ´ýÒ»¸ö¿ÉÓÃµÄ´¦ÀíÆ÷£¬
+µ±Ò»¸öÔËÐÐµÄÏß³Ì±»ÇÀÕ¼Ê±£¬ËüÁ¢¿ÌÓÖ»Øµ½¾ÍÐ÷×´Ì¬
 ÔËÐÐ£º
 
 µ±´¦ÀíÆ÷Ñ¡ÖÐÒ»¸ö¾ÍÐ÷µÄÏß³ÌÖ´ÐÐÊ±£¬ËüÁ¢¿Ì±ä³ÉÔËÐÐ×´Ì¬
@@ -62,7 +65,8 @@ return:
   pthread_exit() 	ÖÕÖ¹Ïß³Ì£¬µ«²»ÊÍ·Å·Ç·ÖÀëÏß³ÌµÄÄÚ´æ¿Õ¼ä
   pthread_cancel() 	ÆäËûÏß³ÌÍ¨¹ýÐÅºÅÈ¡Ïûµ±Ç°Ïß³Ì
 
-exit() »áÖÕÖ¹Õû¸ö½ø³Ì£¬Òò´ËÎÒÃÇ¼¸ºõ²»»áÊ¹ÓÃËüÀ´½áÊøÏß³Ì¡£ÎÒÃÇ³£ÓÃ pthread_cancel() ºÍ pthread_exit() º¯ÊýÀ´½áÊøÏß³Ì¡£ÕâÀï£¬ÎÒÃÇÖØµã¿´¿´ pthread_exit() Õâ¸öº¯Êý:
+exit() »áÖÕÖ¹Õû¸ö½ø³Ì£¬Òò´ËÎÒÃÇ¼¸ºõ²»»áÊ¹ÓÃËüÀ´½áÊøÏß³Ì¡£ÎÒÃÇ³£ÓÃ pthread_cancel() ºÍ pthread_exit() º¯ÊýÀ´½áÊøÏß³Ì¡£
+ÕâÀï£¬ÎÒÃÇÖØµã¿´¿´ pthread_exit() Õâ¸öº¯Êý:
 
 void pthread_exit(void *retval);
 
@@ -72,7 +76,9 @@ args:
 return:
     ÎÞ
 
-  Òª½áÊøÒ»¸öÏß³Ì£¬Ö»ÐèÒªÔÚÏß³Ìµ÷ÓÃµÄº¯ÊýÖÐ¼ÓÈë pthread_exit(X) ¼´¿É£¬µ«ÓÐÒ»µãÐèÒªÌØ±ð×¢Òâ£ºÈç¹ûÒ»¸öÏß³ÌÊÇ·Ç·ÖÀëµÄ£¨Ä¬ÈÏÇé¿öÏÂ´´½¨µÄÏß³Ì¶¼ÊÇ·Ç·ÖÀë£©²¢ÇÒÃ»ÓÐ¶Ô¸ÃÏß³ÌÊ¹ÓÃ pthread_join() µÄ»°£¬¸ÃÏß³Ì½áÊøºó²¢²»»áÊÍ·ÅÆäÄÚ´æ¿Õ¼ä¡£Õâ»áµ¼ÖÂ¸ÃÏß³Ì±ä³ÉÁË¡°½©Ê¬Ïß³Ì¡±¡£¡°½©Ê¬Ïß³Ì¡±»áÕ¼ÓÃ´óÁ¿µÄÏµÍ³×ÊÔ´£¬Òò´ËÎÒÃÇÒª±ÜÃâ¡°½©Ê¬Ïß³Ì¡±µÄ³öÏÖ¡£
+  Òª½áÊøÒ»¸öÏß³Ì£¬Ö»ÐèÒªÔÚÏß³Ìµ÷ÓÃµÄº¯ÊýÖÐ¼ÓÈë pthread_exit(X) ¼´¿É£¬µ«ÓÐÒ»µãÐèÒªÌØ±ð×¢Òâ£º
+  Èç¹ûÒ»¸öÏß³ÌÊÇ·Ç·ÖÀëµÄ£¨Ä¬ÈÏÇé¿öÏÂ´´½¨µÄÏß³Ì¶¼ÊÇ·Ç·ÖÀë£©²¢ÇÒÃ»ÓÐ¶Ô¸ÃÏß³ÌÊ¹ÓÃ pthread_join() µÄ»°£¬
+  ¸ÃÏß³Ì½áÊøºó²¢²»»áÊÍ·ÅÆäÄÚ´æ¿Õ¼ä¡£Õâ»áµ¼ÖÂ¸ÃÏß³Ì±ä³ÉÁË¡°½©Ê¬Ïß³Ì¡±¡£¡°½©Ê¬Ïß³Ì¡±»áÕ¼ÓÃ´óÁ¿µÄÏµÍ³×ÊÔ´£¬Òò´ËÎÒÃÇÒª±ÜÃâ¡°½©Ê¬Ïß³Ì¡±µÄ³öÏÖ¡£
 Ïß³ÌµÄÁ¬½Ó
 
   ÔÚÉÏÒ»²¿·ÖÎÒÃÇÌáµ½ÁË pthread_join() Õâ¸öº¯Êý£¬ÔÚÕâÒ»½Ú£¬ÎÒÃÇÏÈÀ´¿´¿´Õâ¸öº¯Êý£º
@@ -86,7 +92,8 @@ args:
 return:
     Ïß³ÌÁ¬½ÓµÄ×´Ì¬£¬0ÊÇ³É¹¦£¬·Ç0ÊÇÊ§°Ü
 
-  µ±µ÷ÓÃ pthread_join() Ê±£¬µ±Ç°Ïß³Ì»á´¦ÓÚ×èÈû×´Ì¬£¬Ö±µ½±»µ÷ÓÃµÄÏß³Ì½áÊøºó£¬µ±Ç°Ïß³Ì²Å»áÖØÐÂ¿ªÊ¼Ö´ÐÐ¡£µ± pthread_join() º¯Êý·µ»Øºó£¬±»µ÷ÓÃÏß³Ì²ÅËãÕæÕýÒâÒåÉÏµÄ½áÊø£¬ËüµÄÄÚ´æ¿Õ¼äÒ²»á±»ÊÍ·Å£¨Èç¹û±»µ÷ÓÃÏß³ÌÊÇ·Ç·ÖÀëµÄ£©¡£ÕâÀïÓÐÈýµãÐèÒª×¢Òâ£º
+  µ±µ÷ÓÃ pthread_join() Ê±£¬µ±Ç°Ïß³Ì»á´¦ÓÚ×èÈû×´Ì¬£¬Ö±µ½±»µ÷ÓÃµÄÏß³Ì½áÊøºó£¬µ±Ç°Ïß³Ì²Å»áÖØÐÂ¿ªÊ¼Ö´ÐÐ¡£
+  µ± pthread_join() º¯Êý·µ»Øºó£¬±»µ÷ÓÃÏß³Ì²ÅËãÕæÕýÒâÒåÉÏµÄ½áÊø£¬ËüµÄÄÚ´æ¿Õ¼äÒ²»á±»ÊÍ·Å£¨Èç¹û±»µ÷ÓÃÏß³ÌÊÇ·Ç·ÖÀëµÄ£©¡£ÕâÀïÓÐÈýµãÐèÒª×¢Òâ£º
 
     ±»ÊÍ·ÅµÄÄÚ´æ¿Õ¼ä½ö½öÊÇÏµÍ³¿Õ¼ä£¬Äã±ØÐëÊÖ¶¯Çå³ý³ÌÐò·ÖÅäµÄ¿Õ¼ä£¬±ÈÈç malloc() ·ÖÅäµÄ¿Õ¼ä¡£
     Ò»¸öÏß³ÌÖ»ÄÜ±»Ò»¸öÏß³ÌËùÁ¬½Ó¡£
@@ -124,7 +131,9 @@ int pthread_setcancelstate(int state, int*oldstate)
 
 int pthread_setcanceltype(int type, int*oldtype)
 
-ÉèÖÃ±¾Ïß³ÌÈ¡Ïû¶¯×÷µÄÖ´ÐÐÊ±»ú£¬typeÓÉÁ½ÖÖÈ¡Öµ£ºPTHREAD_CANCEL_DEFFEREDºÍPTHREAD_CANCEL_ASYCHRONOUS£¬½öµ±Cancel×´Ì¬ÎªEnableÊ±ÓÐÐ§£¬·Ö±ð±íÊ¾ÊÕµ½ÐÅºÅºó¼ÌÐøÔËÐÐÖÁÏÂÒ»¸öÈ¡ÏûµãÔÙÍË³öºÍÁ¢¼´Ö´ÐÐÈ¡Ïû¶¯×÷£¨ÍË³ö£©£»oldtypeÈç¹û²»ÎªNULLÔò´æÈëÔËÀ´µÄÈ¡Ïû¶¯×÷ÀàÐÍÖµ¡£
+ÉèÖÃ±¾Ïß³ÌÈ¡Ïû¶¯×÷µÄÖ´ÐÐÊ±»ú£¬typeÓÉÁ½ÖÖÈ¡Öµ£ºPTHREAD_CANCEL_DEFFEREDºÍPTHREAD_CANCEL_ASYCHRONOUS£¬
+½öµ±Cancel×´Ì¬ÎªEnableÊ±ÓÐÐ§£¬·Ö±ð±íÊ¾ÊÕµ½ÐÅºÅºó¼ÌÐøÔËÐÐÖÁÏÂÒ»¸öÈ¡ÏûµãÔÙÍË³öºÍÁ¢¼´Ö´ÐÐÈ¡Ïû¶¯×÷£¨ÍË³ö£©£»
+oldtypeÈç¹û²»ÎªNULLÔò´æÈëÔËÀ´µÄÈ¡Ïû¶¯×÷ÀàÐÍÖµ¡£
 
  
 
@@ -140,12 +149,14 @@ pthread_join()¡¢pthread_testcancel()¡¢pthread_cond_wait()¡¢ pthread_cond_timedwa
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Ïß³ÌµÄ·ÖÀë
 
-  ÔÚÉÏÒ»½ÚÖÐ£¬ÎÒÃÇÔÚÌ¸ pthread_join() Ê±Ëµµ½ÁËÖ»ÓÐ·Ç·ÖÀëµÄÏß³Ì²ÅÄÜÊ¹ÓÃ pthread_join()£¬Õâ½ÚÎÒÃÇ¾ÍÀ´¿´¿´Ê²Ã´ÊÇÏß³ÌµÄ·ÖÀë¡£ÔÚLinuxÖÐ£¬Ò»¸öÏß³ÌÒªÃ´ÊÇ¿ÉÁ¬½ÓµÄ£¬ÒªÃ´ÊÇ¿É·ÖÀëµÄ¡£µ±ÎÒÃÇ´´½¨Ò»¸öÏß³ÌµÄÊ±ºò£¬Ïß³ÌÄ¬ÈÏÊÇ¿ÉÁ¬½ÓµÄ¡£¿ÉÁ¬½ÓºÍ¿É·ÖÀëµÄÏß³ÌÓÐÒÔÏÂµÄÇø±ð£º
+  ÔÚÉÏÒ»½ÚÖÐ£¬ÎÒÃÇÔÚÌ¸ pthread_join() Ê±Ëµµ½ÁËÖ»ÓÐ·Ç·ÖÀëµÄÏß³Ì²ÅÄÜÊ¹ÓÃ pthread_join()£¬Õâ½ÚÎÒÃÇ¾ÍÀ´¿´¿´Ê²Ã´ÊÇÏß³ÌµÄ·ÖÀë¡£
+  ÔÚLinuxÖÐ£¬Ò»¸öÏß³ÌÒªÃ´ÊÇ¿ÉÁ¬½ÓµÄ£¬ÒªÃ´ÊÇ¿É·ÖÀëµÄ¡£µ±ÎÒÃÇ´´½¨Ò»¸öÏß³ÌµÄÊ±ºò£¬Ïß³ÌÄ¬ÈÏÊÇ¿ÉÁ¬½ÓµÄ¡£¿ÉÁ¬½ÓºÍ¿É·ÖÀëµÄÏß³ÌÓÐÒÔÏÂµÄÇø±ð£º
   Ïß³ÌÀàÐÍ 	ËµÃ÷
   ¿ÉÁ¬½ÓµÄÏß³Ì 	ÄÜ¹»±»ÆäËûÏß³Ì»ØÊÕ»òÉ±ËÀ£¬ÔÚÆä±»É±ËÀÇ°£¬ÄÚ´æ¿Õ¼ä²»»á×Ô¶¯±»ÊÍ·Å
   ¿É·ÖÀëµÄÏß³Ì 	²»ÄÜ±»ÆäËûÏß³Ì»ØÊÕ»òÉ±ËÀ£¬ÆäÄÚ´æ¿Õ¼äÔÚËüÖÕÖ¹Ê±ÓÉÏµÍ³×Ô¶¯ÊÍ·Å
 
-  ÎÒÃÇ¿ÉÒÔ¿´µ½£¬¶ÔÓÚ¿ÉÁ¬½ÓµÄÏß³Ì¶ø¶øÑÔ£¬Ëü²»»á×Ô¶¯ÊÍ·ÅÆäÄÚ´æ¿Õ¼ä¡£Òò´Ë¶ÔÓÚÕâÀàÏß³Ì£¬ÎÒÃÇ±ØÐëÒªÅäºÏÊ¹ÓÃ pthread_join() º¯Êý¡£¶ø¶ÔÓÚ¿É·ÖÀëµÄº¯Êý£¬ÎÒÃÇ¾Í²»ÄÜÊ¹ÓÃ pthread_join() º¯Êý¡£
+  ÎÒÃÇ¿ÉÒÔ¿´µ½£¬¶ÔÓÚ¿ÉÁ¬½ÓµÄÏß³Ì¶ø¶øÑÔ£¬Ëü²»»á×Ô¶¯ÊÍ·ÅÆäÄÚ´æ¿Õ¼ä¡£Òò´Ë¶ÔÓÚÕâÀàÏß³Ì£¬ÎÒÃÇ±ØÐëÒªÅäºÏÊ¹ÓÃ pthread_join() º¯Êý¡£
+  ¶ø¶ÔÓÚ¿É·ÖÀëµÄº¯Êý£¬ÎÒÃÇ¾Í²»ÄÜÊ¹ÓÃ pthread_join() º¯Êý¡£
 ÒªÊ¹Ïß³Ì·ÖÀë£¬ÎÒÃÇÓÐÁ½ÖÖ·½·¨£º1£©Í¨¹ýÐÞ¸ÄÏß³ÌÊôÐÔÈÃÆä³ÉÎª¿É·ÖÀëÏß³Ì£»2£©Í¨¹ýµ÷ÓÃº¯Êý pthread_detach() Ê¹ÐÂµÄÏß³Ì³ÉÎª¿É·ÖÀëÏß³Ì¡£
 ÏÂÃæÊÇ pthread_detach() º¯ÊýµÄËµÃ÷£º
 
@@ -160,24 +171,37 @@ return:
 ÎÒÃÇÖ»ÐèÒªÌá¹©ÐèÒª·ÖÀëÏß³ÌµÄÏß³ÌºÅ£¬±ã¿ÉÒÔÊ¹ÆäÓÉ¿ÉÁ¬½ÓµÄÏß³Ì±äÎª¿É·ÖÀëµÄÏß³Ì¡£
 
 
-·ÖÀëÒ»¸öÕýÔÚÔËÐÐµÄÏß³Ì²¢²»Ó°ÏìËü£¬½ö½öÊÇÍ¨Öªµ±Ç°ÏµÍ³¸ÃÏß³Ì½áÊøÊ±£¬ÆäËùÊôµÄ×ÊÔ´¿ÉÒÔ»ØÊÕ¡£Ò»¸öÃ»ÓÐ±»·ÖÀëµÄÏß³ÌÔÚÖÕÖ¹Ê±»á±£ÁôËüµÄÐéÄâÄÚ´æ£¬°üÀ¨ËûÃÇµÄ¶ÑÕ»ºÍÆäËûÏµÍ³×ÊÔ´£¬ÓÐÊ±ÕâÖÖÏß³Ì±»³ÆÎª¡°½©Ê¬Ïß³Ì¡±¡£´´½¨Ïß³ÌÊ±Ä¬ÈÏÊÇ·Ç·ÖÀëµÄ
+·ÖÀëÒ»¸öÕýÔÚÔËÐÐµÄÏß³Ì²¢²»Ó°ÏìËü£¬½ö½öÊÇÍ¨Öªµ±Ç°ÏµÍ³¸ÃÏß³Ì½áÊøÊ±£¬ÆäËùÊôµÄ×ÊÔ´¿ÉÒÔ»ØÊÕ¡£Ò»¸öÃ»ÓÐ±»·ÖÀëµÄÏß³ÌÔÚÖÕÖ¹Ê±»á±£ÁôËüµÄÐéÄâÄÚ´æ£¬
+°üÀ¨ËûÃÇµÄ¶ÑÕ»ºÍÆäËûÏµÍ³×ÊÔ´£¬ÓÐÊ±ÕâÖÖÏß³Ì±»³ÆÎª¡°½©Ê¬Ïß³Ì¡±¡£´´½¨Ïß³ÌÊ±Ä¬ÈÏÊÇ·Ç·ÖÀëµÄ
 
-Èç¹ûÏß³Ì¾ßÓÐ·ÖÀëÊôÐÔ£¬Ïß³ÌÖÕÖ¹Ê±»á±»Á¢¿Ì»ØÊÕ£¬»ØÊÕ½«ÊÍ·ÅµôËùÓÐÔÚÏß³ÌÖÕÖ¹Ê±Î´ÊÍ·ÅµÄÏµÍ³×ÊÔ´ºÍ½ø³Ì×ÊÔ´£¬°üÀ¨±£´æÏß³Ì·µ»ØÖµµÄÄÚ´æ¿Õ¼ä¡¢¶ÑÕ»¡¢±£´æ¼Ä´æÆ÷µÄÄÚ´æ¿Õ¼äµÈ¡£
+Èç¹ûÏß³Ì¾ßÓÐ·ÖÀëÊôÐÔ£¬Ïß³ÌÖÕÖ¹Ê±»á±»Á¢¿Ì»ØÊÕ£¬»ØÊÕ½«ÊÍ·ÅµôËùÓÐÔÚÏß³ÌÖÕÖ¹Ê±Î´ÊÍ·ÅµÄÏµÍ³×ÊÔ´ºÍ½ø³Ì×ÊÔ´£¬°üÀ¨±£´æÏß³Ì·µ»ØÖµµÄÄÚ´æ¿Õ¼ä¡¢
+¶ÑÕ»¡¢±£´æ¼Ä´æÆ÷µÄÄÚ´æ¿Õ¼äµÈ¡£
 
-ÖÕÖ¹±»·ÖÀëµÄÏß³Ì»áÊÍ·ÅËùÓÐµÄÏµÍ³×ÊÔ´£¬µ«ÊÇÄã±ØÐëÊÍ·ÅÓÉ¸ÃÏß³ÌÕ¼ÓÐµÄ³ÌÐò×ÊÔ´¡£ÓÉmalloc»òÕßmmap·ÖÅäµÄÄÚ´æ¿ÉÒÔÔÚÈÎºÎÊ±ºòÓÉÈÎºÎÏß³ÌÊÍ·Å£¬Ìõ¼þ±äÁ¿¡¢»¥³âÁ¿¡¢ÐÅºÅµÆ¿ÉÒÔÓÉÈÎºÎÏß³ÌÏú»Ù£¬Ö»ÒªËûÃÇ±»½âËøÁË»òÕßÃ»ÓÐÏß³ÌµÈ´ý¡£µ«ÊÇÖ»ÓÐ»¥³âÁ¿µÄÖ÷ÈË²ÅÄÜ½âËøËü£¬ËùÒÔÔÚÏß³ÌÖÕÖ¹Ç°£¬ÄãÐèÒª½âËø»¥³âÁ¿
+ÖÕÖ¹±»·ÖÀëµÄÏß³Ì»áÊÍ·ÅËùÓÐµÄÏµÍ³×ÊÔ´£¬µ«ÊÇÄã±ØÐëÊÍ·ÅÓÉ¸ÃÏß³ÌÕ¼ÓÐµÄ³ÌÐò×ÊÔ´¡£ÓÉmalloc»òÕßmmap·ÖÅäµÄÄÚ´æ¿ÉÒÔÔÚÈÎºÎÊ±ºòÓÉÈÎºÎÏß³ÌÊÍ·Å£¬
+Ìõ¼þ±äÁ¿¡¢»¥³âÁ¿¡¢ÐÅºÅµÆ¿ÉÒÔÓÉÈÎºÎÏß³ÌÏú»Ù£¬Ö»ÒªËûÃÇ±»½âËøÁË»òÕßÃ»ÓÐÏß³ÌµÈ´ý¡£µ«ÊÇÖ»ÓÐ»¥³âÁ¿µÄÖ÷ÈË²ÅÄÜ½âËøËü£¬ËùÒÔÔÚÏß³ÌÖÕÖ¹Ç°£¬ÄãÐèÒª½âËø»¥³âÁ¿
 
 ·ÖÀëÏß³Ì pthread_detach(3C)ÊÇpthread_join(3C)µÄÌæ´úº¯Êý£¬¿É»ØÊÕ´´½¨Ê±detachstateÊôÐÔÉèÖÃÎªPTHREAD_CREATE_JOINABLEµÄÏß³ÌµÄ´æ´¢¿Õ¼ä¡£
 
-  ÉèÖÃÏß³Ì·ÖÀë×´Ì¬µÄº¯ÊýÎªpthread_attr_setdetachstate£¨pthread_attr_t *attr, int detachstate£©¡£µÚ¶þ¸ö²ÎÊý¿ÉÑ¡ÎªPTHREAD_CREATE_DETACHED£¨·ÖÀëÏß³Ì£©ºÍ PTHREAD _CREATE_JOINABLE£¨·Ç·ÖÀëÏß³Ì£©¡£ÕâÀïÒª×¢ÒâµÄÒ»µãÊÇ£¬Èç¹ûÉèÖÃÒ»¸öÏß³ÌÎª·ÖÀëÏß³Ì£¬¶øÕâ¸öÏß³ÌÔËÐÐÓÖ·Ç³£¿ì£¬ËüºÜ¿ÉÄÜÔÚpthread_createº¯Êý·µ»ØÖ®Ç°¾ÍÖÕÖ¹ÁË£¬ËüÖÕÖ¹ÒÔºó¾Í¿ÉÄÜ½«Ïß³ÌºÅºÍÏµÍ³×ÊÔ´ÒÆ½»¸øÆäËûµÄÏß³ÌÊ¹ÓÃ£¬ÕâÑùµ÷ÓÃpthread_createµÄÏß³Ì¾ÍµÃµ½ÁË´íÎóµÄÏß³ÌºÅ¡£Òª±ÜÃâÕâÖÖÇé¿ö¿ÉÒÔ²ÉÈ¡Ò»¶¨µÄÍ¬²½´ëÊ©£¬×î¼òµ¥µÄ·½·¨Ö®Ò»ÊÇ¿ÉÒÔÔÚ±»´´½¨µÄÏß³ÌÀïµ÷ÓÃpthread_cond_timewaitº¯Êý£¬ÈÃÕâ¸öÏß³ÌµÈ´ýÒ»»á¶ù£¬Áô³ö×ã¹»µÄÊ±¼äÈÃº¯Êýpthread_create·µ»Ø¡£ÉèÖÃÒ»¶ÎµÈ´ýÊ±¼ä£¬ÊÇÔÚ¶àÏß³Ì±à³ÌÀï³£ÓÃµÄ·½·¨¡£µ«ÊÇ×¢Òâ²»ÒªÊ¹ÓÃÖîÈçwait£¨£©Ö®ÀàµÄº¯Êý£¬ËüÃÇÊÇÊ¹Õû¸ö½ø³ÌË¯Ãß£¬²¢²»ÄÜ½â¾öÏß³ÌÍ¬²½µÄÎÊÌâ¡£
-ÁíÍâÒ»¸ö¿ÉÄÜ³£ÓÃµÄÊôÐÔÊÇÏß³ÌµÄÓÅÏÈ¼¶£¬Ëü´æ·ÅÔÚ½á¹¹sched_paramÖÐ¡£ÓÃº¯Êýpthread_attr_getschedparamºÍº¯Êýpthread_attr_setschedparam½øÐÐ´æ·Å£¬Ò»°ãËµÀ´£¬ÎÒÃÇ×ÜÊÇÏÈÈ¡ÓÅÏÈ¼¶£¬¶ÔÈ¡µÃµÄÖµÐÞ¸ÄºóÔÙ´æ·Å»ØÈ¥¡£
+  ÉèÖÃÏß³Ì·ÖÀë×´Ì¬µÄº¯ÊýÎªpthread_attr_setdetachstate£¨pthread_attr_t *attr, int detachstate£©¡£
+  µÚ¶þ¸ö²ÎÊý¿ÉÑ¡ÎªPTHREAD_CREATE_DETACHED£¨·ÖÀëÏß³Ì£©ºÍ PTHREAD _CREATE_JOINABLE£¨·Ç·ÖÀëÏß³Ì£©¡£ÕâÀïÒª×¢ÒâµÄÒ»µãÊÇ£¬
+  Èç¹ûÉèÖÃÒ»¸öÏß³ÌÎª·ÖÀëÏß³Ì£¬¶øÕâ¸öÏß³ÌÔËÐÐÓÖ·Ç³£¿ì£¬ËüºÜ¿ÉÄÜÔÚpthread_createº¯Êý·µ»ØÖ®Ç°¾ÍÖÕÖ¹ÁË£¬
+  ËüÖÕÖ¹ÒÔºó¾Í¿ÉÄÜ½«Ïß³ÌºÅºÍÏµÍ³×ÊÔ´ÒÆ½»¸øÆäËûµÄÏß³ÌÊ¹ÓÃ£¬ÕâÑùµ÷ÓÃpthread_createµÄÏß³Ì¾ÍµÃµ½ÁË´íÎóµÄÏß³ÌºÅ¡£
+  Òª±ÜÃâÕâÖÖÇé¿ö¿ÉÒÔ²ÉÈ¡Ò»¶¨µÄÍ¬²½´ëÊ©£¬×î¼òµ¥µÄ·½·¨Ö®Ò»ÊÇ¿ÉÒÔÔÚ±»´´½¨µÄÏß³ÌÀïµ÷ÓÃpthread_cond_timewaitº¯Êý£¬ÈÃÕâ¸öÏß³ÌµÈ´ýÒ»»á¶ù£¬
+  Áô³ö×ã¹»µÄÊ±¼äÈÃº¯Êýpthread_create·µ»Ø¡£ÉèÖÃÒ»¶ÎµÈ´ýÊ±¼ä£¬ÊÇÔÚ¶àÏß³Ì±à³ÌÀï³£ÓÃµÄ·½·¨¡£µ«ÊÇ×¢Òâ²»ÒªÊ¹ÓÃÖîÈçwait£¨£©Ö®ÀàµÄº¯Êý£¬
+  ËüÃÇÊÇÊ¹Õû¸ö½ø³ÌË¯Ãß£¬²¢²»ÄÜ½â¾öÏß³ÌÍ¬²½µÄÎÊÌâ¡£
+ÁíÍâÒ»¸ö¿ÉÄÜ³£ÓÃµÄÊôÐÔÊÇÏß³ÌµÄÓÅÏÈ¼¶£¬Ëü´æ·ÅÔÚ½á¹¹sched_paramÖÐ¡£ÓÃº¯Êýpthread_attr_getschedparamºÍº¯Êýpthread_attr_setschedparam½øÐÐ´æ·Å£¬
+Ò»°ãËµÀ´£¬ÎÒÃÇ×ÜÊÇÏÈÈ¡ÓÅÏÈ¼¶£¬¶ÔÈ¡µÃµÄÖµÐÞ¸ÄºóÔÙ´æ·Å»ØÈ¥¡£
 
-  ÔÚÈÎÒâÒ»¸öÊ±¼äµãÉÏ£¬Ïß³ÌÊÇ¿É½áºÏ£¨joinable£©»òÕßÊÇ¿É·ÖÀëµÄ£¨detached£©¡£Ò»¸ö¿É½áºÏÏß³ÌÊÇ¿ÉÒÔ±»ÆäËûÏß³ÌÊÕ»Ø×ÊÔ´ºÍÉ±ËÀµÄ¡£ÔÚ±»»ØÊÕÖ®Ç°£¬ËûµÄ´æ´¢Æ÷×ÊÔ´£¨Õ»µÈ£©ÊÇ²»ÊÍ·ÅµÄ¡£¶ø¶ÔÓÚdetached×´Ì¬µÄÏß³Ì£¬Æä×ÊÔ´²»ÄÜ±»±ðµÄÏß³ÌÊÕ»ØºÍÉ±ËÀ£¬Ö»ÓÐµÈµ½Ïß³Ì½áÊø²ÅÄÜÓÉÏµÍ³×Ô¶¯ÊÍ·Å
+  ÔÚÈÎÒâÒ»¸öÊ±¼äµãÉÏ£¬Ïß³ÌÊÇ¿É½áºÏ£¨joinable£©»òÕßÊÇ¿É·ÖÀëµÄ£¨detached£©¡£Ò»¸ö¿É½áºÏÏß³ÌÊÇ¿ÉÒÔ±»ÆäËûÏß³ÌÊÕ»Ø×ÊÔ´ºÍÉ±ËÀµÄ¡£
+  ÔÚ±»»ØÊÕÖ®Ç°£¬ËûµÄ´æ´¢Æ÷×ÊÔ´£¨Õ»µÈ£©ÊÇ²»ÊÍ·ÅµÄ¡£¶ø¶ÔÓÚdetached×´Ì¬µÄÏß³Ì£¬Æä×ÊÔ´²»ÄÜ±»±ðµÄÏß³ÌÊÕ»ØºÍÉ±ËÀ£¬Ö»ÓÐµÈµ½Ïß³Ì½áÊø²ÅÄÜÓÉÏµÍ³×Ô¶¯ÊÍ·Å
 
-Ä¬ÈÏÇé¿ö£¬Ïß³Ì×´Ì¬±»ÉèÖÃÎª½áºÏµÄ¡£ËùÒÔÎªÁË±ÜÃâ×ÊÔ´Ð¹Â©µÈÎÊÌâ£¬Ò»¸öÏß³ÌÓ¦µ±ÊÇ±»ÏÔÊ¾µÄjoin»òÕßdetachµÄ£¬·ñÔòÏß³ÌµÄ×´Ì¬ÀàËÆÓÚ½ø³ÌÖÐµÄZombie Process¡£»áÓÐ²¿·Ö×ÊÔ´Ã»ÓÐ±»»ØÊÕµÄ¡£µ÷ÓÃº¯Êýpthread_join£¬µ±µÈ´ýÏß³ÌÃ»ÓÐÖÕÖ¹Ê±£¬Ö÷Ïß³Ì½«´¦ÓÚ×èÈû×´Ì¬¡£Èç¹ûÒª±ÜÃâ×èÈû£¬ÄÇÃ´
+Ä¬ÈÏÇé¿ö£¬Ïß³Ì×´Ì¬±»ÉèÖÃÎª½áºÏµÄ¡£ËùÒÔÎªÁË±ÜÃâ×ÊÔ´Ð¹Â©µÈÎÊÌâ£¬Ò»¸öÏß³ÌÓ¦µ±ÊÇ±»ÏÔÊ¾µÄjoin»òÕßdetachµÄ£¬·ñÔòÏß³ÌµÄ×´Ì¬ÀàËÆÓÚ½ø³ÌÖÐµÄZombie Process¡£
+»áÓÐ²¿·Ö×ÊÔ´Ã»ÓÐ±»»ØÊÕµÄ¡£µ÷ÓÃº¯Êýpthread_join£¬µ±µÈ´ýÏß³ÌÃ»ÓÐÖÕÖ¹Ê±£¬Ö÷Ïß³Ì½«´¦ÓÚ×èÈû×´Ì¬¡£Èç¹ûÒª±ÜÃâ×èÈû£¬ÄÇÃ´
 
 ÔÚÖ÷Ïß³ÌÖÐ¼ÓÈë´úÂëpthread_detach(thread_id)»òÕßÔÚ±»µÈ´ýÏß³ÌÖÐ¼ÓÈëpthread_detach(thread_self())
 
-  ×¢£º¶ÔÓÚÏß³Ì½øÐÐjoinÖ®ºóÏß³ÌµÄ×´Ì¬½«ÊÇdetach×´Ì¬£¨·ÖÀë£©£¬Í¬ÑùµÄpthread_cancelº¯Êý¿ÉÒÔ¶ÔÏß³Ì½øÐÐ·ÖÀë´¦Àí¡£ËùÒÔ£¬²»ÄÜÍ¬Ê±¶ÔÒ»¸öÏß³Ì½øÐÐjoinºÍdetach²Ù×÷
+  ×¢£º¶ÔÓÚÏß³Ì½øÐÐjoinÖ®ºóÏß³ÌµÄ×´Ì¬½«ÊÇdetach×´Ì¬£¨·ÖÀë£©£¬Í¬ÑùµÄpthread_cancelº¯Êý¿ÉÒÔ¶ÔÏß³Ì½øÐÐ·ÖÀë´¦Àí¡£ËùÒÔ£¬
+  ²»ÄÜÍ¬Ê±¶ÔÒ»¸öÏß³Ì½øÐÐjoinºÍdetach²Ù×÷
 
 pthread_detachÓï·¨
 
@@ -200,7 +224,9 @@ pthread_detach()º¯ÊýÓÃÓÚÖ¸Ê¾Ó¦ÓÃ³ÌÐòÔÚÏß³ÌtidÖÕÖ¹Ê±»ØÊÕÆä´æ´¢¿Õ¼ä¡£Èç¹ûtidÉÐÎ´ÖÕ
 Ö÷Ïß³Ì
 
 ÔÚÉÏÃæµÄ¼¸½ÚÖÐ£¬ÎÒÃÇ½²ÁËÏß³ÌµÄ´´½¨£¬½áÊøºÍÁ¬½Ó¡£Õâ½ÚÎÒÃÇÀ´¿´Ò»¸öÌØÊâµÄÏß³Ì - Ö÷Ïß³Ì¡£
-ÔÚC³ÌÐòÖÐ£¬main(int argc, char **argv) ¾ÍÊÇÒ»¸öÖ÷Ïß³Ì¡£ÎÒÃÇ¿ÉÒÔÔÚÖ÷Ïß³ÌÖÐ×öÈÎºÎÆÕÍ¨Ïß³Ì¿ÉÒÔ×öµÄÊÂÇé£¬µ«ËüºÍÒ»°ãµÄÏß³ÌÓÐÓÐÒ»¸öºÜ´óµÄÇø±ð£ºÖ÷Ïß³Ì·µ»Ø»òÕßÔËÐÐ½áÊøÊ±»áµ¼ÖÂ½ø³ÌµÄ½áÊø£¬¶ø½ø³ÌµÄ½áÊø»áµ¼ÖÂ½ø³ÌÖÐËùÓÐÏß³ÌµÄ½áÊø¡£ÎªÁË²»ÈÃÖ÷Ïß³Ì½áÊøËùÓÐµÄÏß³Ì£¬¸ù¾ÝÎÒÃÇÖ®Ç°ËùÑ§µÄÖªÊ¶£¬ÓÐÕâÃ´¼¸¸ö½â¾ö°ì·¨£º
+ÔÚC³ÌÐòÖÐ£¬main(int argc, char **argv) ¾ÍÊÇÒ»¸öÖ÷Ïß³Ì¡£ÎÒÃÇ¿ÉÒÔÔÚÖ÷Ïß³ÌÖÐ×öÈÎºÎÆÕÍ¨Ïß³Ì¿ÉÒÔ×öµÄÊÂÇé£¬µ«ËüºÍÒ»°ãµÄÏß³ÌÓÐÓÐÒ»¸öºÜ´óµÄÇø±ð£º
+Ö÷Ïß³Ì·µ»Ø»òÕßÔËÐÐ½áÊøÊ±»áµ¼ÖÂ½ø³ÌµÄ½áÊø£¬¶ø½ø³ÌµÄ½áÊø»áµ¼ÖÂ½ø³ÌÖÐËùÓÐÏß³ÌµÄ½áÊø¡£ÎªÁË²»ÈÃÖ÷Ïß³Ì½áÊøËùÓÐµÄÏß³Ì£¬¸ù¾ÝÎÒÃÇÖ®Ç°ËùÑ§µÄÖªÊ¶£¬
+ÓÐÕâÃ´¼¸¸ö½â¾ö°ì·¨£º
 
     ²»ÈÃÖ÷Ïß³Ì·µ»Ø»òÕß½áÊø£¨ÔÚ return Ç°¼ÓÈë while(1) Óï¾ä£©¡£
     µ÷ÓÃ pthread_exit() À´½áÊøÖ÷Ïß³Ì£¬µ±Ö÷Ïß³Ì return ºó£¬ÆäÄÚ´æ¿Õ¼ä»á±»ÊÍ·Å¡£
@@ -214,7 +240,8 @@ pthread_detach()º¯ÊýÓÃÓÚÖ¸Ê¾Ó¦ÓÃ³ÌÐòÔÚÏß³ÌtidÖÕÖ¹Ê±»ØÊÕÆä´æ´¢¿Õ¼ä¡£Èç¹ûtidÉÐÎ´ÖÕ
 -------------------------------
 »¥³âÁ¿
 
-  ¼òµ¥À´Ëµ£¬»¥³âÁ¿¾ÍÊÇÒ»°ÑËø×¡¹²ÏíÄÚ´æ¿Õ¼äµÄËø£¬ÓÐÁËËü£¬Í¬Ò»Ê±¿ÌÖ»ÓÐÒ»¸öÏß³Ì¿ÉÒÔ·ÃÎÊ¸ÃÄÚ´æ¿Õ¼ä¡£µ±Ò»¸öÏß³ÌËø×¡ÄÚ´æ¿Õ¼äµÄ»¥³âÁ¿ºó£¬ÆäËûÏß³Ì¾Í²»ÄÜ·ÃÎÊÕâ¸öÄÚ´æ¿Õ¼ä£¬Ö±µ½Ëø×¡¸Ã»¥³âÁ¿µÄÏß³Ì½â¿ªÕâ¸öËø¡£
+  ¼òµ¥À´Ëµ£¬»¥³âÁ¿¾ÍÊÇÒ»°ÑËø×¡¹²ÏíÄÚ´æ¿Õ¼äµÄËø£¬ÓÐÁËËü£¬Í¬Ò»Ê±¿ÌÖ»ÓÐÒ»¸öÏß³Ì¿ÉÒÔ·ÃÎÊ¸ÃÄÚ´æ¿Õ¼ä¡£µ±Ò»¸öÏß³ÌËø×¡ÄÚ´æ¿Õ¼äµÄ»¥³âÁ¿ºó£¬
+  ÆäËûÏß³Ì¾Í²»ÄÜ·ÃÎÊÕâ¸öÄÚ´æ¿Õ¼ä£¬Ö±µ½Ëø×¡¸Ã»¥³âÁ¿µÄÏß³Ì½â¿ªÕâ¸öËø¡£
 »¥³âÁ¿µÄ³õÊ¼»¯
 
 ¶ÔÓÚÒ»¸ö»¥³âÁ¿£¬ÎÒÃÇÊ×ÏÈÐèÒª¶ÔËü½øÐÐ³õÊ¼»¯£¬È»ºó²ÅÄÜ½«ÆäËø×¡ºÍ½âËø¡£ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ¶¯Ì¬·ÖÅäºÍ¾²Ì¬·ÖÅäÁ½ÖÖ·½Ê½³õÊ¼»¯»¥³âÁ¿¡£
@@ -283,7 +310,9 @@ return:
 
 ËÀËø
 
-Èç¹û»¥³âÁ¿Ê¹ÓÃ²»µ±¿ÉÄÜ»áÔì³ÉËÀËøÏÖÏó¡£ËÀËøÖ¸µÄÊÇÁ½¸ö»òÁ½¸öÒÔÉÏµÄÏß³ÌÔÚÖ´ÐÐ¹ý³ÌÖÐ£¬ÒòÕù¶á×ÊÔ´¶øÔì³ÉµÄÒ»ÖÖ»¥ÏàµÈ´ýµÄÏÖÏó¡£±ÈÈçÏß³Ì1Ëø×¡ÁË×ÊÔ´A£¬Ïß³Ì2Ëø×¡ÁË×ÊÔ´B£»ÎÒÃÇÔÙÈÃÏß³Ì1È¥Ëø×¡×ÊÔ´B£¬Ïß³Ì2È¥Ëø×¡×ÊÔ´A¡£ÒòÎª×ÊÔ´AºÍBÒÑ¾­±»Ïß³Ì1ºÍ2Ëø×¡ÁË£¬ËùÒÔÏß³Ì1ºÍ2¶¼»á±»×èÈû£¬ËûÃÇ»áÓÀÔ¶ÔÚµÈ´ý¶Ô·½×ÊÔ´µÄÊÍ·Å¡£
+Èç¹û»¥³âÁ¿Ê¹ÓÃ²»µ±¿ÉÄÜ»áÔì³ÉËÀËøÏÖÏó¡£ËÀËøÖ¸µÄÊÇÁ½¸ö»òÁ½¸öÒÔÉÏµÄÏß³ÌÔÚÖ´ÐÐ¹ý³ÌÖÐ£¬ÒòÕù¶á×ÊÔ´¶øÔì³ÉµÄÒ»ÖÖ»¥ÏàµÈ´ýµÄÏÖÏó¡£
+±ÈÈçÏß³Ì1Ëø×¡ÁË×ÊÔ´A£¬Ïß³Ì2Ëø×¡ÁË×ÊÔ´B£»ÎÒÃÇÔÙÈÃÏß³Ì1È¥Ëø×¡×ÊÔ´B£¬Ïß³Ì2È¥Ëø×¡×ÊÔ´A¡£ÒòÎª×ÊÔ´AºÍBÒÑ¾­±»Ïß³Ì1ºÍ2Ëø×¡ÁË£¬
+ËùÒÔÏß³Ì1ºÍ2¶¼»á±»×èÈû£¬ËûÃÇ»áÓÀÔ¶ÔÚµÈ´ý¶Ô·½×ÊÔ´µÄÊÍ·Å¡£
 
 ÎªÁË±ÜÃâËÀËøµÄ·¢Éú£¬ÎÒÃÇÓ¦¸Ã×¢ÒâÒÔÏÂ¼¸µã£»
 
@@ -295,7 +324,9 @@ return:
 
 ¶ÁÐ´Ëø
 
-¶ÁÐ´ËøºÍ»¥³âÁ¿ÏàËÆ£¬²»¹ý¾ßÓÐ¸ü¸ßµÄ²¢ÐÐÐÔ¡£»¥³âÁ¿Ö»ÓÐËø×¡ºÍ½âËøÁ½ÖÖ×´Ì¬£¬¶ø¶ÁÐ´Ëø¿ÉÒÔÉèÖÃ¶Á¼ÓËø£¬Ð´¼ÓËøºÍ²»¼ÓËøÈýÖÖ×´Ì¬¡£¶ÔÓÚÐ´¼ÓËø×´Ì¬¶øÑÔ£¬ÈÎºÎÊ±¿ÌÖ»ÄÜÓÐÒ»¸öÏß³ÌÕ¼ÓÐÐ´¼ÓËø×´Ì¬µÄ¶ÁÐ´Ëø£»¶ø¶ÔÓÚ¶Á¼ÓËø×´Ì¬¶øÑÔ£¬ÈÎºÎÊ±¿Ì¿ÉÒÔÓÐ¶à¸öÏß³ÌÓµÓÐ¶Á¼ÓËø×´Ì¬µÄ¶ÁÐ´Ëø¡£ÏÂÃæÊÇÒ»Ð©¶ÁÐ´ËøµÄÌØÐÔ£º
+¶ÁÐ´ËøºÍ»¥³âÁ¿ÏàËÆ£¬²»¹ý¾ßÓÐ¸ü¸ßµÄ²¢ÐÐÐÔ¡£»¥³âÁ¿Ö»ÓÐËø×¡ºÍ½âËøÁ½ÖÖ×´Ì¬£¬¶ø¶ÁÐ´Ëø¿ÉÒÔÉèÖÃ¶Á¼ÓËø£¬Ð´¼ÓËøºÍ²»¼ÓËøÈýÖÖ×´Ì¬¡£
+¶ÔÓÚÐ´¼ÓËø×´Ì¬¶øÑÔ£¬ÈÎºÎÊ±¿ÌÖ»ÄÜÓÐÒ»¸öÏß³ÌÕ¼ÓÐÐ´¼ÓËø×´Ì¬µÄ¶ÁÐ´Ëø£»¶ø¶ÔÓÚ¶Á¼ÓËø×´Ì¬¶øÑÔ£¬ÈÎºÎÊ±¿Ì¿ÉÒÔÓÐ¶à¸öÏß³ÌÓµÓÐ¶Á¼ÓËø×´Ì¬µÄ¶ÁÐ´Ëø¡£
+ÏÂÃæÊÇÒ»Ð©¶ÁÐ´ËøµÄÌØÐÔ£º
 
 ÌØÐÔ 	ËµÃ÷
 1 	µ±¶ÁÐ´ËøÊÇÐ´¼ÓËø×´Ì¬Ê±£¬ÔÚÕâ¸öËø±»½âËøÖ®Ç°£¬ËùÓÐÊÔÍ¼¶ÔÕâ¸öËø¼ÓËøµÄÏß³Ì¶¼»á±»×èÈû¡£
@@ -304,7 +335,8 @@ return:
 4 	µ±¶ÁÐ´ËøÊÇ¶Á¼ÓËø×´Ì¬Ê±£¬Èç¹ûÓÐÏß³ÌÊÔÍ¼ÒÔÐ´Ä£Ê½¶ÔÆä¼ÓËø£¬ÄÇÃ´¶ÁÐ´Ëø»á×èÈûËæºóµÄ¶ÁÄ£Ê½ËøÇëÇó¡£
 ¶ÁÐ´ËøµÄ³õÊ¼»¯
 
-Í¬»¥³âÁ¿ÀàËÆ£¬ÎÒÃÇÐèÒªÏÈ³õÊ¼»¯¶ÁÐ´Ëø£¬È»ºó²ÅÄÜ½«ÆäËø×¡ºÍ½âËø¡£Òª³õÊ¼»¯¶ÁÐ´Ëø£¬ÎÒÃÇÊ¹ÓÃ pthread_rwlock_init() º¯Êý£¬Í¬»¥³âÁ¿ÀàËÆ£¬ÔÚÊÍ·Å¶ÁÐ´ËøÄÚ´æ¿Õ¼äÇ°£¬ÎÒÃÇÐèÒªµ÷ÓÃ pthread_rwlock_destroy() º¯ÊýÀ´Ïú»Ù¶ÁÐ´Ëø¡£
+Í¬»¥³âÁ¿ÀàËÆ£¬ÎÒÃÇÐèÒªÏÈ³õÊ¼»¯¶ÁÐ´Ëø£¬È»ºó²ÅÄÜ½«ÆäËø×¡ºÍ½âËø¡£Òª³õÊ¼»¯¶ÁÐ´Ëø£¬ÎÒÃÇÊ¹ÓÃ pthread_rwlock_init() º¯Êý£¬
+Í¬»¥³âÁ¿ÀàËÆ£¬ÔÚÊÍ·Å¶ÁÐ´ËøÄÚ´æ¿Õ¼äÇ°£¬ÎÒÃÇÐèÒªµ÷ÓÃ pthread_rwlock_destroy() º¯ÊýÀ´Ïú»Ù¶ÁÐ´Ëø¡£
 
 ÏÂÃæÊÇ pthread_rwlock_init() ºÍ pthread_rwlock_destroy() º¯ÊýµÄÔ­ÐÍ£º
 
@@ -390,7 +422,8 @@ return:
 -----------------------
 Ìõ¼þ±äÁ¿
 
-Ìõ¼þ±äÁ¿ÊÇºÍ»¥³âÁ¿Ò»ÆðÊ¹ÓÃµÄ¡£Èç¹ûÒ»¸öÏß³Ì±»»¥³âÁ¿Ëø×¡£¬µ«Õâ¸öÏß³ÌÈ´²»ÄÜ×öÈÎºÎÊÂÇéÊ±£¬ÎÒÃÇÓ¦¸ÃÊÍ·Å»¥³âÁ¿£¬ÈÃÆäËûÏß³Ì¹¤×÷£¬ÔÚÕâÖÖÇé¿öÏÂ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃÌõ¼þ±äÁ¿£»Èç¹ûÄ³¸öÏß³ÌÐèÒªµÈ´ýÏµÍ³´¦ÓÚÄ³ÖÖ×´Ì¬²ÅÄÜÔËÐÐ£¬´ËÊ±£¬ÎÒÃÇÒ²¿ÉÒÔÊ¹ÓÃÌõ¼þ±äÁ¿¡£
+Ìõ¼þ±äÁ¿ÊÇºÍ»¥³âÁ¿Ò»ÆðÊ¹ÓÃµÄ¡£Èç¹ûÒ»¸öÏß³Ì±»»¥³âÁ¿Ëø×¡£¬µ«Õâ¸öÏß³ÌÈ´²»ÄÜ×öÈÎºÎÊÂÇéÊ±£¬ÎÒÃÇÓ¦¸ÃÊÍ·Å»¥³âÁ¿£¬
+ÈÃÆäËûÏß³Ì¹¤×÷£¬ÔÚÕâÖÖÇé¿öÏÂ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃÌõ¼þ±äÁ¿£»Èç¹ûÄ³¸öÏß³ÌÐèÒªµÈ´ýÏµÍ³´¦ÓÚÄ³ÖÖ×´Ì¬²ÅÄÜÔËÐÐ£¬´ËÊ±£¬ÎÒÃÇÒ²¿ÉÒÔÊ¹ÓÃÌõ¼þ±äÁ¿¡£
 Ìõ¼þ±äÁ¿µÄ³õÊ¼»¯
 
 Í¬»¥³âÁ¿Ò»Ñù£¬Ìõ¼þ±äÁ¿¿ÉÒÔÊ¹ÓÃ¶¯Ì¬·ÖÅäºÍ¾²Ì¬·ÖÅäµÄ·½Ê½½øÐÐ³õÊ¼»¯£º
@@ -422,7 +455,8 @@ return:
 
 Ìõ¼þ±äÁ¿µÄ²Ù×÷
 
-Ìõ¼þ±äÁ¿µÄ²Ù×÷·ÖÎªµÈ´ýºÍ»½ÐÑ£¬µÈ´ý²Ù×÷µÄº¯ÊýÓÐ pthread_cond_wait() ºÍ pthread_cond_timedwait()£»»½ÐÑ²Ù×÷µÄº¯ÊýÓÐ pthread_cond_signal() ºÍ pthread_cond_broadcast()¡£
+Ìõ¼þ±äÁ¿µÄ²Ù×÷·ÖÎªµÈ´ýºÍ»½ÐÑ£¬µÈ´ý²Ù×÷µÄº¯ÊýÓÐ pthread_cond_wait() ºÍ pthread_cond_timedwait()£»
+»½ÐÑ²Ù×÷µÄº¯ÊýÓÐ pthread_cond_signal() ºÍ pthread_cond_broadcast()¡£
 
 ÎÒÃÇÀ´¿´¿´ pthread_cond_wait() ÊÇÔõÃ´Ê¹ÓÃµÄ£¬ÏÂÃæÊÇº¯ÊýÔ­ÐÍ£º
 
@@ -508,13 +542,16 @@ typedef union
 } pthread_attr_t;
 
 
-Ô­Òò£¬Ó¦¸ÃÊÇLinux²»Ï£ÍûÓÃ»§ÔÚÐÂ½¨ÓÃ»§Ïß³ÌµÄÊ±ºò¿ÉÒÔÖ±½Ó·ÃÎÊÏß³ÌÊôÐÔµÄÊý¾Ý³ÉÔ±£¬ÒòÎª¿ÉÄÜÓÃ»§ÔÚÕâÀïÉèÖÃÁËÎ´¶¨ÒåµÄÊýÖµµ¼ÖÂÏß³Ì±¼À££¬ÓÃ»§Ö»ÄÜÍ¨¹ýµ÷ÓÃLinuxÌá¹©µÄ½á¹¹ÌåµÄ³õÊ¼»¯º¯Êý¶ÔÆä½øÐÐ±äÁ¿³õÊ¼»¯¡£ÕâÑù×öµÄºÃ´¦ÔÚÏÂÎÄÖÐ»áËµÃ÷¡£
+Ô­Òò£¬Ó¦¸ÃÊÇLinux²»Ï£ÍûÓÃ»§ÔÚÐÂ½¨ÓÃ»§Ïß³ÌµÄÊ±ºò¿ÉÒÔÖ±½Ó·ÃÎÊÏß³ÌÊôÐÔµÄÊý¾Ý³ÉÔ±£¬ÒòÎª¿ÉÄÜÓÃ»§ÔÚÕâÀïÉèÖÃÁËÎ´¶¨ÒåµÄÊýÖµµ¼ÖÂÏß³Ì±¼À££¬
+ÓÃ»§Ö»ÄÜÍ¨¹ýµ÷ÓÃLinuxÌá¹©µÄ½á¹¹ÌåµÄ³õÊ¼»¯º¯Êý¶ÔÆä½øÐÐ±äÁ¿³õÊ¼»¯¡£ÕâÑù×öµÄºÃ´¦ÔÚÏÂÎÄÖÐ»áËµÃ÷¡£
 
-Í¨¹ýÉèÖÃÊôÐÔ£¬¿ÉÒÔÖ¸¶¨Ò»ÖÖ²»Í¬ÓÚÈ±Ê¡ÐÐÎªµÄÐÐÎª¡£Ê¹ÓÃpthread_create()´´½¨Ïß³ÌÊ±»ò³õÊ¼»¯Í¬²½±äÁ¿Ê±£¬¿ÉÒÔÖ¸¶¨ÊôÐÔ¶ÔÏó¡£Ò»°ãÇé¿öÏÂpthread_createÊôÐÔ²ÎÊýÈ±Ê¡ÖµÍ¨³£¾Í×ã¹»ÁË¡£
+Í¨¹ýÉèÖÃÊôÐÔ£¬¿ÉÒÔÖ¸¶¨Ò»ÖÖ²»Í¬ÓÚÈ±Ê¡ÐÐÎªµÄÐÐÎª¡£Ê¹ÓÃpthread_create()´´½¨Ïß³ÌÊ±»ò³õÊ¼»¯Í¬²½±äÁ¿Ê±£¬¿ÉÒÔÖ¸¶¨ÊôÐÔ¶ÔÏó¡£
+Ò»°ãÇé¿öÏÂpthread_createÊôÐÔ²ÎÊýÈ±Ê¡ÖµÍ¨³£¾Í×ã¹»ÁË¡£
 
 ÊôÐÔ¶ÔÏóÊÇ²»Í¸Ã÷µÄ£¬²¢²»ÄÜÍ¨¹ý¸³ÖµÖ±½Ó½øÐÐÐÞ¸Ä¡£ÏµÍ³Ìá¹©ÁËÓÃÓÚ³õÊ¼»¯¡¢ÅäÖÃºÍÏú»ÙÃ¿ÖÖ¶ÔÏóÀàÐÍ¡£
 
-³õÊ¼»¯ºÍÅäÖÃÊôÐÔºó£¬ÊôÐÔ±ã¾ßÓÐ½ø³Ì·¶Î§µÄ×÷ÓÃÓò¡£Ê¹ÓÃÊôÐÔÊ±×îºÃµÄ·½·¨¼´ÊÇÔÚ³ÌÐòÖ´ÐÐÔçÆÚÒ»´ÎÅäÖÃºÃËùÓÐ±ØÐèµÄ×´Ì¬¹æ·¶¡£È»ºó£¬¸ù¾ÝÐèÒªÒýÓÃÏàÓ¦µÄÊôÐÔ¶ÔÏó¡£
+³õÊ¼»¯ºÍÅäÖÃÊôÐÔºó£¬ÊôÐÔ±ã¾ßÓÐ½ø³Ì·¶Î§µÄ×÷ÓÃÓò¡£Ê¹ÓÃÊôÐÔÊ±×îºÃµÄ·½·¨¼´ÊÇÔÚ³ÌÐòÖ´ÐÐÔçÆÚÒ»´ÎÅäÖÃºÃËùÓÐ±ØÐèµÄ×´Ì¬¹æ·¶¡£
+È»ºó£¬¸ù¾ÝÐèÒªÒýÓÃÏàÓ¦µÄÊôÐÔ¶ÔÏó¡£
 
 Ê¹ÓÃÊôÐÔ¶ÔÏó¾ßÓÐÁ½¸öÖ÷ÒªÓÅµã¡£
 
@@ -534,7 +571,8 @@ typedef union
 
 ÀýÈç£¬¼ÙÉè½ø³ÌÖÐ¿ÉÄÜ´æÔÚ¶à×éÏß³Ì¡£Ã¿×éÏß³Ì¶¼Ìá¹©µ¥¶ÀµÄ·þÎñ¡£Ã¿×éÏß³Ì¶¼ÓÐ¸÷×Ô
 
-µÄ×´Ì¬ÒªÇó¡£ÔÚÓ¦ÓÃ³ÌÐòÖ´ÐÐ³õÆÚµÄÄ³Ò»Ê±¼ä£¬¿ÉÒÔÕë¶ÔÃ¿×éÏß³Ì³õÊ¼»¯Ïß³ÌÊôÐÔ¶ÔÏó¡£ÒÔºóËùÓÐÏß³ÌµÄ´´½¨¶¼»áÒýÓÃÒÑ¾­ÎªÕâÀàÏß³Ì³õÊ¼»¯µÄÊôÐÔ¶ÔÏó¡£³õÊ¼»¯½×¶ÎÊÇ¼òµ¥ºÍ¾Ö²¿µÄ¡£½«À´¾Í¿ÉÒÔ¿ìËÙÇÒ¿É¿¿µØ½øÐÐÈÎºÎÐÞ¸Ä¡£
+µÄ×´Ì¬ÒªÇó¡£ÔÚÓ¦ÓÃ³ÌÐòÖ´ÐÐ³õÆÚµÄÄ³Ò»Ê±¼ä£¬¿ÉÒÔÕë¶ÔÃ¿×éÏß³Ì³õÊ¼»¯Ïß³ÌÊôÐÔ¶ÔÏó¡£ÒÔºóËùÓÐÏß³ÌµÄ´´½¨¶¼»áÒýÓÃÒÑ¾­ÎªÕâÀàÏß³Ì³õÊ¼»¯µÄÊôÐÔ¶ÔÏó¡£
+³õÊ¼»¯½×¶ÎÊÇ¼òµ¥ºÍ¾Ö²¿µÄ¡£½«À´¾Í¿ÉÒÔ¿ìËÙÇÒ¿É¿¿µØ½øÐÐÈÎºÎÐÞ¸Ä¡£
 1 ³õÊ¼»¯ÊôÐÔ
 
 pthread_attr_init()½«¶ÔÏóÊôÐÔ³õÊ¼»¯ÎªÆäÈ±Ê¡Öµ¡£´æ´¢¿Õ¼äÊÇÔÚÖ´ÐÐÆÚ¼äÓÉÏß³ÌÏµÍ³·ÖÅäµÄ¡£
@@ -584,7 +622,8 @@ ret = pthread_attr_setdetachstate(&tattr,PTHREAD_CREATE_DETACHED);
 
 Èç¹ûÊ¹ÓÃPTHREAD_CREATE_JOINABLE´´½¨·Ç·ÖÀëÏß³Ì£¬Ôò¼ÙÉèÓ¦ÓÃ³ÌÐò½«µÈ´ýÏß³ÌÍê³É¡£Ò²¾ÍÊÇËµ£¬³ÌÐò½«¶ÔÏß³ÌÖ´ÐÐpthread_join()¡£
 
-·Ç·ÖÀëÏß³ÌÔÚÖÕÖ¹ºó£¬±ØÐëÒªÓÐÒ»¸öÏß³ÌÓÃjoinÀ´µÈ´ýËü¡£·ñÔò£¬²»»áÊÍ·Å¸ÃÏß³ÌµÄ×ÊÔ´ÒÔ¹©ÐÂÏß³ÌÊ¹ÓÃ£¬¶øÕâÍ¨³£»áµ¼ÖÂÄÚ´æÐ¹Â©¡£Òò´Ë£¬Èç¹û²»Ï£ÍûÏß³Ì±»µÈ´ý£¬Çë½«¸ÃÏß³Ì×÷Îª·ÖÀëÏß³ÌÀ´´´½¨¡£
+·Ç·ÖÀëÏß³ÌÔÚÖÕÖ¹ºó£¬±ØÐëÒªÓÐÒ»¸öÏß³ÌÓÃjoinÀ´µÈ´ýËü¡£·ñÔò£¬²»»áÊÍ·Å¸ÃÏß³ÌµÄ×ÊÔ´ÒÔ¹©ÐÂÏß³ÌÊ¹ÓÃ£¬¶øÕâÍ¨³£»áµ¼ÖÂÄÚ´æÐ¹Â©¡£
+Òò´Ë£¬Èç¹û²»Ï£ÍûÏß³Ì±»µÈ´ý£¬Çë½«¸ÃÏß³Ì×÷Îª·ÖÀëÏß³ÌÀ´´´½¨¡£
 
 4 ÉèÖÃÕ»Òç³ö±£»¤Çø´óÐ¡
 
@@ -596,18 +635,25 @@ int pthread_attr_setguardsize(pthread_attr_t *attr, size_t guardsize);
 
 ³öÓÚÒÔÏÂÁ½¸öÔ­Òò£¬ÎªÓ¦ÓÃ³ÌÐòÌá¹©ÁËguardsizeÊôÐÔ£º
 
-¡ö Òç³ö±£»¤¿ÉÄÜ»áµ¼ÖÂÏµÍ³×ÊÔ´ÀË·Ñ¡£Èç¹ûÓ¦ÓÃ³ÌÐò´´½¨´óÁ¿Ïß³Ì£¬²¢ÇÒÒÑÖªÕâÐ©Ïß³ÌÓÀÔ¶²»»áÒç³öÆäÕ»£¬Ôò¿ÉÒÔ¹Ø±ÕÒç³ö±£»¤Çø¡£Í¨¹ý¹Ø±ÕÒç³ö±£»¤Çø£¬¿ÉÒÔ½ÚÊ¡ÏµÍ³×ÊÔ´¡£
+¡ö Òç³ö±£»¤¿ÉÄÜ»áµ¼ÖÂÏµÍ³×ÊÔ´ÀË·Ñ¡£Èç¹ûÓ¦ÓÃ³ÌÐò´´½¨´óÁ¿Ïß³Ì£¬²¢ÇÒÒÑÖªÕâÐ©Ïß³ÌÓÀÔ¶²»»áÒç³öÆäÕ»£¬Ôò¿ÉÒÔ¹Ø±ÕÒç³ö±£»¤Çø¡£
+Í¨¹ý¹Ø±ÕÒç³ö±£»¤Çø£¬¿ÉÒÔ½ÚÊ¡ÏµÍ³×ÊÔ´¡£
 
 ¡ö Ïß³ÌÔÚÕ»ÉÏ·ÖÅä´óÐÍÊý¾Ý½á¹¹Ê±£¬¿ÉÄÜÐèÒª½Ï´óµÄÒç³ö±£»¤ÇøÀ´¼ì²âÕ»Òç³ö¡£
 
-guardsize²ÎÊýÌá¹©ÁË¶ÔÕ»Ö¸ÕëÒç³öµÄ±£»¤¡£Èç¹û´´½¨Ïß³ÌµÄÕ»Ê±Ê¹ÓÃÁË±£»¤¹¦ÄÜ£¬ÔòÊµÏÖ»áÔÚÕ»µÄÒç³ö¶Ë·ÖÅä¶îÍâÄÚ´æ¡£´Ë¶îÍâÄÚ´æµÄ×÷ÓÃÓë»º³åÇøÒ»Ñù£¬¿ÉÒÔ·ÀÖ¹Õ»Ö¸ÕëµÄÕ»Òç³ö¡£Èç¹ûÓ¦ÓÃ³ÌÐòÒç³öµ½´Ë»º³åÇøÖÐ£¬Õâ¸ö´íÎó¿ÉÄÜ»áµ¼ÖÂSIGSEGVÐÅºÅ±»·¢ËÍ¸ø¸ÃÏß³Ì¡£Èç¹ûguardsizeÎªÁã£¬Ôò²»»áÎªÊ¹ÓÃattr´´½¨µÄÏß³ÌÌá¹©Òç³ö±£»¤Çø¡£Èç¹ûguardsize´óÓÚÁã£¬Ôò»áÎªÃ¿¸öÊ¹ÓÃattr´´½¨µÄÏß³ÌÌá¹©´óÐ¡ÖÁÉÙÎªguardsize×Ö½ÚµÄÒç³ö±£»¤Çø¡£È±Ê¡Çé¿öÏÂ£¬Ïß³Ì¾ßÓÐÊµÏÖ¶¨ÒåµÄ·ÇÁãÒç³ö±£»¤Çø¡£
+guardsize²ÎÊýÌá¹©ÁË¶ÔÕ»Ö¸ÕëÒç³öµÄ±£»¤¡£Èç¹û´´½¨Ïß³ÌµÄÕ»Ê±Ê¹ÓÃÁË±£»¤¹¦ÄÜ£¬ÔòÊµÏÖ»áÔÚÕ»µÄÒç³ö¶Ë·ÖÅä¶îÍâÄÚ´æ¡£
+´Ë¶îÍâÄÚ´æµÄ×÷ÓÃÓë»º³åÇøÒ»Ñù£¬¿ÉÒÔ·ÀÖ¹Õ»Ö¸ÕëµÄÕ»Òç³ö¡£Èç¹ûÓ¦ÓÃ³ÌÐòÒç³öµ½´Ë»º³åÇøÖÐ£¬Õâ¸ö´íÎó¿ÉÄÜ»áµ¼ÖÂSIGSEGVÐÅºÅ±»·¢ËÍ¸ø¸ÃÏß³Ì¡£
+Èç¹ûguardsizeÎªÁã£¬Ôò²»»áÎªÊ¹ÓÃattr´´½¨µÄÏß³ÌÌá¹©Òç³ö±£»¤Çø¡£Èç¹ûguardsize´óÓÚÁã£¬Ôò»áÎªÃ¿¸öÊ¹ÓÃattr´´½¨µÄÏß³ÌÌá¹©´óÐ¡ÖÁÉÙÎªguardsize×Ö½ÚµÄÒç³ö±£»¤Çø¡£
+È±Ê¡Çé¿öÏÂ£¬Ïß³Ì¾ßÓÐÊµÏÖ¶¨ÒåµÄ·ÇÁãÒç³ö±£»¤Çø¡£
 
-ÔÊÐíºÏºõ¹ßÀýµÄÊµÏÖ£¬½«guardsizeµÄÖµÏòÉÏÉáÈëÎª¿ÉÅäÖÃµÄÏµÍ³±äÁ¿PAGESIZEµÄ±¶Êý¡£Çë²Î¼ûsys/mman.hÖÐµÄPAGESIZE¡£Èç¹ûÊµÏÖ½«guardsizeµÄÖµÏòÉÏÉáÈëÎªPAGESIZEµÄ±¶Êý£¬ÔòÒÔguardsize£¨ÏÈÇ°µ÷ÓÃpthread_attr_setguardsize()Ê±Ö¸¶¨µÄÒç³ö±£»¤Çø´óÐ¡£©Îªµ¥Î»´æ´¢¶ÔÖ¸¶¨attrµÄpthread_attr_getguardsize()µÄµ÷ÓÃ¡£
+ÔÊÐíºÏºõ¹ßÀýµÄÊµÏÖ£¬½«guardsizeµÄÖµÏòÉÏÉáÈëÎª¿ÉÅäÖÃµÄÏµÍ³±äÁ¿PAGESIZEµÄ±¶Êý¡£Çë²Î¼ûsys/mman.hÖÐµÄPAGESIZE¡£
+Èç¹ûÊµÏÖ½«guardsizeµÄÖµÏòÉÏÉáÈëÎªPAGESIZEµÄ±¶Êý£¬ÔòÒÔguardsize£¨ÏÈÇ°µ÷ÓÃpthread_attr_setguardsize()Ê±Ö¸¶¨µÄÒç³ö±£»¤Çø´óÐ¡£©
+Îªµ¥Î»´æ´¢¶ÔÖ¸¶¨attrµÄpthread_attr_getguardsize()µÄµ÷ÓÃ¡£
 
  
 5 ÉèÖÃ¾ºÕù·¶Î§
 
-ÇëÊ¹ÓÃpthread_attr_setscope()½¨Á¢Ïß³ÌµÄÕùÓÃ·¶Î§£¨PTHREAD_SCOPE_SYSTEM»òPTHREAD_SCOPE_PROCESS£©¡£ Ê¹ÓÃPTHREAD_SCOPE_SYSTEMÊ±£¬´ËÏß³Ì½«ÓëÏµÍ³ÖÐµÄËùÓÐÏß³Ì½øÐÐ¾ºÕù¡£Ê¹ÓÃPTHREAD_SCOPE_PROCESSÊ±£¬´ËÏß³Ì½«Óë½ø³ÌÖÐµÄÆäËûÏß³Ì½øÐÐ¾ºÕù¡£
+ÇëÊ¹ÓÃpthread_attr_setscope()½¨Á¢Ïß³ÌµÄÕùÓÃ·¶Î§£¨PTHREAD_SCOPE_SYSTEM»òPTHREAD_SCOPE_PROCESS£©¡£ 
+Ê¹ÓÃPTHREAD_SCOPE_SYSTEMÊ±£¬´ËÏß³Ì½«ÓëÏµÍ³ÖÐµÄËùÓÐÏß³Ì½øÐÐ¾ºÕù¡£Ê¹ÓÃPTHREAD_SCOPE_PROCESSÊ±£¬´ËÏß³Ì½«Óë½ø³ÌÖÐµÄÆäËûÏß³Ì½øÐÐ¾ºÕù¡£
 
 º¯ÊýÔ­ÐÍ£º
 
@@ -770,20 +816,25 @@ PTHREAD_STACK_MINÊÇÆô¶¯Ïß³ÌËùÐèµÄÕ»¿Õ¼äÁ¿¡£´ËÕ»¿Õ¼äÃ»ÓÐ¿¼ÂÇÖ´ÐÐÓ¦ÓÃ³ÌÐò´úÂëËùÐèµ
 ·ñÒÑÖÕÖ¹µÄÎ¨Ò»¿É¿¿·½Ê½ÊÇÊ¹ÓÃpthread_join(3C)¡£
 ÎªÏß³Ì·ÖÅäÕ»¿Õ¼ä
 
-Ò»°ãÇé¿öÏÂ£¬²»ÐèÒªÎªÏß³Ì·ÖÅäÕ»¿Õ¼ä¡£ÏµÍ³»áÎªÃ¿¸öÏß³ÌµÄÕ»·ÖÅä1MB£¨¶ÔÓÚ32Î»ÏµÍ³£©»ò2MB£¨¶ÔÓÚ64Î»ÏµÍ³£©µÄÐéÄâÄÚ´æ£¬¶ø²»±£ÁôÈÎºÎ½»»»¿Õ¼ä¡£ÏµÍ³½«Ê¹ÓÃmmap()µÄMAP_NORESERVEÑ¡ÏîÀ´½øÐÐ·ÖÅä¡£
+Ò»°ãÇé¿öÏÂ£¬²»ÐèÒªÎªÏß³Ì·ÖÅäÕ»¿Õ¼ä¡£ÏµÍ³»áÎªÃ¿¸öÏß³ÌµÄÕ»·ÖÅä1MB£¨¶ÔÓÚ32Î»ÏµÍ³£©»ò2MB£¨¶ÔÓÚ64Î»ÏµÍ³£©µÄÐéÄâÄÚ´æ£¬
+¶ø²»±£ÁôÈÎºÎ½»»»¿Õ¼ä¡£ÏµÍ³½«Ê¹ÓÃmmap()µÄMAP_NORESERVEÑ¡ÏîÀ´½øÐÐ·ÖÅä¡£
 
-ÏµÍ³´´½¨µÄÃ¿¸öÏß³ÌÕ»¶¼¾ßÓÐºìÉ«ÇøÓò¡£ÏµÍ³Í¨¹ý½«Ò³¸½¼Óµ½Õ»µÄÒç³ö¶ËÀ´´´½¨ºìÉ«ÇøÓò£¬´Ó¶ø²¶»ñÕ»Òç³ö¡£´ËÀàÒ³ÎÞÐ§£¬¶øÇÒ»áµ¼ÖÂÄÚ´æ£¨·ÃÎÊÊ±£©¹ÊÕÏ¡£ºìÉ«ÇøÓò½«±»¸½¼Óµ½ËùÓÐ×Ô¶¯·ÖÅäµÄÕ»£¬ÎÞÂÛ´óÐ¡ÊÇÓÉÓ¦ÓÃ³ÌÐòÖ¸¶¨£¬»¹ÊÇÊ¹ÓÃÈ±Ê¡´óÐ¡¡£
+ÏµÍ³´´½¨µÄÃ¿¸öÏß³ÌÕ»¶¼¾ßÓÐºìÉ«ÇøÓò¡£ÏµÍ³Í¨¹ý½«Ò³¸½¼Óµ½Õ»µÄÒç³ö¶ËÀ´´´½¨ºìÉ«ÇøÓò£¬´Ó¶ø²¶»ñÕ»Òç³ö¡£´ËÀàÒ³ÎÞÐ§£¬
+¶øÇÒ»áµ¼ÖÂÄÚ´æ£¨·ÃÎÊÊ±£©¹ÊÕÏ¡£ºìÉ«ÇøÓò½«±»¸½¼Óµ½ËùÓÐ×Ô¶¯·ÖÅäµÄÕ»£¬ÎÞÂÛ´óÐ¡ÊÇÓÉÓ¦ÓÃ³ÌÐòÖ¸¶¨£¬»¹ÊÇÊ¹ÓÃÈ±Ê¡´óÐ¡¡£
 
-¼«ÉÙÊýÇé¿öÏÂÐèÒªÖ¸¶¨Õ»ºÍ/»òÕ»´óÐ¡¡£³ÌÐòÔ±ºÜÄÑÁË½âÊÇ·ñÖ¸¶¨ÁËÕýÈ·µÄ´óÐ¡¡£ÉõÖÁ·ûºÏABI±ê×¼µÄ³ÌÐòÒ²²»ÄÜ¾²Ì¬È·¶¨ÆäÕ»´óÐ¡¡£Õ»´óÐ¡È¡¾öÓÚÖ´ÐÐÖÐÌØ¶¨ÔËÐÐÊ±»·¾³¡£
+¼«ÉÙÊýÇé¿öÏÂÐèÒªÖ¸¶¨Õ»ºÍ/»òÕ»´óÐ¡¡£³ÌÐòÔ±ºÜÄÑÁË½âÊÇ·ñÖ¸¶¨ÁËÕýÈ·µÄ´óÐ¡¡£ÉõÖÁ·ûºÏABI±ê×¼µÄ³ÌÐòÒ²²»ÄÜ¾²Ì¬È·¶¨ÆäÕ»´óÐ¡¡£
+Õ»´óÐ¡È¡¾öÓÚÖ´ÐÐÖÐÌØ¶¨ÔËÐÐÊ±»·¾³¡£
 Éú³É×Ô¼ºµÄÕ»
 
 Ö¸¶¨Ïß³ÌÕ»´óÐ¡Ê±£¬±ØÐë¿¼ÂÇ±»µ÷ÓÃº¯ÊýÒÔ¼°Ã¿¸öÒªµ÷ÓÃµÄºóÐøº¯ÊýµÄ·ÖÅäÐèÇó¡£ÐèÒª¿¼ÂÇµÄÒòËØÓ¦°üÀ¨µ÷ÓÃÐòÁÐÐèÇó¡¢¾Ö²¿±äÁ¿ºÍÐÅÏ¢½á¹¹¡£
 
-ÓÐÊ±£¬ÐèÒªÓëÈ±Ê¡Õ»²»Í¬µÄÕ»¡£Ò»°ãµÄÇé¿öÊÇ£¬Ïß³ÌÐèÒªµÄÕ»´óÐ¡´óÓÚÈ±Ê¡Õ»´óÐ¡¡£ÉÙÊýÇé¿ö£¬È±Ê¡´óÐ¡Ì«´ó¡£ÒòÎª¿ÉÄÜÕýÔÚÊ¹ÓÃ²»×ãµÄÐéÄâÄÚ´æ´´½¨´óÁ¿Ïß³Ì£¬½ø¶ø´¦ÀíÕâÐ©¸öÈ±Ê¡Ïß³ÌÕ»ËùÐèµÄ´óÁ¿Õ××Ö½ÚµÄÕ»¿Õ¼ä¡£
+ÓÐÊ±£¬ÐèÒªÓëÈ±Ê¡Õ»²»Í¬µÄÕ»¡£Ò»°ãµÄÇé¿öÊÇ£¬Ïß³ÌÐèÒªµÄÕ»´óÐ¡´óÓÚÈ±Ê¡Õ»´óÐ¡¡£ÉÙÊýÇé¿ö£¬È±Ê¡´óÐ¡Ì«´ó¡£
+ÒòÎª¿ÉÄÜÕýÔÚÊ¹ÓÃ²»×ãµÄÐéÄâÄÚ´æ´´½¨´óÁ¿Ïß³Ì£¬½ø¶ø´¦ÀíÕâÐ©¸öÈ±Ê¡Ïß³ÌÕ»ËùÐèµÄ´óÁ¿Õ××Ö½ÚµÄÕ»¿Õ¼ä¡£
 
 ¶ÔÕ»µÄ×î´ó´óÐ¡µÄÏÞÖÆÍ¨³£½ÏÎªÃ÷ÏÔ£¬µ«¶ÔÆä×îÐ¡´óÐ¡µÄÏÞÖÆÈçºÎÄØ£¿±ØÐë´æÔÚ×ã¹»µÄÕ»¿Õ¼äÀ´´¦ÀíÍÆÈëÕ»µÄËùÓÐÕ»Ö¡£¬¼°Æä¾Ö²¿±äÁ¿µÈ¡£
 
-Òª»ñÈ¡¶ÔÕ»´óÐ¡µÄ¾ø¶Ô×îÐ¡ÏÞÖÆ£¬Çëµ÷ÓÃºêPTHREAD_STACK_MIN¡£PTHREAD_STACK_MINºê½«Õë¶ÔÖ´ÐÐNULL¹ý³ÌµÄÏß³Ì·µ»ØËùÐèµÄÕ»¿Õ¼äÁ¿¡£ÓÐÓÃµÄÏß³ÌËùÐèµÄÕ»´óÐ¡´óÓÚ×îÐ¡Õ»´óÐ¡£¬Òò´ËËõÐ¡Õ»´óÐ¡Ê±Ó¦·Ç³£½÷É÷¡£
+Òª»ñÈ¡¶ÔÕ»´óÐ¡µÄ¾ø¶Ô×îÐ¡ÏÞÖÆ£¬Çëµ÷ÓÃºêPTHREAD_STACK_MIN¡£PTHREAD_STACK_MINºê½«Õë¶ÔÖ´ÐÐNULL¹ý³ÌµÄÏß³Ì·µ»ØËùÐèµÄÕ»¿Õ¼äÁ¿¡£
+ÓÐÓÃµÄÏß³ÌËùÐèµÄÕ»´óÐ¡´óÓÚ×îÐ¡Õ»´óÐ¡£¬Òò´ËËõÐ¡Õ»´óÐ¡Ê±Ó¦·Ç³£½÷É÷¡£
 
 #include <pthread.h>
 pthread_attr_t tattr;
@@ -820,7 +871,8 @@ base= (void *) malloc(PTHREAD_STACK_MIN + 0x4000);
 ret = pthread_attr_setstack(&tattr,base,PTHREAD_STACK_MIN + 0x4000);
 
 
-stackaddrÊôÐÔ¶¨ÒåÏß³ÌÕ»µÄ»ù×¼£¨µÍÎ»µØÖ·£©¡£stacksizeÊôÐÔÖ¸¶¨Õ»µÄ´óÐ¡¡£Èç¹û½«stackaddrÉèÖÃÎª·Ç¿ÕÖµ£¬¶ø²»ÊÇÈ±Ê¡µÄNULL£¬ÔòÏµÍ³½«ÔÚ¸ÃµØÖ·³õÊ¼»¯Õ»£¬¼ÙÉè´óÐ¡Îªstacksize¡£
+stackaddrÊôÐÔ¶¨ÒåÏß³ÌÕ»µÄ»ù×¼£¨µÍÎ»µØÖ·£©¡£stacksizeÊôÐÔÖ¸¶¨Õ»µÄ´óÐ¡¡£Èç¹û½«stackaddrÉèÖÃÎª·Ç¿ÕÖµ£¬¶ø²»ÊÇÈ±Ê¡µÄNULL£¬
+ÔòÏµÍ³½«ÔÚ¸ÃµØÖ·³õÊ¼»¯Õ»£¬¼ÙÉè´óÐ¡Îªstacksize¡£
 
 base°üº¬ÐÂÏß³ÌÊ¹ÓÃµÄÕ»µÄµØÖ·¡£Èç¹ûbaseÎªNULL£¬Ôòpthread_create(3C)½«Îª´óÐ¡ÖÁÉÙÎªstacksize×Ö½ÚµÄÐÂÏß³Ì·ÖÅäÕ»¡£
 
