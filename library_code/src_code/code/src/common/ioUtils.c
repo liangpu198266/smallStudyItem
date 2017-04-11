@@ -573,3 +573,33 @@ int32 setRevIoSigPid(int32 fd, uint32 pid)
   return ret;
 }
 
+/*
+得到缓存区还有多少字节需要读取
+
+FIONREAD就是返回缓冲区中有多少字节；
+
+ioctl(keyFd, FIONREAD, &b)得到缓冲区里有多少字节要被读取，然后将字节数放入readLen里面。
+
+*/
+int32 getIOBufLenToRead(int32 fd)
+{
+  int32 readLen;
+
+  if (ioctl(fd, FIONREAD, &readLen) < 0)
+  {
+    LOG_ERROR("get Io buffer len error\n");
+    return TASK_ERROR;
+  }
+
+  return readLen;
+}
+
+int32 setNonBlocking(int32 fd)
+{
+    int32 old_option = fcntl( fd, F_GETFL );
+    int32 new_option = old_option | O_NONBLOCK;
+    fcntl(fd, F_SETFL, new_option);
+    return old_option;
+}
+
+

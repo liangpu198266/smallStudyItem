@@ -62,7 +62,13 @@ code/src/common/testtool-ioUtils.o: code/src/common/ioUtils.c \
  /usr/include/i386-linux-gnu/bits/mman-linux.h \
  /usr/include/i386-linux-gnu/sys/times.h \
  /usr/include/i386-linux-gnu/sys/time.h code/include/comm_list.h \
- code/include/ioUtils.h code/include/logprint.h
+ code/include/ioUtils.h /usr/include/i386-linux-gnu/sys/ioctl.h \
+ /usr/include/i386-linux-gnu/bits/ioctls.h \
+ /usr/include/i386-linux-gnu/asm/ioctls.h \
+ /usr/include/asm-generic/ioctls.h /usr/include/linux/ioctl.h \
+ /usr/include/i386-linux-gnu/asm/ioctl.h /usr/include/asm-generic/ioctl.h \
+ /usr/include/i386-linux-gnu/bits/ioctl-types.h \
+ /usr/include/i386-linux-gnu/sys/ttydefaults.h code/include/logprint.h
 
 /usr/include/stdc-predef.h:
 
@@ -237,5 +243,23 @@ code/include/common.h:
 code/include/comm_list.h:
 
 code/include/ioUtils.h:
+
+/usr/include/i386-linux-gnu/sys/ioctl.h:
+
+/usr/include/i386-linux-gnu/bits/ioctls.h:
+
+/usr/include/i386-linux-gnu/asm/ioctls.h:
+
+/usr/include/asm-generic/ioctls.h:
+
+/usr/include/linux/ioctl.h:
+
+/usr/include/i386-linux-gnu/asm/ioctl.h:
+
+/usr/include/asm-generic/ioctl.h:
+
+/usr/include/i386-linux-gnu/bits/ioctl-types.h:
+
+/usr/include/i386-linux-gnu/sys/ttydefaults.h:
 
 code/include/logprint.h:

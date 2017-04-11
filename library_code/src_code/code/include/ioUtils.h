@@ -8,6 +8,7 @@
 
 /* ------------------------ Include ------------------------- */
 #include "common.h"
+#include <sys/ioctl.h>
 
 
 /* ------------------------ Defines ------------------------- */
@@ -87,5 +88,10 @@ int32 getRevIoSigPid(int32 fd);
 
 /*设置将要在文件描述词fd上接收SIGIO 或 SIGURG事件信号的进程或进程组标识*/
 int32 setRevIoSigPid(int32 fd, uint32 pid);
+/*得到Io缓存中还有多少字节需要读取*/
+int32 getIOBufLenToRead(int32 fd);
+
+int32 setNonBlocking(int32 fd);
+
 #endif
 
