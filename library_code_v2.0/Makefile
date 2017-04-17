@@ -77,8 +77,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(top_srcdir)/configure $(am__configure_deps) compile depcomp \
-	install-sh missing
+	$(top_srcdir)/configure $(am__configure_deps) ar-lib compile \
+	depcomp install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -186,12 +186,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing autoconf
-AUTOHEADER = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing autoheader
-AUTOMAKE = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing automake-1.14
+AR = ar
+AUTOCONF = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/missing autoconf
+AUTOHEADER = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/missing autoheader
+AUTOMAKE = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/missing automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -213,7 +214,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing makeinfo
+MAKEINFO = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = sunny-liang
@@ -229,10 +230,11 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code
-abs_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code
-abs_top_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code
-abs_top_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code
+abs_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0
+abs_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0
+abs_top_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0
+abs_top_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0
+ac_ct_AR = ar
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -251,7 +253,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/install-sh
+install_sh = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -271,7 +273,10 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-SUBDIRS = src_code/code src_code/test
+SUBDIRS = src_code/code 	\
+          src_code/test 	\
+          src_code/ae_lib	
+
 all: all-recursive
 
 .SUFFIXES:

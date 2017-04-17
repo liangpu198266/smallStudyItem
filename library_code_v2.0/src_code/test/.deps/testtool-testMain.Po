@@ -1,6 +1,7 @@
-test/testtool-testMain.o: test/testMain.c /usr/include/stdc-predef.h \
- code/include/cmdHandle.h code/include/common.h /usr/include/unistd.h \
- /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
+testtool-testMain.o: testMain.c /usr/include/stdc-predef.h \
+ ../code/include/cmdHandle.h ../code/include/common.h \
+ /usr/include/unistd.h /usr/include/features.h \
+ /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h \
@@ -60,13 +61,13 @@ test/testtool-testMain.o: test/testMain.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/mman.h \
  /usr/include/i386-linux-gnu/bits/mman-linux.h \
  /usr/include/i386-linux-gnu/sys/times.h \
- /usr/include/i386-linux-gnu/sys/time.h code/include/comm_list.h
+ /usr/include/i386-linux-gnu/sys/time.h ../code/include/comm_list.h
 
 /usr/include/stdc-predef.h:
 
-code/include/cmdHandle.h:
+../code/include/cmdHandle.h:
 
-code/include/common.h:
+../code/include/common.h:
 
 /usr/include/unistd.h:
 
@@ -232,4 +233,4 @@ code/include/common.h:
 
 /usr/include/i386-linux-gnu/sys/time.h:
 
-code/include/comm_list.h:
+../code/include/comm_list.h:
