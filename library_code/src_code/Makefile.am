@@ -20,6 +20,7 @@ testtool_SOURCES  =                          \
         code/src/common/sigUtils.c          \
         code/src/common/stringUtils.c        \
         code/src/common/pthreadUtils.c       \
+	code/src/common/ipcUtils.c       \
         code/src/object/modules.c            \
         code/src/object/object.c             \
         code/src/object/objectBus.c          \

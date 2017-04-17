@@ -102,6 +102,7 @@ am_testtool_OBJECTS = test/testtool-testMain.$(OBJEXT) \
 	code/src/common/testtool-sigUtils.$(OBJEXT) \
 	code/src/common/testtool-stringUtils.$(OBJEXT) \
 	code/src/common/testtool-pthreadUtils.$(OBJEXT) \
+	code/src/common/testtool-ipcUtils.$(OBJEXT) \
 	code/src/object/testtool-modules.$(OBJEXT) \
 	code/src/object/testtool-object.$(OBJEXT) \
 	code/src/object/testtool-objectBus.$(OBJEXT) \
@@ -171,12 +172,12 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/sunny/private/gitadd/library_code/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/sunny/private/gitadd/library_code/missing autoconf
-AUTOHEADER = ${SHELL} /home/sunny/private/gitadd/library_code/missing autoheader
-AUTOMAKE = ${SHELL} /home/sunny/private/gitadd/library_code/missing automake-1.14
+AUTOCONF = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing autoconf
+AUTOHEADER = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing autoheader
+AUTOMAKE = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -198,7 +199,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/sunny/private/gitadd/library_code/missing makeinfo
+MAKEINFO = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = sunny-liang
@@ -213,10 +214,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 1.0
-abs_builddir = /home/sunny/private/gitadd/library_code/src_code
-abs_srcdir = /home/sunny/private/gitadd/library_code/src_code
-abs_top_builddir = /home/sunny/private/gitadd/library_code
-abs_top_srcdir = /home/sunny/private/gitadd/library_code
+abs_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code/src_code
+abs_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code/src_code
+abs_top_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code
+abs_top_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -235,7 +236,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/sunny/private/gitadd/library_code/install-sh
+install_sh = ${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -271,6 +272,7 @@ testtool_SOURCES = \
         code/src/common/sigUtils.c          \
         code/src/common/stringUtils.c        \
         code/src/common/pthreadUtils.c       \
+	code/src/common/ipcUtils.c       \
         code/src/object/modules.c            \
         code/src/object/object.c             \
         code/src/object/objectBus.c          \
@@ -402,6 +404,9 @@ code/src/common/testtool-stringUtils.$(OBJEXT):  \
 code/src/common/testtool-pthreadUtils.$(OBJEXT):  \
 	code/src/common/$(am__dirstamp) \
 	code/src/common/$(DEPDIR)/$(am__dirstamp)
+code/src/common/testtool-ipcUtils.$(OBJEXT):  \
+	code/src/common/$(am__dirstamp) \
+	code/src/common/$(DEPDIR)/$(am__dirstamp)
 code/src/object/$(am__dirstamp):
 	@$(MKDIR_P) code/src/object
 	@: > code/src/object/$(am__dirstamp)
@@ -444,6 +449,7 @@ include code/src/common/$(DEPDIR)/testtool-cmdHandle.Po
 include code/src/common/$(DEPDIR)/testtool-errorHandle.Po
 include code/src/common/$(DEPDIR)/testtool-fileUtils.Po
 include code/src/common/$(DEPDIR)/testtool-ioUtils.Po
+include code/src/common/$(DEPDIR)/testtool-ipcUtils.Po
 include code/src/common/$(DEPDIR)/testtool-lockUtils.Po
 include code/src/common/$(DEPDIR)/testtool-logprint.Po
 include code/src/common/$(DEPDIR)/testtool-netUtils.Po
@@ -642,6 +648,20 @@ code/src/common/testtool-pthreadUtils.obj: code/src/common/pthreadUtils.c
 #	$(AM_V_CC)source='code/src/common/pthreadUtils.c' object='code/src/common/testtool-pthreadUtils.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-pthreadUtils.obj `if test -f 'code/src/common/pthreadUtils.c'; then $(CYGPATH_W) 'code/src/common/pthreadUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/pthreadUtils.c'; fi`
+
+code/src/common/testtool-ipcUtils.o: code/src/common/ipcUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-ipcUtils.o -MD -MP -MF code/src/common/$(DEPDIR)/testtool-ipcUtils.Tpo -c -o code/src/common/testtool-ipcUtils.o `test -f 'code/src/common/ipcUtils.c' || echo '$(srcdir)/'`code/src/common/ipcUtils.c
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-ipcUtils.Tpo code/src/common/$(DEPDIR)/testtool-ipcUtils.Po
+#	$(AM_V_CC)source='code/src/common/ipcUtils.c' object='code/src/common/testtool-ipcUtils.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-ipcUtils.o `test -f 'code/src/common/ipcUtils.c' || echo '$(srcdir)/'`code/src/common/ipcUtils.c
+
+code/src/common/testtool-ipcUtils.obj: code/src/common/ipcUtils.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/common/testtool-ipcUtils.obj -MD -MP -MF code/src/common/$(DEPDIR)/testtool-ipcUtils.Tpo -c -o code/src/common/testtool-ipcUtils.obj `if test -f 'code/src/common/ipcUtils.c'; then $(CYGPATH_W) 'code/src/common/ipcUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/ipcUtils.c'; fi`
+	$(AM_V_at)$(am__mv) code/src/common/$(DEPDIR)/testtool-ipcUtils.Tpo code/src/common/$(DEPDIR)/testtool-ipcUtils.Po
+#	$(AM_V_CC)source='code/src/common/ipcUtils.c' object='code/src/common/testtool-ipcUtils.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -c -o code/src/common/testtool-ipcUtils.obj `if test -f 'code/src/common/ipcUtils.c'; then $(CYGPATH_W) 'code/src/common/ipcUtils.c'; else $(CYGPATH_W) '$(srcdir)/code/src/common/ipcUtils.c'; fi`
 
 code/src/object/testtool-modules.o: code/src/object/modules.c
 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(testtool_CFLAGS) $(CFLAGS) -MT code/src/object/testtool-modules.o -MD -MP -MF code/src/object/$(DEPDIR)/testtool-modules.Tpo -c -o code/src/object/testtool-modules.o `test -f 'code/src/object/modules.c' || echo '$(srcdir)/'`code/src/object/modules.c
