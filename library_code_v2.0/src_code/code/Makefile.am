@@ -29,4 +29,3 @@ libcode_a_SOURCES  =                          \
         	src/object/objectSocket.c        
 
 
-libcode_a_LDFLAGS  = -pthread

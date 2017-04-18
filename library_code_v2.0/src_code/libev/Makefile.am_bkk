@@ -1,0 +1,20 @@
+AUTOMAKE_OPTIONS = foreign  #¿ªÆô¶ÔÎÄ¼þ¼ÐÏÂÎÄ¼þÖ§³Ö£¬·ñÔò»á±¨´í : but option 'subdir-objects' is disabled
+# Applications and libraries
+# noinst ¿¿¿¿¿¿¿¿¿¿¿¿¿make install ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+libae_a_CFLAGS   = -Wcast-align -DDEBUG_TO_SCREEN -g -ggdb3
+
+include_HEADERS = ev.h ev++.h event.h
+
+noinst_LIBRARIES = libev.a
+
+libev_a_SOURCES  =                          \
+        	ev_epoll.c      		    \
+        	ev_select.c       	    \
+                ev_poll.c	\
+		ev_kqueue.c	\
+		ev_port.c	\
+		ev_win32.c	\
+		event.c		\
+		ev.c	                      
+

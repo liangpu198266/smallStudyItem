@@ -11,5 +11,3 @@ libae_a_SOURCES  =                          \
         	ae_epoll.c       	    \
         	anet.c                      
 
-
-libae_a_LDFLAGS  = -pthread

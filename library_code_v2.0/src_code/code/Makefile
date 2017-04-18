@@ -84,6 +84,7 @@ am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
+CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 LIBRARIES = $(noinst_LIBRARIES)
@@ -126,7 +127,7 @@ AM_V_at = $(am__v_at_$(V))
 am__v_at_ = $(am__v_at_$(AM_DEFAULT_VERBOSITY))
 am__v_at_0 = @
 am__v_at_1 = 
-DEFAULT_INCLUDES = -I.
+DEFAULT_INCLUDES = -I. -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
@@ -186,7 +187,7 @@ CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPPFLAGS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"sunny\ liang\" -DPACKAGE_TARNAME=\"sunny-liang\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"sunny\ liang\ 1.0\" -DPACKAGE_BUGREPORT=\"877677512@qq.com\" -DPACKAGE_URL=\"\" -DPACKAGE=\"sunny-liang\" -DVERSION=\"1.0\"
+DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
@@ -207,16 +208,16 @@ OBJEXT = o
 PACKAGE = sunny-liang
 PACKAGE_BUGREPORT = 877677512@qq.com
 PACKAGE_NAME = sunny liang
-PACKAGE_STRING = sunny liang 1.0
+PACKAGE_STRING = sunny liang 2.0
 PACKAGE_TARNAME = sunny-liang
 PACKAGE_URL = 
-PACKAGE_VERSION = 1.0
+PACKAGE_VERSION = 2.0
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = 
-VERSION = 1.0
+VERSION = 2.0
 abs_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/src_code/code
 abs_srcdir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0/src_code/code
 abs_top_builddir = /home/sunny/private/gitadd/smallStudyItem/library_code_v2.0
@@ -286,7 +287,6 @@ libcode_a_SOURCES = \
         	src/object/objectFile.c         \
         	src/object/objectSocket.c        
 
-libcode_a_LDFLAGS = -pthread
 all: all-am
 
 .SUFFIXES:
