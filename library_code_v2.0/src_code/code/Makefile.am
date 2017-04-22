@@ -27,6 +27,9 @@ libcode_a_SOURCES  =                          \
         	src/object/objectDev.c          \
         	src/object/objectFile.c         \
         	src/object/objectSocket.c       \
-	        src/object/mempool.c
+	        src/object/mempool.c		\
+	        src/object/timer.c		\
+	        src/object/pthreadPool.c		
+		
 
 

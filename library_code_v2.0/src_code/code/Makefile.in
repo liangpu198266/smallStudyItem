@@ -114,7 +114,9 @@ am_libcode_a_OBJECTS = src/common/libcode_a-cmdHandle.$(OBJEXT) \
 	src/object/libcode_a-objectDev.$(OBJEXT) \
 	src/object/libcode_a-objectFile.$(OBJEXT) \
 	src/object/libcode_a-objectSocket.$(OBJEXT) \
-	src/object/libcode_a-mempool.$(OBJEXT)
+	src/object/libcode_a-mempool.$(OBJEXT) \
+	src/object/libcode_a-timer.$(OBJEXT) \
+	src/object/libcode_a-pthreadPool.$(OBJEXT)
 libcode_a_OBJECTS = $(am_libcode_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -287,7 +289,9 @@ libcode_a_SOURCES = \
         	src/object/objectDev.c          \
         	src/object/objectFile.c         \
         	src/object/objectSocket.c       \
-	        src/object/mempool.c
+	        src/object/mempool.c		\
+	        src/object/timer.c		\
+	        src/object/pthreadPool.c		
 
 all: all-am
 
@@ -380,6 +384,11 @@ src/object/libcode_a-objectSocket.$(OBJEXT):  \
 	src/object/$(DEPDIR)/$(am__dirstamp)
 src/object/libcode_a-mempool.$(OBJEXT): src/object/$(am__dirstamp) \
 	src/object/$(DEPDIR)/$(am__dirstamp)
+src/object/libcode_a-timer.$(OBJEXT): src/object/$(am__dirstamp) \
+	src/object/$(DEPDIR)/$(am__dirstamp)
+src/object/libcode_a-pthreadPool.$(OBJEXT):  \
+	src/object/$(am__dirstamp) \
+	src/object/$(DEPDIR)/$(am__dirstamp)
 
 libcode.a: $(libcode_a_OBJECTS) $(libcode_a_DEPENDENCIES) $(EXTRA_libcode_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libcode.a
@@ -413,6 +422,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/object/$(DEPDIR)/libcode_a-objectDev.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/object/$(DEPDIR)/libcode_a-objectFile.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/object/$(DEPDIR)/libcode_a-objectSocket.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/object/$(DEPDIR)/libcode_a-pthreadPool.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/object/$(DEPDIR)/libcode_a-timer.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -695,6 +706,34 @@ src/object/libcode_a-mempool.obj: src/object/mempool.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/object/mempool.c' object='src/object/libcode_a-mempool.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-mempool.obj `if test -f 'src/object/mempool.c'; then $(CYGPATH_W) 'src/object/mempool.c'; else $(CYGPATH_W) '$(srcdir)/src/object/mempool.c'; fi`
+
+src/object/libcode_a-timer.o: src/object/timer.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -MT src/object/libcode_a-timer.o -MD -MP -MF src/object/$(DEPDIR)/libcode_a-timer.Tpo -c -o src/object/libcode_a-timer.o `test -f 'src/object/timer.c' || echo '$(srcdir)/'`src/object/timer.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/object/$(DEPDIR)/libcode_a-timer.Tpo src/object/$(DEPDIR)/libcode_a-timer.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/object/timer.c' object='src/object/libcode_a-timer.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-timer.o `test -f 'src/object/timer.c' || echo '$(srcdir)/'`src/object/timer.c
+
+src/object/libcode_a-timer.obj: src/object/timer.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -MT src/object/libcode_a-timer.obj -MD -MP -MF src/object/$(DEPDIR)/libcode_a-timer.Tpo -c -o src/object/libcode_a-timer.obj `if test -f 'src/object/timer.c'; then $(CYGPATH_W) 'src/object/timer.c'; else $(CYGPATH_W) '$(srcdir)/src/object/timer.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/object/$(DEPDIR)/libcode_a-timer.Tpo src/object/$(DEPDIR)/libcode_a-timer.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/object/timer.c' object='src/object/libcode_a-timer.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-timer.obj `if test -f 'src/object/timer.c'; then $(CYGPATH_W) 'src/object/timer.c'; else $(CYGPATH_W) '$(srcdir)/src/object/timer.c'; fi`
+
+src/object/libcode_a-pthreadPool.o: src/object/pthreadPool.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -MT src/object/libcode_a-pthreadPool.o -MD -MP -MF src/object/$(DEPDIR)/libcode_a-pthreadPool.Tpo -c -o src/object/libcode_a-pthreadPool.o `test -f 'src/object/pthreadPool.c' || echo '$(srcdir)/'`src/object/pthreadPool.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/object/$(DEPDIR)/libcode_a-pthreadPool.Tpo src/object/$(DEPDIR)/libcode_a-pthreadPool.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/object/pthreadPool.c' object='src/object/libcode_a-pthreadPool.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-pthreadPool.o `test -f 'src/object/pthreadPool.c' || echo '$(srcdir)/'`src/object/pthreadPool.c
+
+src/object/libcode_a-pthreadPool.obj: src/object/pthreadPool.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -MT src/object/libcode_a-pthreadPool.obj -MD -MP -MF src/object/$(DEPDIR)/libcode_a-pthreadPool.Tpo -c -o src/object/libcode_a-pthreadPool.obj `if test -f 'src/object/pthreadPool.c'; then $(CYGPATH_W) 'src/object/pthreadPool.c'; else $(CYGPATH_W) '$(srcdir)/src/object/pthreadPool.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) src/object/$(DEPDIR)/libcode_a-pthreadPool.Tpo src/object/$(DEPDIR)/libcode_a-pthreadPool.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='src/object/pthreadPool.c' object='src/object/libcode_a-pthreadPool.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-pthreadPool.obj `if test -f 'src/object/pthreadPool.c'; then $(CYGPATH_W) 'src/object/pthreadPool.c'; else $(CYGPATH_W) '$(srcdir)/src/object/pthreadPool.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
