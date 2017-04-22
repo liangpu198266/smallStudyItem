@@ -1,1 +1,1 @@
-SUBDIRS = src_code
+SUBDIRS = src_code/code src_code/test src_code/ae_lib

@@ -41,96 +41,99 @@ PATH: /usr/local/games
 ## Core tests. ##
 ## ----------- ##
 
-configure:1831: checking for a BSD-compatible install
-configure:1899: result: /usr/bin/install -c
-configure:1910: checking whether build environment is sane
-configure:1965: result: yes
-configure:2116: checking for a thread-safe mkdir -p
-configure:2155: result: /bin/mkdir -p
-configure:2162: checking for gawk
-configure:2192: result: no
-configure:2162: checking for mawk
-configure:2178: found /usr/bin/mawk
-configure:2189: result: mawk
-configure:2200: checking whether make sets $(MAKE)
-configure:2222: result: yes
-configure:2251: checking whether make supports nested variables
-configure:2268: result: yes
-configure:2441: checking for gcc
-configure:2457: found /usr/bin/gcc
-configure:2468: result: gcc
-configure:2697: checking for C compiler version
-configure:2706: gcc --version >&5
-gcc (Ubuntu 4.8.4-2ubuntu1~14.04.1) 4.8.4
+configure:1832: checking for a BSD-compatible install
+configure:1900: result: /usr/bin/install -c
+configure:1911: checking whether build environment is sane
+configure:1966: result: yes
+configure:2117: checking for a thread-safe mkdir -p
+configure:2156: result: /bin/mkdir -p
+configure:2163: checking for gawk
+configure:2193: result: no
+configure:2163: checking for mawk
+configure:2179: found /usr/bin/mawk
+configure:2190: result: mawk
+configure:2201: checking whether make sets $(MAKE)
+configure:2223: result: yes
+configure:2252: checking whether make supports nested variables
+configure:2269: result: yes
+configure:2442: checking for gcc
+configure:2458: found /usr/bin/gcc
+configure:2469: result: gcc
+configure:2698: checking for C compiler version
+configure:2707: gcc --version >&5
+gcc (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4
 Copyright (C) 2013 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:2717: $? = 0
-configure:2706: gcc -v >&5
+configure:2718: $? = 0
+configure:2707: gcc -v >&5
 Using built-in specs.
 COLLECT_GCC=gcc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.8/lto-wrapper
 Target: i686-linux-gnu
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.1' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-i386/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-i386 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-i386 --with-arch-directory=i386 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-targets=all --enable-multiarch --disable-werror --with-arch-32=i686 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=i686-linux-gnu --host=i686-linux-gnu --target=i686-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-i386/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-i386 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-i386 --with-arch-directory=i386 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-targets=all --enable-multiarch --disable-werror --with-arch-32=i686 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=i686-linux-gnu --host=i686-linux-gnu --target=i686-linux-gnu
 Thread model: posix
-gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.1) 
-configure:2717: $? = 0
-configure:2706: gcc -V >&5
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+configure:2718: $? = 0
+configure:2707: gcc -V >&5
 gcc: error: unrecognized command line option '-V'
 gcc: fatal error: no input files
 compilation terminated.
-configure:2717: $? = 4
-configure:2706: gcc -qversion >&5
+configure:2718: $? = 4
+configure:2707: gcc -qversion >&5
 gcc: error: unrecognized command line option '-qversion'
 gcc: fatal error: no input files
 compilation terminated.
-configure:2717: $? = 4
-configure:2737: checking whether the C compiler works
-configure:2759: gcc    conftest.c  >&5
-configure:2763: $? = 0
-configure:2811: result: yes
-configure:2814: checking for C compiler default output file name
-configure:2816: result: a.out
-configure:2822: checking for suffix of executables
-configure:2829: gcc -o conftest    conftest.c  >&5
-configure:2833: $? = 0
-configure:2855: result: 
-configure:2877: checking whether we are cross compiling
-configure:2885: gcc -o conftest    conftest.c  >&5
-configure:2889: $? = 0
-configure:2896: ./conftest
-configure:2900: $? = 0
-configure:2915: result: no
-configure:2920: checking for suffix of object files
-configure:2942: gcc -c   conftest.c >&5
-configure:2946: $? = 0
-configure:2967: result: o
-configure:2971: checking whether we are using the GNU C compiler
-configure:2990: gcc -c   conftest.c >&5
-configure:2990: $? = 0
-configure:2999: result: yes
-configure:3008: checking whether gcc accepts -g
-configure:3028: gcc -c -g  conftest.c >&5
-configure:3028: $? = 0
-configure:3069: result: yes
-configure:3086: checking for gcc option to accept ISO C89
-configure:3149: gcc  -c -g -O2  conftest.c >&5
-configure:3149: $? = 0
-configure:3162: result: none needed
-configure:3187: checking whether gcc understands -c and -o together
-configure:3209: gcc -c conftest.c -o conftest2.o
-configure:3212: $? = 0
-configure:3209: gcc -c conftest.c -o conftest2.o
-configure:3212: $? = 0
-configure:3224: result: yes
-configure:3252: checking for style of include used by make
-configure:3280: result: GNU
-configure:3306: checking dependency style of gcc
-configure:3417: result: gcc3
-configure:3579: checking that generated files are newer than configure
-configure:3585: result: done
-configure:3608: creating ./config.status
+configure:2718: $? = 4
+configure:2738: checking whether the C compiler works
+configure:2760: gcc    conftest.c  >&5
+configure:2764: $? = 0
+configure:2812: result: yes
+configure:2815: checking for C compiler default output file name
+configure:2817: result: a.out
+configure:2823: checking for suffix of executables
+configure:2830: gcc -o conftest    conftest.c  >&5
+configure:2834: $? = 0
+configure:2856: result: 
+configure:2878: checking whether we are cross compiling
+configure:2886: gcc -o conftest    conftest.c  >&5
+configure:2890: $? = 0
+configure:2897: ./conftest
+configure:2901: $? = 0
+configure:2916: result: no
+configure:2921: checking for suffix of object files
+configure:2943: gcc -c   conftest.c >&5
+configure:2947: $? = 0
+configure:2968: result: o
+configure:2972: checking whether we are using the GNU C compiler
+configure:2991: gcc -c   conftest.c >&5
+configure:2991: $? = 0
+configure:3000: result: yes
+configure:3009: checking whether gcc accepts -g
+configure:3029: gcc -c -g  conftest.c >&5
+configure:3029: $? = 0
+configure:3070: result: yes
+configure:3087: checking for gcc option to accept ISO C89
+configure:3150: gcc  -c -g -O2  conftest.c >&5
+configure:3150: $? = 0
+configure:3163: result: none needed
+configure:3188: checking whether gcc understands -c and -o together
+configure:3210: gcc -c conftest.c -o conftest2.o
+configure:3213: $? = 0
+configure:3210: gcc -c conftest.c -o conftest2.o
+configure:3213: $? = 0
+configure:3225: result: yes
+configure:3253: checking for style of include used by make
+configure:3281: result: GNU
+configure:3307: checking dependency style of gcc
+configure:3418: result: gcc3
+configure:3479: checking for ranlib
+configure:3495: found /usr/bin/ranlib
+configure:3506: result: ranlib
+configure:3676: checking that generated files are newer than configure
+configure:3682: result: done
+configure:3705: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -147,9 +150,9 @@ generated by GNU Autoconf 2.69.  Invocation command line was
 
 on sunny-virtual-machine
 
-config.status:773: creating Makefile
-config.status:773: creating src_code/Makefile
-config.status:945: executing depfiles commands
+config.status:776: creating Makefile
+config.status:776: creating src_code/test/Makefile
+config.status:762: error: cannot find input file: `src_code/ae_lib/Makefile.in'
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -177,6 +180,7 @@ ac_cv_path_install='/usr/bin/install -c'
 ac_cv_path_mkdir=/bin/mkdir
 ac_cv_prog_AWK=mawk
 ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_ac_ct_RANLIB=ranlib
 ac_cv_prog_cc_c89=
 ac_cv_prog_cc_g=yes
 ac_cv_prog_make_make_set=yes
@@ -188,7 +192,7 @@ am_cv_prog_cc_c_o=yes
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/sunny/private/gitadd/library_code/missing aclocal-1.14'
+ACLOCAL='${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing aclocal-1.14'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
@@ -197,9 +201,9 @@ AM_BACKSLASH='\'
 AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
 AM_DEFAULT_VERBOSITY='1'
 AM_V='$(V)'
-AUTOCONF='${SHELL} /home/sunny/private/gitadd/library_code/missing autoconf'
-AUTOHEADER='${SHELL} /home/sunny/private/gitadd/library_code/missing autoheader'
-AUTOMAKE='${SHELL} /home/sunny/private/gitadd/library_code/missing automake-1.14'
+AUTOCONF='${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing autoconf'
+AUTOHEADER='${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing autoheader'
+AUTOMAKE='${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing automake-1.14'
 AWK='mawk'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
@@ -220,7 +224,7 @@ LDFLAGS=''
 LIBOBJS=''
 LIBS=''
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /home/sunny/private/gitadd/library_code/missing makeinfo'
+MAKEINFO='${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/missing makeinfo'
 MKDIR_P='/bin/mkdir -p'
 OBJEXT='o'
 PACKAGE='sunny-liang'
@@ -231,6 +235,7 @@ PACKAGE_TARNAME='sunny-liang'
 PACKAGE_URL=''
 PACKAGE_VERSION='1.0'
 PATH_SEPARATOR=':'
+RANLIB='ranlib'
 SET_MAKE=''
 SHELL='/bin/bash'
 STRIP=''
@@ -258,7 +263,7 @@ host_alias=''
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/sunny/private/gitadd/library_code/install-sh'
+install_sh='${SHELL} /home/sunny/private/gitadd/smallStudyItem/library_code/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
@@ -289,57 +294,4 @@ target_alias=''
 #define PACKAGE "sunny-liang"
 #define VERSION "1.0"
 
-configure: exit 0
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by sunny liang config.status 1.0, which was
-generated by GNU Autoconf 2.69.  Invocation command line was
-
-  CONFIG_FILES    = 
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status Makefile
-
-on sunny-virtual-machine
-
-config.status:773: creating Makefile
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by sunny liang config.status 1.0, which was
-generated by GNU Autoconf 2.69.  Invocation command line was
-
-  CONFIG_FILES    = 
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status src_code/Makefile depfiles
-
-on sunny-virtual-machine
-
-config.status:773: creating src_code/Makefile
-config.status:945: executing depfiles commands
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by sunny liang config.status 1.0, which was
-generated by GNU Autoconf 2.69.  Invocation command line was
-
-  CONFIG_FILES    = 
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status src_code/Makefile depfiles
-
-on sunny-virtual-machine
-
-config.status:773: creating src_code/Makefile
-config.status:945: executing depfiles commands
+configure: exit 1
