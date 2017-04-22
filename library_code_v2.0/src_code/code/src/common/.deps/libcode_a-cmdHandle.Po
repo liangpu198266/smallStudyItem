@@ -62,7 +62,8 @@ src/common/libcode_a-cmdHandle.o: src/common/cmdHandle.c \
  /usr/include/i386-linux-gnu/bits/mman-linux.h \
  /usr/include/i386-linux-gnu/sys/times.h \
  /usr/include/i386-linux-gnu/sys/time.h include/comm_list.h \
- include/logprint.h include/object.h include/modules.h
+ include/logprint.h include/object.h include/modules.h \
+ include/fileUtils.h
 
 /usr/include/stdc-predef.h:
 
@@ -241,3 +242,5 @@ include/logprint.h:
 include/object.h:
 
 include/modules.h:
+
+include/fileUtils.h:
