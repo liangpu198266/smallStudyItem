@@ -113,7 +113,8 @@ am_libcode_a_OBJECTS = src/common/libcode_a-cmdHandle.$(OBJEXT) \
 	src/object/libcode_a-objectBus.$(OBJEXT) \
 	src/object/libcode_a-objectDev.$(OBJEXT) \
 	src/object/libcode_a-objectFile.$(OBJEXT) \
-	src/object/libcode_a-objectSocket.$(OBJEXT)
+	src/object/libcode_a-objectSocket.$(OBJEXT) \
+	src/object/libcode_a-mempool.$(OBJEXT)
 libcode_a_OBJECTS = $(am_libcode_a_OBJECTS)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -285,7 +286,8 @@ libcode_a_SOURCES = \
         	src/object/objectBus.c          \
         	src/object/objectDev.c          \
         	src/object/objectFile.c         \
-        	src/object/objectSocket.c        
+        	src/object/objectSocket.c       \
+	        src/object/mempool.c
 
 all: all-am
 
@@ -376,6 +378,8 @@ src/object/libcode_a-objectFile.$(OBJEXT): src/object/$(am__dirstamp) \
 src/object/libcode_a-objectSocket.$(OBJEXT):  \
 	src/object/$(am__dirstamp) \
 	src/object/$(DEPDIR)/$(am__dirstamp)
+src/object/libcode_a-mempool.$(OBJEXT): src/object/$(am__dirstamp) \
+	src/object/$(DEPDIR)/$(am__dirstamp)
 
 libcode.a: $(libcode_a_OBJECTS) $(libcode_a_DEPENDENCIES) $(EXTRA_libcode_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libcode.a
@@ -402,6 +406,7 @@ include src/common/$(DEPDIR)/libcode_a-pthreadUtils.Po
 include src/common/$(DEPDIR)/libcode_a-sigUtils.Po
 include src/common/$(DEPDIR)/libcode_a-stringUtils.Po
 include src/common/$(DEPDIR)/libcode_a-timeUtils.Po
+include src/object/$(DEPDIR)/libcode_a-mempool.Po
 include src/object/$(DEPDIR)/libcode_a-modules.Po
 include src/object/$(DEPDIR)/libcode_a-object.Po
 include src/object/$(DEPDIR)/libcode_a-objectBus.Po
@@ -676,6 +681,20 @@ src/object/libcode_a-objectSocket.obj: src/object/objectSocket.c
 #	$(AM_V_CC)source='src/object/objectSocket.c' object='src/object/libcode_a-objectSocket.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-objectSocket.obj `if test -f 'src/object/objectSocket.c'; then $(CYGPATH_W) 'src/object/objectSocket.c'; else $(CYGPATH_W) '$(srcdir)/src/object/objectSocket.c'; fi`
+
+src/object/libcode_a-mempool.o: src/object/mempool.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -MT src/object/libcode_a-mempool.o -MD -MP -MF src/object/$(DEPDIR)/libcode_a-mempool.Tpo -c -o src/object/libcode_a-mempool.o `test -f 'src/object/mempool.c' || echo '$(srcdir)/'`src/object/mempool.c
+	$(AM_V_at)$(am__mv) src/object/$(DEPDIR)/libcode_a-mempool.Tpo src/object/$(DEPDIR)/libcode_a-mempool.Po
+#	$(AM_V_CC)source='src/object/mempool.c' object='src/object/libcode_a-mempool.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-mempool.o `test -f 'src/object/mempool.c' || echo '$(srcdir)/'`src/object/mempool.c
+
+src/object/libcode_a-mempool.obj: src/object/mempool.c
+	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -MT src/object/libcode_a-mempool.obj -MD -MP -MF src/object/$(DEPDIR)/libcode_a-mempool.Tpo -c -o src/object/libcode_a-mempool.obj `if test -f 'src/object/mempool.c'; then $(CYGPATH_W) 'src/object/mempool.c'; else $(CYGPATH_W) '$(srcdir)/src/object/mempool.c'; fi`
+	$(AM_V_at)$(am__mv) src/object/$(DEPDIR)/libcode_a-mempool.Tpo src/object/$(DEPDIR)/libcode_a-mempool.Po
+#	$(AM_V_CC)source='src/object/mempool.c' object='src/object/libcode_a-mempool.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcode_a_CFLAGS) $(CFLAGS) -c -o src/object/libcode_a-mempool.obj `if test -f 'src/object/mempool.c'; then $(CYGPATH_W) 'src/object/mempool.c'; else $(CYGPATH_W) '$(srcdir)/src/object/mempool.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

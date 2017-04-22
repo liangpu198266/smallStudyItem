@@ -26,6 +26,7 @@ libcode_a_SOURCES  =                          \
         	src/object/objectBus.c          \
         	src/object/objectDev.c          \
         	src/object/objectFile.c         \
-        	src/object/objectSocket.c        
+        	src/object/objectSocket.c       \
+	        src/object/mempool.c
 
 
