@@ -449,4 +449,188 @@ pthread_cond_wait()ÓÐ½âËøºÍËø¶¨»¥³âÁ¿µÄ²Ù×÷£¬ËüËù½øÐÐµÄ²Ù×÷´óÌåÓÐÈý²½£º½âËø¡ª×èÈ
 
 */
 /* ------------------------ Defines ------------------------- */
+#define  PTHREAD_MAX_LENGTH   4
+
+typedef enum
+{
+  JOB_STATUS_NOUSED = 0,
+  JOB_STATUS_USED
+}JobNodeStatus_t;
+
+typedef enum
+{
+  PTHREAD_TYPE_NORMAL = 0,
+  PTHREAD_TYPE_FULL,
+  PTHREAD_TYPE_CLOSE
+}pthreadNodeType_t;
+
+
+/* ------------------------ Types --------------------------- */
+typedef struct jobNode_ 
+{
+  struct list_head    jobNode; 
+  uint32              mark;
+  uint32              status;  
+  process              function;
+  void                *args;
+}jobNode_t;
+
+typedef struct pthreadNode_ 
+{
+  struct list_head    pthreadNode; 
+  uint32              status;
+  uint32              type;  
+  pthread_t           threadId;
+}pthreadNode_t;
+
+typedef struct pthreadPoolList_ 
+{
+  struct list_head    jobHead;
+  struct list_head    pthreadHead;
+  uint32              jobNum;
+  uint32              pthreadNum;
+  uint32              maxLength; 
+  uint32              status;  
+  pthread_mutex_t     jobLock;
+  pthread_cond_t      hasJob;
+} pthreadPoolList_t;
+
+
+/* ---------------- Static Global Variables ----------------- */
+static pthreadPoolList_t pthreadPools;
+
+
+/* --------------- Local Function Prototypes ---------------- */
+static int8 poolAddNewJobNode(process  function, void *args)
+{
+  jobNode_t *node = (jobNode_t *) malloc (sizeof (jobNode_t));
+  
+  if (node == NULL)
+  {
+    LOG_ERROR("job node malloc fail");
+    rv = TASK_ERROR;
+    return rv;
+  }
+
+  memset(node, 0x0, sizeof(jobNode_t));
+
+  node->function = function;
+  node->args = args;
+  node->status = JOB_STATUS_NOUSED;
+  
+  pthread_mutex_lock(&pthreadPools.jobLock); 
+  
+  list_add(&node->jobNode, &pthreadPools.jobHead);
+  
+  pthreadPools.jobNum++;
+
+  if (pthreadPools.status == PTHREAD_TYPE_NORMAL)
+  {
+    pthread_cond_signal(&pthreadPools.hasJob);
+  }
+  
+  pthread_mutex_unlock(&pthreadPools.jobLock);
+
+}
+
+static int8 registerNewThread(pthread_t tid) 
+{
+  int8 rv = TASK_OK;
+  pthreadNode_t *node = (pthreadNode_t *) malloc (sizeof (pthreadNode_t));
+  
+  if (node == NULL)
+  {
+    LOG_ERROR("pthread node malloc fail");
+    rv = TASK_ERROR;
+    return rv;
+  }
+
+  memset(node, 0x0, sizeof(pthreadNode_t));
+
+
+  node->threadId = tid;
+  pthreadPools.pthreadNum++;
+  
+  pthread_mutex_lock(&pthreadPools.jobLock); 
+  list_add(&node->pthreadNode, &pthreadPools.pthreadHead);
+  pthread_mutex_unlock(&pthreadPools.jobLock);
+
+  return rv;
+}
+
+static void * pthreadJobServer(void *argP)
+{
+
+  registerNewThread(pthread_self());
+
+  while (1)
+  {
+    pthread_mutex_lock(&pthreadPools.jobLock);
+
+    while ((pthreadPools.jobNum == 0) && !pthreadPools.status == PTHREAD_TYPE_CLOSE)   //¶ÓÁÐÎª¿ÕÊ±£¬¾ÍµÈ´ý¶ÓÁÐ·Ç¿Õ
+    {
+      pthread_cond_wait(&pthreadPools.hasJob);;
+    }
+    
+    if (pthreadPools.status == PTHREAD_TYPE_CLOSE)   //Ïß³Ì³Ø¹Ø±Õ£¬Ïß³Ì¾ÍÍË³ö
+    {
+      pthread_mutex_unlock(&pthreadPools.jobLock);
+      pthread_exit(NULL);
+    }
+
+    pthreadPools.pthreadNum--;
+    
+    pthread_mutex_unlock(&pthreadPools.jobLock);
+
+  }
+  
+  /* Enable cancellation */
+  pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+}
+
+
+static int8 newPthread(void)
+{
+  int8 rv = TASK_OK;
+  pthread_attr_t attr;
+  pthread_t tid;
+
+  /* set thread detached attribute */
+  pthread_attr_init(&attr);
+  pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);  
+  pthread_attr_setinheritsched(&attr, PTHREAD_INHERIT_SCHED);
+  pthread_attr_setstacksize(&attr, PTHREAD_STACK_MIN);
+
+  rv = pthread_create(&tid, &attr, pthreadJobServer, NULL);
+  if (rv != TASK_OK)
+  {
+    rv = TASK_ERROR;
+  }
+  
+  pthread_attr_destroy(&attr);
+
+  return rv;
+}
+
+/* ---------------- Static Global Variables ----------------- */
+
+int8 poolAddJob(process function, void *args)
+{
+  poolAddNewJobNode(function, args);
+}
+
+void pthreadPoolsInit(void)
+{
+  memset(&pthreadPools, 0x0, sizeof(pthreadPoolList_t));
+  INIT_LIST_HEAD(&pthreadPools.jobHead);
+  INIT_LIST_HEAD(&pthreadPools.pthreadHead);
+  pthreadPools.maxLength = PTHREAD_MAX_LENGTH;
+  pthreadPools.jobLock = PTHREAD_MUTEX_INITIALIZER;
+}
+
+void pthreadPoolsFini(void)
+{
+  memset(&pthreadPools, 0x0, sizeof(pthreadPoolList_t));
+}
+
 

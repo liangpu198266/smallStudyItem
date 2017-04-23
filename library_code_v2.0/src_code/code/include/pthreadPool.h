@@ -8,7 +8,11 @@
 
 #include "common.h"
 
+typedef void (*process)(void *arg);
 
+int8 poolAddJob(process function, void *args);
+void pthreadPoolsInit(void);
+void pthreadPoolsFini(void);
 
 
 #endif
